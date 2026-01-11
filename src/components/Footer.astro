@@ -1,0 +1,133 @@
+---
+import { Github, Instagram, Linkedin, Twitter } from "@lucide/astro";
+import { getT, type Locale } from "../i18n";
+
+interface Props {
+  brand?: string;
+  lang?: Locale;
+}
+
+const lang = ((Astro.params?.lang as Locale) ??
+  (Astro.props?.lang as Locale) ??
+  "hr") as Locale;
+const { brand = "Bitelex" } = Astro.props as Props;
+const t = getT(lang);
+const f = t.footer ?? {
+  tagline: "Open technology, trusted delivery.",
+  company: "Company",
+  resources: "Resources",
+  links: {
+    about: "About",
+    services: "Services",
+    products: "Products",
+    contact: "Contact",
+  },
+  rights: "All rights reserved.",
+};
+---
+
+<footer class="relative overflow-hidden bg-blue-950 text-white">
+  <!-- background glow -->
+  <div class="pointer-events-none absolute inset-0">
+    <div
+      class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-sky-500/20 blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-white/10 to-transparent"
+    >
+    </div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 md:px-6 py-16">
+    <div class="grid gap-10 md:grid-cols-4">
+      <!-- Brand / Tagline -->
+      <div class="md:col-span-2">
+        <a
+          href={lang ? `/${lang}/` : "/"}
+          class="inline-flex items-center gap-2"
+        >
+          <span class="text-2xl font-bold tracking-tight">{brand}</span>
+        </a>
+        <p class="mt-4 max-w-md text-blue-200">{f.tagline}</p>
+        <div class="mt-6 flex items-center gap-4">
+          <a
+            href="#"
+            aria-label="GitHub"
+            class="rounded-md p-2 text-blue-200 hover:text-white hover:bg-white/10 transition-colors"
+          >
+            <Github class="h-5 w-5" />
+          </a>
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            class="rounded-md p-2 text-blue-200 hover:text-white hover:bg-white/10 transition-colors"
+          >
+            <Linkedin class="h-5 w-5" />
+          </a>
+          <a
+            href="#"
+            aria-label="Twitter"
+            class="rounded-md p-2 text-blue-200 hover:text-white hover:bg-white/10 transition-colors"
+          >
+            <Instagram class="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Company links -->
+      <div>
+        <h3 class="text-sm font-semibold text-blue-200">{f.company}</h3>
+        <ul class="mt-4 space-y-2 text-blue-100">
+          <li>
+            <a
+              class="hover:text-white"
+              href={lang ? `/${lang}/#about` : "#about"}>{f.links.about}</a
+            >
+          </li>
+          <li>
+            <a
+              class="hover:text-white"
+              href={lang ? `/${lang}/#service` : "#service"}
+              >{f.links.services}</a
+            >
+          </li>
+          <li>
+            <a
+              class="hover:text-white"
+              href={lang ? `/${lang}/#product` : "#product"}
+              >{f.links.products}</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Resources links -->
+      <div>
+        <h3 class="text-sm font-semibold text-blue-2 00">{f.resources}</h3>
+        <ul class="mt-4 space-y-2 text-blue-100">
+          <li>
+            <a class="hover:text-white" href="#contact">{f.links.contact}</a>
+          </li>
+          <li><a class="hover:text-white" href="#">Privacy</a></li>
+          <li><a class="hover:text-white" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 flex flex-col items-start gap-4 border-t border-white/10 pt-6 text-sm text-blue-300 md:flex-row md:items-center md:justify-between"
+    >
+      <p>© {new Date().getFullYear()} {brand}. {f.rights}</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-white">Privacy</a>
+        <span class="text-white/20">•</span>
+        <a href="#" class="hover:text-white">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>

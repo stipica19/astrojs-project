@@ -1,0 +1,36 @@
+---
+import { Lightbulb } from "@lucide/astro";
+
+interface Props {
+  dark?: boolean;
+  iconSize?: number;
+  class?: string;
+}
+
+const {
+  dark = false,
+  iconSize = 22,
+  class: className = "",
+}: Props = Astro.props;
+---
+
+<div
+  class={`my-2 flex w-full items-center gap-5 ${className}`}
+  aria-hidden="true"
+>
+  <div
+    class={`h-px flex-1 bg-linear-to-l ${dark ? "from-slate-600/60 to-transparent" : "from-slate-300/80 to-transparent"}`}
+  >
+  </div>
+
+  <span
+    class={`inline-flex h-10 w-10 items-center justify-center rounded-full ${dark ? "border border-gray-700 bg-gray-900 text-sky-400" : "border border-gray-200 bg-white text-sky-600"}`}
+  >
+    <Lightbulb width={iconSize} height={iconSize} />
+  </span>
+
+  <div
+    class={`h-px flex-1 bg-linear-to-r ${dark ? "from-slate-600/60 to-transparent" : "from-slate-300/80 to-transparent"}`}
+  >
+  </div>
+</div>

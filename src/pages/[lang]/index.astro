@@ -1,0 +1,69 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import FeatureSection from "../../components/FeatureSection.astro";
+import BuildWebsiteSectin from "../../components/BuildWebsiteSection.astro";
+import PortfolioSection from "../../components/PortfolioSection.astro";
+import { getT } from "../../i18n";
+import Divider from "../../components/divider.astro";
+
+export async function getStaticPaths() {
+  const langs = ["hr", "en"];
+  return langs.map((lang) => ({
+    params: { lang },
+    props: { lang, t: getT(lang as "hr" | "en") },
+  }));
+}
+
+interface PageProps {
+  lang: "hr" | "en";
+  t: any;
+}
+const { lang, t } = Astro.props as PageProps;
+---
+
+<Layout
+  brand={t.navbar.brand}
+  labels={{
+    service: t.navbar.service,
+    product: t.navbar.product,
+    about: t.navbar.about,
+  }}
+>
+  <Hero
+    badge={t.hero.badge}
+    title={t.hero.title}
+    subtitle={t.hero.subtitle}
+    note={t.hero.note}
+    ctaExplore={t.hero.ctaExplore}
+    ctaView={t.hero.ctaView}
+  />
+  <Divider />
+  <main class="mx-auto px-0 md:px-0">
+    <FeatureSection
+      id="service"
+      title={t.sections.services.title}
+      dark={false}
+      highlightIndex={1}
+      items={t.sections.services.items}
+    />
+    <BuildWebsiteSectin lang={lang} />
+    <FeatureSection
+      id="our-mission"
+      title={t.sections.mission.title}
+      dark={false}
+      highlightIndex={1}
+      items={t.sections.mission.items}
+    />
+    <Divider />
+    <FeatureSection
+      id="product"
+      title={t.sections.products.title}
+      dark={false}
+      highlightIndex={1}
+      items={t.sections.products.items}
+    />
+    <Divider />
+    <PortfolioSection lang={lang} />
+  </main>
+</Layout>

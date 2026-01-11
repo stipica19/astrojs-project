@@ -1,0 +1,45 @@
+---
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import BackgroundStripes from "../components/BackgroundStripes.astro";
+
+const lang = (Astro.params?.lang ?? "hr") as "hr" | "en";
+const {
+  brand = "Bitelex",
+  labels = { service: "Service", product: "Product", about: "About" },
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Bitelex</title>
+  </head>
+  <body>
+    <!-- Background stripes (subtle vertical lines across the page) -->
+
+    <!-- Background stripes (subtle vertical lines across the page) -->
+    <BackgroundStripes
+      color="rgba(255,255,255,0.06)"
+      thickness={1}
+      gap={160}
+      opacity={0.12}
+    />
+    <!-- Navbar first, Hero (slot) will render below -->
+    <Navbar brand={brand} labels={labels} lang={lang} />
+    <slot />
+    <Footer brand={brand} lang={lang} />
+  </body>
+</html>

@@ -1,0 +1,102 @@
+---
+import { ArrowUpRight } from "@lucide/astro";
+import { getT, type Locale } from "../i18n";
+
+interface WorkItem {
+  title: string;
+  desc?: string;
+  image: string;
+  url: string;
+  tag?: string;
+}
+
+interface Props {
+  title?: string;
+  items?: WorkItem[];
+  id?: string;
+  lang?: Locale;
+}
+
+const {
+  title,
+  items,
+  id = "portfolio",
+  lang = ((Astro.params?.lang as Locale) ?? "hr") as Locale,
+}: Props = Astro.props;
+
+const t = getT(lang);
+const sectionTitle = title ?? t.sections?.portfolio?.title ?? "Portfolio";
+const cta = t.sections?.portfolio?.view ?? "View";
+
+const demoItems: WorkItem[] = [
+  {
+    title: "Bitelex ",
+    desc: "Clean portfolio for a creative studio",
+    image:
+      "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "https://example.com",
+    tag: "Website",
+  },
+  {
+    title: "Enduro Spirit",
+    desc: "Warm, inviting homepage with menu highlights",
+    image:
+      "https://images.unsplash.com/photo-1626130569162-f90681b6982a?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "https://example.com",
+    tag: "Website",
+  },
+  {
+    title: "Hotel Deluxe",
+    desc: "Modern SaaS landing with product tour",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKFoo8y4kLV98oUwTZTAQCzqmlJUqOR0NLFg&s",
+    url: "https://example.com",
+    tag: "Website",
+  },
+];
+
+const list = (items?.length ? items : demoItems) as WorkItem[];
+---
+
+<section id={id} class="relative overflow-hidden px-4 py-16 md:px-6">
+  <div class="mx-auto max-w-7xl">
+    <h2 class="text-3xl font-bold text-gray-900">{sectionTitle}</h2>
+
+    <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        list.map((w) => (
+          <a
+            href={w.url}
+            target="_blank"
+            rel="noopener"
+            class="group block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md"
+          >
+            <div class="relative h-48 w-full overflow-hidden">
+              <img
+                src={w.image}
+                alt={w.title}
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-70" />
+              {w.tag && (
+                <span class="absolute left-3 top-3 rounded bg-white/90 px-2 py-0.5 text-xs font-semibold text-gray-900 shadow">
+                  {w.tag}
+                </span>
+              )}
+            </div>
+            <div class="p-4">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-lg font-semibold text-gray-900">{w.title}</h3>
+                <ArrowUpRight class="h-5 w-5 text-gray-400 transition-colors group-hover:text-sky-600" />
+              </div>
+              {w.desc && <p class="mt-2 text-sm text-gray-600">{w.desc}</p>}
+              <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-sky-600">
+                {cta}
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

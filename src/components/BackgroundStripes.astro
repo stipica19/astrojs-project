@@ -1,0 +1,25 @@
+---
+interface Props {
+  color?: string;
+  thickness?: number;
+  gap?: number;
+  offsetX?: number;
+  opacity?: number; // 0..1
+}
+
+const {
+  color = "rgba(255,255,255,0.06)",
+  thickness = 1,
+  gap = 160,
+  offsetX = 0,
+  opacity = 0.12,
+}: Props = Astro.props;
+---
+
+<div class="fixed inset-0 pointer-events-none" style="z-index:10">
+  <div
+    class="h-full w-full bg-stripes"
+    style={`opacity:${opacity};--stripe-color:${color};--stripe-thickness:${thickness}px;--stripe-gap:${gap}px;background-position:${offsetX}px 0;`}
+  >
+  </div>
+</div>

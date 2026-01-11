@@ -1,0 +1,94 @@
+---
+interface FeatureItem {
+  icon: any;
+  title: string;
+  desc: string;
+}
+
+interface Props {
+  title?: string;
+  items?: FeatureItem[];
+  dark?: boolean;
+  highlightIndex?: number;
+  id?: string;
+}
+
+const {
+  title = "Our mission",
+  items = [] as FeatureItem[],
+  dark = false,
+  highlightIndex = -1,
+  id = "features",
+}: Props = Astro.props;
+
+const length = items.length;
+
+const lgCols: Record<number, string> = {
+  1: "lg:grid-cols-1",
+  2: "lg:grid-cols-2",
+  3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4",
+};
+
+const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
+---
+
+<section class={`px-4 py-16 md:px-6 ${dark ? "bg-gray-950" : ""}`} id={id}>
+  <div class="mx-auto max-w-screen-xl">
+    <h2
+      class={`text-3xl font-bold ${dark ? "text-white" : "text-gray-900"} ${
+        dark ? "text-left" : "text-center"
+      }`}
+    >
+      {title}
+    </h2>
+    <div
+      class={`mt-8 grid items-stretch gap-6 grid-cols-1 md:grid-cols-2 ${desktopCols}`}
+    >
+      {
+        items.map((f: FeatureItem, i: number) => (
+          <div
+            class={`rounded-xl p-6 h-full feature-card transition-colors ${
+              dark
+                ? "border border-gray-800 bg-gray-900 text-gray-100 hover:border-sky-600"
+                : "border border-gray-200 bg-white text-gray-900 shadow-sm hover:border-sky-600"
+            } ${i === highlightIndex ? "ring-1 ring-sky-500" : ""}`}
+          >
+            <div class="text-3xl text-sky-500">{f.icon}</div>
+            <h3
+              class={`mt-3 text-2xl font-semibold ${dark ? "text-white" : ""}`}
+            >
+              {f.title}
+            </h3>
+            <div class="mt-4 h-[2px] w-20 rounded bg-sky-500" />
+            <p class={`mt-6 ${dark ? "text-gray-300" : "text-gray-600"}`}>
+              {f.desc}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+
+  const cards = document.querySelectorAll(".feature-card");
+  if (cards.length) {
+    gsap.set(cards, {
+      autoAlpha: 0,
+      y: 24,
+      rotateX: 8,
+      transformOrigin: "50% 100%",
+    });
+    gsap.to(cards, {
+      autoAlpha: 1,
+      y: 0,
+      rotateX: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.12,
+    });
+  }
+</script>

@@ -1,0 +1,86 @@
+{
+  "navbar": { "brand": "Bitelex", "service": "Service", "product": "Product", "about": "About" },
+  "hero": {
+    "badge": "For developers",
+    "title": "We share ideas",
+    "subtitle": "Technical solutions.",
+    "note": "This page is for developers—modern stack, clean components.",
+    "ctaExplore": "Explore Services",
+    "ctaView": "View Products"
+  },
+  "sections": {
+    "services": {
+      "title": "Services",
+      "items": [
+        {
+          "title": "Electrotechnical solutions",
+          "desc": "Tailored solutions in electrical engineering, electronics, and automation, meeting unique client needs",
+          "icon": "💡"
+        },
+        {
+          "title": "Open source system integrator",
+          "desc": "Affordable and sustainable open-source solution integrations",
+          "icon": "👆"
+        },
+        {
+          "title": "Web and applications",
+          "desc": "We design websites, applications, microservices, and high-performance applications",
+          "icon": "</>"
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Recent work",
+      "view": "View site"
+    },
+    "mission": {
+      "title": "Our mission",
+      "items": [
+        { "title": "Privacy and security", "desc": "We prioritize digital privacy and security.", "icon": "🔒" },
+        { "title": "Open source", "desc": "We stand by the Open Source community, using and enhancing their products.", "icon": "🧩" },
+        { "title": "Accessibility", "desc": "We aim to deliver innovative solutions while staying mindful of affordability.", "icon": "♿" }
+      ]
+    },
+    "products": {
+      "title": "Products",
+      "items": [
+        {
+          "title": "DINIO DNS",
+          "desc": "Unique DNS solution, domain acquisition, dynamic DNS, API, web redirection, ad-blocking DNS, DoH, DoT",
+          "icon": "🔒"
+        }
+      ]
+    },
+    "buildWebsite": {
+        "title": "We’ll build a website that works for you",
+        "desc": "Your new website won’t just look good — it will be thoughtfully designed to build trust and encourage visitors to get in touch.",
+        "items": [
+          {
+            "title": "01",
+            "desc": "Our marketing team crafts clear, compelling content that highlights your value and guides visitors toward action."
+          },
+          {
+            "title": "02",
+            "desc": "We design a custom visual experience tailored to your brand — whether you prefer a clean, modern, or timeless look."
+          },
+          {
+            "title": "03",
+            "desc": "Every section is carefully structured to help you stand out from competitors and turn visits into real enquiries."
+          }
+        ]
+      }
+
+  },
+  "footer": {
+    "tagline": "Open technology, trusted delivery.",
+    "company": "Company",
+    "resources": "Resources",
+    "links": {
+      "about": "About",
+      "services": "Services",
+      "products": "Products",
+      "contact": "Contact"
+    },
+    "rights": "All rights reserved."
+  }
+}

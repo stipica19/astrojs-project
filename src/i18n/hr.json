@@ -1,0 +1,86 @@
+{
+  "navbar": { "brand": "Bitelex", "service": "Usluge", "product": "Proizvodi", "about": "O nama" },
+  "hero": {
+    "badge": "Za developere",
+    "title": "Dijelimo ideje",
+    "subtitle": "Tehnička rješenja.",
+    "note": "Stranica je za developere — modern stack, čiste komponente.",
+    "ctaExplore": "Istraži usluge",
+    "ctaView": "Pregled proizvoda"
+  },
+  "sections": {
+    "services": {
+      "title": "Usluge",
+      "items": [
+        {
+          "title": "Elektrotehnička rješenja",
+          "desc": "Prilagođena rješenja u elektrotehnici, elektronici i automatizaciji, prema potrebama klijenata",
+          "icon": "💡"
+        },
+        {
+          "title": "Integrator otvorenog koda",
+          "desc": "Pristupačne i održive integracije rješenja otvorenog koda",
+          "icon": "👆"
+        },
+        {
+          "title": "Web i aplikacije",
+          "desc": "Dizajniramo web stranice, aplikacije, mikroservise i visokoučinkovite aplikacije",
+          "icon": "</>"
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Naši radovi",
+      "view": "Pogledaj stranicu"
+    },
+    "mission": {
+      "title": "Naša misija",
+      "items": [
+        { "title": "Privatnost i sigurnost", "desc": "Prioritet su nam digitalna privatnost i sigurnost.", "icon": "🔒" },
+        { "title": "Otvoreni kod", "desc": "Podržavamo OSS zajednicu koristeći i unaprjeđujući njihove proizvode.", "icon": "🧩" },
+        { "title": "Pristupačnost", "desc": "Cilj nam je inovativnost uz brigu o pristupačnosti.", "icon": "♿" }
+      ]
+    },
+    "products": {
+      "title": "Proizvodi",
+      "items": [
+        {
+          "title": "DINIO DNS",
+          "desc": "Jedinstveno DNS rješenje, registracija domena, dinamički DNS, API, web preusmjeravanje, ad-blocking DNS, DoH, DoT",
+          "icon": "🔒"
+        }
+      ]
+    },
+    "buildWebsite": {
+        "title": "Izradit ćemo web stranicu koja radi za tebe",
+        "desc": "Tvoja nova web stranica neće biti samo vizualno privlačna — bit će osmišljena tako da gradi povjerenje i potiče posjetitelje na kontakt.",
+        "items": [
+          {
+            "title": "01",
+            "desc": "Naš marketinški tim oblikuje sadržaj koji jasno komunicira tvoju vrijednost i motivira posjetitelje na akciju."
+          },
+          {
+            "title": "02",
+            "desc": "Dizajn prilagođavamo tvom brendu i ciljevima — bilo da želiš sofisticiran, moderan ili bezvremenski izgled."
+          },
+          {
+            "title": "03",
+            "desc": "Svaki dio stranice pažljivo je strukturiran kako bi se istaknuo među konkurencijom i pretvorio posjete u upite."
+          }
+        ]
+      }
+
+  },
+  "footer": {
+    "tagline": "Otvorena tehnologija, isporuka od povjerenja.",
+    "company": "Tvrtka",
+    "resources": "Resursi",
+    "links": {
+      "about": "O nama",
+      "services": "Usluge",
+      "products": "Proizvodi",
+      "contact": "Kontakt"
+    },
+    "rights": "Sva prava pridržana."
+  }
+}
