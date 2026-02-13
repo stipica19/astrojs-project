@@ -30,9 +30,11 @@ const { lang, t } = Astro.props as PageProps;
     about: t.navbar.about,
   }}
 >
-  <div class="grid-bg"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+  <div class="page-bg" aria-hidden="true">
+    <div class="grid-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
   <Hero
     badge={t.hero.badge}
     headline={t.hero.headline}
