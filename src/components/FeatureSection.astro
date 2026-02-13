@@ -11,6 +11,8 @@ interface Props {
   dark?: boolean;
   highlightIndex?: number;
   id?: string;
+  variant?: "cards" | "rows";
+  ctaLabel?: string;
 }
 
 const {
@@ -19,6 +21,8 @@ const {
   dark = false,
   highlightIndex = -1,
   id = "features",
+  variant = "cards",
+  ctaLabel = "Learn More",
 }: Props = Astro.props;
 
 const length = items.length;
@@ -33,48 +37,219 @@ const lgCols: Record<number, string> = {
 const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
 ---
 
-<section class={`px-4 py-16 md:px-6 ${dark ? "bg-gray-950" : ""}`} id={id}>
-  <div class="mx-auto max-w-screen-xl">
-    <h2
-      class={`text-3xl font-bold ${dark ? "text-white" : "text-gray-900"} ${
-        dark ? "text-left" : "text-center"
-      }`}
+{
+  variant === "rows" ? (
+    <section
+      class="feature-rows relative overflow-hidden px-4 py-20 md:px-6"
+      id={id}
     >
-      {title}
-    </h2>
-    <div
-      class={`mt-8 grid items-stretch gap-6 grid-cols-1 md:grid-cols-2 ${desktopCols}`}
+      <div class="feature-rows__bg" aria-hidden="true" />
+      <div class="mx-auto max-w-7xl">
+        <h2 class="text-3xl font-bold text-white md:text-4xl">{title}</h2>
+
+        <div class="mt-10 space-y-14 md:mt-14">
+          {items.map((f: FeatureItem, i: number) => (
+            <div class="feature-row">
+              <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+                <div class={`feature-media ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                  <div class="feature-illustration">
+                    {i === 0 ? (
+                      <svg
+                        viewBox="0 0 520 360"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-full w-full"
+                      >
+                        <g
+                          stroke="currentColor"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <rect
+                            x="96"
+                            y="68"
+                            width="268"
+                            height="170"
+                            rx="14"
+                          />
+                          <rect
+                            x="124"
+                            y="96"
+                            width="212"
+                            height="114"
+                            rx="10"
+                            opacity="0.7"
+                          />
+                          <path d="M186 264h88" opacity="0.7" />
+                          <path d="M170 286h120" />
+                          <rect
+                            x="384"
+                            y="92"
+                            width="52"
+                            height="120"
+                            rx="12"
+                            opacity="0.85"
+                          />
+                          <path d="M410 116h0" />
+                          <rect
+                            x="52"
+                            y="92"
+                            width="28"
+                            height="96"
+                            rx="10"
+                            opacity="0.55"
+                          />
+                          <path d="M52 124h-20" opacity="0.5" />
+                          <path d="M52 148h-20" opacity="0.5" />
+                          <path d="M52 172h-20" opacity="0.5" />
+                          <path d="M140 134h52" opacity="0.6" />
+                          <path d="M140 158h112" opacity="0.6" />
+                          <path d="M140 182h88" opacity="0.6" />
+                        </g>
+                      </svg>
+                    ) : i === 1 ? (
+                      <svg
+                        viewBox="0 0 520 360"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-full w-full"
+                      >
+                        <g
+                          stroke="currentColor"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="260" cy="180" r="96" />
+                          <path
+                            d="M260 92c40 22 64 56 64 88s-24 66-64 88"
+                            opacity="0.75"
+                          />
+                          <path
+                            d="M260 92c-40 22-64 56-64 88s24 66 64 88"
+                            opacity="0.75"
+                          />
+                          <path d="M214 162c10-18 30-30 52-30 32 0 58 26 58 58s-26 58-58 58c-26 0-48-18-56-42" />
+                          <path d="M224 222c10 10 24 16 40 16" opacity="0.8" />
+                          <rect
+                            x="78"
+                            y="90"
+                            width="64"
+                            height="44"
+                            rx="10"
+                            opacity="0.5"
+                          />
+                          <rect
+                            x="382"
+                            y="228"
+                            width="76"
+                            height="48"
+                            rx="12"
+                            opacity="0.5"
+                          />
+                          <path d="M112 134v18" opacity="0.45" />
+                          <path d="M420 276v18" opacity="0.45" />
+                        </g>
+                      </svg>
+                    ) : (
+                      <svg
+                        viewBox="0 0 520 360"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-full w-full"
+                      >
+                        <g
+                          stroke="currentColor"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="216" cy="170" r="58" />
+                          <path d="M252 206l60 60" />
+                          <path d="M356 266l26 26" opacity="0.65" />
+                          <rect
+                            x="304"
+                            y="90"
+                            width="142"
+                            height="196"
+                            rx="16"
+                            opacity="0.7"
+                          />
+                          <path d="M334 236v-54" />
+                          <path d="M364 236v-84" />
+                          <path d="M394 236v-40" />
+                          <path d="M424 236v-68" />
+                          <path d="M332 120h86" opacity="0.55" />
+                          <path d="M332 144h112" opacity="0.55" />
+                          <path d="M190 170h52" opacity="0.7" />
+                          <path d="M216 144v52" opacity="0.7" />
+                        </g>
+                      </svg>
+                    )}
+                  </div>
+                </div>
+
+                <div class={`feature-copy ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <h3 class="text-3xl font-extrabold text-white md:text-4xl">
+                    {f.title}
+                  </h3>
+                  <p class="mt-4 max-w-xl text-sm leading-relaxed text-slate-200 md:text-base">
+                    {f.desc}
+                  </p>
+                  <a
+                    href="#"
+                    class="mt-6 inline-flex items-center justify-center rounded-full border border-sky-400/50 bg-slate-950/30 px-5 py-2 text-sm font-semibold text-white transition-colors hover:border-sky-300 hover:bg-slate-950/50 focus:outline-none focus:ring-2 focus:ring-sky-400/50"
+                  >
+                    {ctaLabel}
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section
+      class={`px-4 feature relative py-16 md:px-6 ${dark ? "bg-gray-950" : ""}`}
+      id={id}
     >
-      {
-        items.map((f: FeatureItem, i: number) => (
-          <div
-            class={`rounded-xl p-6 h-full feature-card transition-colors ${
-              dark
-                ? "border border-gray-800 bg-gray-900 text-gray-100 hover:border-sky-600"
-                : "border border-gray-200 bg-white text-gray-900 shadow-sm hover:border-sky-600"
-            } ${i === highlightIndex ? "ring-1 ring-sky-500" : ""}`}
-          >
-            <div class="text-3xl text-sky-500">{f.icon}</div>
-            <h3
-              class={`mt-3 text-2xl font-semibold ${dark ? "text-white" : ""}`}
+      <div class="mx-auto max-w-7xl">
+        <h2
+          class={`feature-title text-3xl font-bold ${
+            dark ? "text-left" : "text-center"
+          }`}
+        >
+          {title}
+        </h2>
+        <div
+          class={`mt-8 grid items-stretch gap-6 grid-cols-1 md:grid-cols-2 ${desktopCols}`}
+        >
+          {items.map((f: FeatureItem, i: number) => (
+            <div
+              class={`feature-card rounded-xl p-6 h-full transition-transform ${
+                i === highlightIndex ? "feature-card--highlight" : ""
+              }`}
             >
-              {f.title}
-            </h3>
-            <div class="mt-4 h-[2px] w-20 rounded bg-sky-500" />
-            <p class={`mt-6 ${dark ? "text-gray-300" : "text-gray-600"}`}>
-              {f.desc}
-            </p>
-          </div>
-        ))
-      }
-    </div>
-  </div>
-</section>
+              <div class="feature-card__icon">{f.icon}</div>
+              <h3 class="feature-card__title">{f.title}</h3>
+              <div class="feature-card__line" />
+              <p class="feature-card__desc">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 <script>
   import { gsap } from "gsap";
 
   const cards = document.querySelectorAll(".feature-card");
+  const rows = document.querySelectorAll(".feature-row");
+
   if (cards.length) {
     gsap.set(cards, {
       autoAlpha: 0,
@@ -89,6 +264,17 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
       duration: 0.6,
       ease: "power2.out",
       stagger: 0.12,
+    });
+  }
+
+  if (rows.length) {
+    gsap.set(rows, { autoAlpha: 0, y: 22 });
+    gsap.to(rows, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "power2.out",
+      stagger: 0.14,
     });
   }
 </script>

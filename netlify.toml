@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Optional: local dev settings
+[dev]
+  command = "npm run dev"
+  port = 8888
+
+# Optional: function bundling settings for SSR/edge (kept minimal)
+[functions]
+  node_bundler = "esbuild"

@@ -1,104 +1,189 @@
 ---
-import bg from "../assets/hero2.png";
+interface HeadlineParts {
+  line1: string;
+  accent: string;
+  suffix: string;
+  outline: string;
+}
+
+interface StatsLabels {
+  projects: string;
+  experience: string;
+  clients: string;
+}
 
 interface Props {
   badge?: string;
-  title?: string;
-  subtitle?: string;
-  note?: string;
+  headline?: HeadlineParts;
+  kicker?: string;
+  description?: string;
   ctaExplore?: string;
   ctaView?: string;
+  statsLabels?: StatsLabels;
 }
+
 const {
   badge = "For developers",
-  title = "We share ideas",
-  subtitle = "Technical solutions.",
-  note = "Stranica je za developere — modern stack, čiste komponente.",
+  headline = {
+    line1: "We share",
+    accent: "ideas",
+    suffix: " and",
+    outline: "solutions.",
+  },
+  kicker = "// web developer studio",
+  description = "Modern stack, clean components, and scalable architecture — everything you need for your next project.",
   ctaExplore = "Explore Services",
   ctaView = "View Products",
+  statsLabels = {
+    projects: "Projects",
+    experience: "Experience",
+    clients: "Happy clients",
+  },
 }: Props = Astro.props;
 ---
 
-<section class="relative isolate overflow-hidden min-h-[70vh] pt-16 md:pt-20">
-  <!-- Background image -->
-  <div
-    class="absolute inset-0 -z-10 bg-cover bg-center scale-y-[-1]"
-    style={`background-image: url(${bg.src})`}
-    aria-hidden="true"
-  >
-  </div>
-  <!-- Soft gradient overlay for readability -->
-  <div
-    class="absolute inset-0 -z-10 bg-gradient-to-b from-white/40 via-white/10 to-white"
-  >
-  </div>
+<section class="hero" id="hero">
+  <!-- LEFT -->
+  <div class="hero-left">
+    <div class="badge">{badge}</div>
 
-  <div class="mx-auto max-w-screen-xl px-4 py-20 md:py-28 lg:px-6">
-    <div class="flex justify-start">
-      <div class="max-w-3xl text-center md:text-left" id="hero">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/70 px-3 py-1 text-xs text-sky-700 shadow-sm"
+    <h1 class="hero-title">
+      <span class="line"><span class="line-inner">{headline.line1}</span></span>
+      <span class="line">
+        <span class="line-inner">
+          <span class="accent-word">{headline.accent}</span>{headline.suffix}
+        </span>
+      </span>
+      <span class="line">
+        <span class="line-inner"
+          ><span class="outline-word">{headline.outline}</span></span
         >
-          <span class="h-2 w-2 rounded-full bg-sky-500"></span>
-          {badge}
-        </div>
-        <h1
-          class="mt-4 text-balance text-4xl font-extrabold tracking-tight text-white uppercase md:text-6xl"
-          style="text-shadow: 0 2px 4px rgba(0,0,0,.2);"
-        >
-          {title}
-        </h1>
-        <p
-          class="mt-4 text-xl text-white md:text-3xl"
-          style="text-shadow: 0 2px 4px rgba(0,0,0,.2);"
-        >
-          {subtitle}
-        </p>
-        <p
-          class="mt-6 text-lg text-white"
-          style="text-shadow: 0 2px 4px rgba(0,0,0,.25);"
-        >
-          {note}
-        </p>
-        <div
-          class="mt-10 flex items-center justify-center md:justify-start gap-4"
-        >
-          <a
-            href="#service"
-            class="rounded-md bg-sky-600 px-5 py-2.5 text-white shadow hover:bg-sky-700"
-            >{ctaExplore}</a
-          >
-          <a
-            href="#product"
-            class="rounded-md border bg-white border-gray-300 px-5 py-2.5 text-gray-900 hover:bg-gray-50 hover:text-gray-900"
-            >{ctaView}</a
-          >
-        </div>
+      </span>
+    </h1>
+
+    <p class="hero-sub">
+      <span class="hi">{kicker}</span><br />
+      {description}
+    </p>
+
+    <div class="cta-row">
+      <a href="#service" class="btn-primary">
+        {ctaExplore}
+        <span class="arrow">→</span>
+      </a>
+      <a href="#product" class="btn-secondary"> {ctaView} </a>
+    </div>
+
+    <div class="stats">
+      <div>
+        <div class="stat-value">47+</div>
+        <div class="stat-label">{statsLabels.projects}</div>
+      </div>
+      <div>
+        <div class="stat-value">3yr</div>
+        <div class="stat-label">{statsLabels.experience}</div>
+      </div>
+      <div>
+        <div class="stat-value">100%</div>
+        <div class="stat-label">{statsLabels.clients}</div>
       </div>
     </div>
   </div>
+
+  <!-- RIGHT: terminal -->
+  <div class="hero-right" aria-hidden="true">
+    <div class="geo-wrap" id="geo-wrap">
+      <svg
+        class="geo-svg"
+        viewBox="0 0 500 500"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Outer octagon frame -->
+        <polygon
+          class="oct-frame"
+          points="250,42 382,102 440,234 390,368 258,438 118,382 52,250 102,116"
+        ></polygon>
+
+        <!-- Rings -->
+        <circle class="geo-ring geo-ring-1" cx="250" cy="250" r="200"></circle>
+        <circle class="geo-ring geo-ring-2" cx="250" cy="250" r="155"></circle>
+        <circle class="geo-ring geo-ring-3" cx="250" cy="250" r="108"></circle>
+
+        <!-- Hexagon -->
+        <g class="hex-group">
+          <polygon
+            class="hex"
+            points="250,90 370,160 370,300 250,370 130,300 130,160"></polygon>
+        </g>
+
+        <!-- Cross lines -->
+        <g class="cross-lines">
+          <line x1="50" y1="50" x2="450" y2="450"></line>
+          <line x1="450" y1="50" x2="50" y2="450"></line>
+          <line x1="250" y1="30" x2="250" y2="470"></line>
+          <line x1="30" y1="250" x2="470" y2="250"></line>
+        </g>
+
+        <!-- Triangle -->
+        <g class="tri-group">
+          <polygon class="tri" points="250,148 342,298 158,298"></polygon>
+        </g>
+
+        <!-- Orbiting dots -->
+        <g class="orbit orbit-1"
+          ><circle class="orb-dot" cx="250" cy="50" r="5"></circle></g
+        >
+        <g class="orbit orbit-2"
+          ><circle class="orb-dot dot-2" cx="250" cy="95" r="4"></circle></g
+        >
+        <g class="orbit orbit-3"
+          ><circle class="orb-dot dot-3" cx="250" cy="142" r="3"></circle></g
+        >
+
+        <!-- Corner squares -->
+        <rect class="corner-sq sq1" x="36" y="36" width="18" height="18" rx="2"
+        ></rect>
+        <rect class="corner-sq sq2" x="446" y="36" width="18" height="18" rx="2"
+        ></rect>
+        <rect class="corner-sq sq3" x="36" y="446" width="18" height="18" rx="2"
+        ></rect>
+        <rect
+          class="corner-sq sq4"
+          x="446"
+          y="446"
+          width="18"
+          height="18"
+          rx="2"></rect>
+
+        <!-- Core -->
+        <circle class="core-outer" cx="250" cy="250" r="38"></circle>
+        <circle class="core-mid" cx="250" cy="250" r="24"></circle>
+        <circle class="core-inner" cx="250" cy="250" r="11"></circle>
+
+        <!-- Ticks -->
+        <g class="ticks">
+          <line x1="250" y1="48" x2="250" y2="62"></line>
+          <line x1="250" y1="438" x2="250" y2="452"></line>
+          <line x1="48" y1="250" x2="62" y2="250"></line>
+          <line x1="438" y1="250" x2="452" y2="250"></line>
+          <line x1="108" y1="108" x2="118" y2="118"></line>
+          <line x1="392" y1="108" x2="382" y2="118"></line>
+          <line x1="108" y1="392" x2="118" y2="382"></line>
+          <line x1="392" y1="392" x2="382" y2="382"></line>
+        </g>
+
+        <!-- Scan line -->
+        <line class="scan-line" x1="50" y1="250" x2="450" y2="250"></line>
+      </svg>
+
+      <div class="geo-label gl-1">01 / design</div>
+      <div class="geo-label gl-2">02 / build</div>
+      <div class="geo-label gl-3">03 / deploy</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    scroll
+    <div class="scroll-line"></div>
+  </div>
 </section>
-
-<script>
-  import { gsap } from "gsap";
-
-  const hero = document.getElementById("hero");
-  if (hero) {
-    const [badge, title, subtitle, note, cta] = [
-      hero.children[0],
-      hero.children[1],
-      hero.children[2],
-      hero.children[3],
-      hero.children[4],
-    ];
-
-    gsap.set([badge, title, subtitle, note, cta], { autoAlpha: 0, y: 20 });
-    gsap
-      .timeline({ defaults: { ease: "power2.out" } })
-      .to(badge, { autoAlpha: 1, y: 0, duration: 0.5 })
-      .to(title, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.2")
-      .to(subtitle, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.3")
-      .to(note, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.3")
-      .to(cta, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.3");
-  }
-</script>

@@ -30,11 +30,15 @@ const { lang, t } = Astro.props as PageProps;
     about: t.navbar.about,
   }}
 >
+  <div class="grid-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
   <Hero
     badge={t.hero.badge}
-    title={t.hero.title}
-    subtitle={t.hero.subtitle}
-    note={t.hero.note}
+    headline={t.hero.headline}
+    kicker={t.hero.sub.kicker}
+    description={t.hero.sub.text}
+    statsLabels={t.hero.stats}
     ctaExplore={t.hero.ctaExplore}
     ctaView={t.hero.ctaView}
   />
@@ -43,7 +47,8 @@ const { lang, t } = Astro.props as PageProps;
     <FeatureSection
       id="service"
       title={t.sections.services.title}
-      dark={false}
+      variant="rows"
+      ctaLabel={t.common.learnMore}
       highlightIndex={1}
       items={t.sections.services.items}
     />

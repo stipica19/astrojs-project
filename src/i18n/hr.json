@@ -1,10 +1,26 @@
 {
+  "common": { "learnMore": "Saznaj više" },
   "navbar": { "brand": "Bitelex", "service": "Usluge", "product": "Proizvodi", "about": "O nama" },
   "hero": {
     "badge": "Za developere",
     "title": "Dijelimo ideje",
     "subtitle": "Tehnička rješenja.",
     "note": "Stranica je za developere — modern stack, čiste komponente.",
+    "headline": {
+      "line1": "Dijelimo",
+      "accent": "ideje",
+      "suffix": " i",
+      "outline": "rješenja."
+    },
+    "sub": {
+      "kicker": "// web developer studio",
+      "text": "Modern stack, čiste komponente i skalabilna arhitektura — sve što trebate za vaš sljedeći projekt."
+    },
+    "stats": {
+      "projects": "Projekata",
+      "experience": "Iskustva",
+      "clients": "Zadovoljni klijenti"
+    },
     "ctaExplore": "Istraži usluge",
     "ctaView": "Pregled proizvoda"
   },

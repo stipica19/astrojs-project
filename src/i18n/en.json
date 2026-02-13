@@ -1,10 +1,26 @@
 {
+  "common": { "learnMore": "Learn More" },
   "navbar": { "brand": "Bitelex", "service": "Service", "product": "Product", "about": "About" },
   "hero": {
     "badge": "For developers",
     "title": "We share ideas",
     "subtitle": "Technical solutions.",
     "note": "This page is for developers—modern stack, clean components.",
+    "headline": {
+      "line1": "We share",
+      "accent": "ideas",
+      "suffix": " and",
+      "outline": "solutions."
+    },
+    "sub": {
+      "kicker": "// web developer studio",
+      "text": "Modern stack, clean components, and scalable architecture — everything you need for your next project."
+    },
+    "stats": {
+      "projects": "Projects",
+      "experience": "Experience",
+      "clients": "Happy clients"
+    },
     "ctaExplore": "Explore Services",
     "ctaView": "View Products"
   },

@@ -58,9 +58,12 @@ const demoItems: WorkItem[] = [
 const list = (items?.length ? items : demoItems) as WorkItem[];
 ---
 
-<section id={id} class="relative overflow-hidden px-4 py-16 md:px-6">
+<section
+  id={id}
+  class="portofolio portfolio relative overflow-hidden px-4 py-16 md:px-6"
+>
   <div class="mx-auto max-w-7xl">
-    <h2 class="text-3xl font-bold text-gray-900">{sectionTitle}</h2>
+    <h2 class="portfolio-title text-3xl font-bold">{sectionTitle}</h2>
 
     <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
@@ -69,7 +72,7 @@ const list = (items?.length ? items : demoItems) as WorkItem[];
             href={w.url}
             target="_blank"
             rel="noopener"
-            class="group block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md"
+            class="portfolio-card group block overflow-hidden rounded-xl"
           >
             <div class="relative h-48 w-full overflow-hidden">
               <img
@@ -77,20 +80,24 @@ const list = (items?.length ? items : demoItems) as WorkItem[];
                 alt={w.title}
                 class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <div class="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-70" />
+              <div class="portfolio-card__overlay absolute inset-0" />
               {w.tag && (
-                <span class="absolute left-3 top-3 rounded bg-white/90 px-2 py-0.5 text-xs font-semibold text-gray-900 shadow">
+                <span class="portfolio-tag absolute left-3 top-3 rounded px-2 py-0.5 text-xs font-semibold">
                   {w.tag}
                 </span>
               )}
             </div>
             <div class="p-4">
               <div class="flex items-start justify-between gap-3">
-                <h3 class="text-lg font-semibold text-gray-900">{w.title}</h3>
-                <ArrowUpRight class="h-5 w-5 text-gray-400 transition-colors group-hover:text-sky-600" />
+                <h3 class="portfolio-card__title text-lg font-semibold">
+                  {w.title}
+                </h3>
+                <ArrowUpRight class="portfolio-card__icon h-5 w-5" />
               </div>
-              {w.desc && <p class="mt-2 text-sm text-gray-600">{w.desc}</p>}
-              <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-sky-600">
+              {w.desc && (
+                <p class="portfolio-card__desc mt-2 text-sm">{w.desc}</p>
+              )}
+              <span class="portfolio-card__cta mt-4 inline-flex items-center gap-1 text-sm font-medium">
                 {cta}
               </span>
             </div>

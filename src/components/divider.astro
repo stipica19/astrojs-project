@@ -24,7 +24,9 @@ const {
   </div>
 
   <span
-    class={`inline-flex h-10 w-10 items-center justify-center rounded-full ${dark ? "border border-gray-700 bg-gray-900 text-sky-400" : "border border-gray-200 bg-white text-sky-600"}`}
+    class={`divider-bulb inline-flex h-10 w-10 items-center justify-center rounded-full ${
+      dark ? "divider-bulb--dark" : "divider-bulb--light"
+    }`}
   >
     <Lightbulb width={iconSize} height={iconSize} />
   </span>
