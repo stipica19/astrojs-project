@@ -28,16 +28,12 @@ const {
     <title>Bitelex</title>
   </head>
   <body>
-    <!-- Background stripes (subtle vertical lines across the page) -->
-
-    <!-- Background stripes (subtle vertical lines across the page) -->
     <BackgroundStripes
       color="rgba(255,255,255,0.06)"
       thickness={1}
       gap={160}
       opacity={0.12}
     />
-    <!-- Navbar first, Hero (slot) will render below -->
     <Navbar brand={brand} labels={labels} lang={lang} />
     <slot />
     <Footer brand={brand} lang={lang} />

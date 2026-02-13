@@ -1,29 +1,35 @@
 {
   "common": { "learnMore": "Saznaj više" },
-  "navbar": { "brand": "Bitelex", "service": "Usluge", "product": "Proizvodi", "about": "O nama" },
-  "hero": {
-    "badge": "Za developere",
-    "title": "Dijelimo ideje",
-    "subtitle": "Tehnička rješenja.",
-    "note": "Stranica je za developere — modern stack, čiste komponente.",
-    "headline": {
-      "line1": "Dijelimo",
-      "accent": "ideje",
-      "suffix": " i",
-      "outline": "rješenja."
-    },
-    "sub": {
-      "kicker": "// web developer studio",
-      "text": "Modern stack, čiste komponente i skalabilna arhitektura — sve što trebate za vaš sljedeći projekt."
-    },
-    "stats": {
-      "projects": "Projekata",
-      "experience": "Iskustva",
-      "clients": "Zadovoljni klijenti"
-    },
-    "ctaExplore": "Istraži usluge",
-    "ctaView": "Pregled proizvoda"
+  "navbar": {
+    "brand": "Bitelex",
+    "service": "Usluge",
+    "product": "Proizvodi",
+    "about": "O nama",
+    "contact": "Kontakt"
   },
+"hero": {
+  "badge": "Za ozbiljan rast",
+  "title": "Web rješenja",
+  "subtitle": "koja donose rezultate.",
+  "note": "Gradimo brze, moderne i skalabilne web aplikacije za tvrtke koje žele više klijenata, više prodaje i bolju automatizaciju.",
+  "headline": {
+    "line1": "Web rješenja",
+    "accent": "za ozbiljan",
+    "suffix": "",
+    "outline": "rast."
+  },
+  "sub": {
+    "kicker": "// web development studio",
+    "text": "Razvijamo pouzdane i skalabilne web stranice i aplikacije koje pomažu vašem poslovanju rasti."
+  },
+  "stats": {
+    "projects": "Projekata",
+    "experience": "Godine iskustva",
+    "clients": "Zadovoljni klijenti"
+  },
+  "ctaExplore": "Zatraži ponudu",
+  "ctaView": "Pogledaj radove"
+},
   "sections": {
     "services": {
       "title": "Usluge",
@@ -98,5 +104,23 @@
       "contact": "Kontakt"
     },
     "rights": "Sva prava pridržana."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "lead": "Pošaljite upit i javit ćemo vam se u najkraćem roku.",
+    "fields": {
+      "name": "Ime",
+      "email": "Email",
+      "subject": "Naslov",
+      "message": "Poruka"
+    },
+    "placeholders": {
+      "name": "Vaše ime",
+      "email": "ime@tvrtka.com",
+      "subject": "Kako možemo pomoći?",
+      "message": "Opišite što trebate…"
+    },
+    "submit": "Pošalji upit",
+    "success": "Hvala — vaša poruka je poslana."
   }
 }

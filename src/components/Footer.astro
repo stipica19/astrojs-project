@@ -104,7 +104,9 @@ const f = t.footer ?? {
         </h3>
         <ul class="site-footer__list mt-4 space-y-2">
           <li>
-            <a class="site-footer__link" href="#contact">{f.links.contact}</a>
+            <a class="site-footer__link" href={`/${lang}/contact`}
+              >{f.links.contact}</a
+            >
           </li>
           <li><a class="site-footer__link" href="#">Privacy</a></li>
           <li><a class="site-footer__link" href="#">Terms</a></li>

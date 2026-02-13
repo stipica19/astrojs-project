@@ -44,6 +44,205 @@ body {
   overflow: hidden;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   Contact page
+   ───────────────────────────────────────────────────────────── */
+
+.contact-page {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-hero {
+  margin-bottom: 1.25rem;
+}
+
+.contact-title {
+  color: var(--bright);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+}
+
+.contact-lead {
+  margin-top: 0.75rem;
+  color: rgba(201, 216, 230, 0.78);
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1.8;
+  max-width: 62ch;
+}
+
+.contact-card {
+  position: relative;
+  border-radius: 14px;
+  border: 1px solid rgba(30, 45, 61, 0.9);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 17, 23, 0.8) 0%,
+    rgba(8, 12, 16, 0.74) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.05),
+    0 30px 90px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      700px 420px at 15% 10%,
+      rgba(0, 212, 255, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      600px 420px at 85% 90%,
+      rgba(0, 102, 255, 0.11),
+      transparent 60%
+    );
+  opacity: 0.9;
+}
+
+.contact-form {
+  position: relative;
+  padding: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .contact-form {
+    padding: 1.6rem;
+  }
+}
+
+.contact-honeypot {
+  display: none;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.contact-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(201, 216, 230, 0.75);
+}
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(30, 45, 61, 0.95);
+  background: rgba(8, 12, 16, 0.55);
+  color: var(--bright);
+  padding: 0.85rem 0.95rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.contact-textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: rgba(74, 98, 116, 0.9);
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: rgba(0, 102, 255, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(0, 102, 255, 0.2),
+    0 0 0 4px rgba(0, 102, 255, 0.12),
+    0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.contact-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.85rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid rgba(var(--accent2-rgb), 0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--accent2-rgb), 0.95),
+    rgba(var(--accent2-rgb), 0.78)
+  );
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 1px rgba(var(--accent2-rgb), 0.12),
+    0 18px 60px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.contact-submit:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow:
+    0 0 0 1px rgba(var(--accent2-rgb), 0.16),
+    0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+.contact-submit:active {
+  transform: translateY(0);
+}
+
+.contact-card--success {
+  padding: 1.6rem;
+}
+
+.contact-success {
+  margin-top: 0.85rem;
+  color: rgba(201, 216, 230, 0.82);
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1.8;
+}
+
 .feature-title {
   color: var(--bright);
 }
@@ -144,18 +343,6 @@ body {
 
 .portfolio {
   position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      900px 520px at 15% 20%,
-      rgba(0, 212, 255, 0.08),
-      transparent 65%
-    ),
-    radial-gradient(
-      820px 520px at 85% 70%,
-      rgba(0, 102, 255, 0.08),
-      transparent 60%
-    );
 }
 
 .portfolio-title {
@@ -226,6 +413,76 @@ body {
 .portfolio-card__cta {
   color: var(--accent);
   font-family: "JetBrains Mono", monospace;
+}
+
+.portfolio-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.portfolio-controls {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.portfolio-arrow {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 45, 61, 0.9);
+  background: rgba(8, 12, 16, 0.55);
+  color: rgba(201, 216, 230, 0.85);
+  backdrop-filter: blur(10px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+.portfolio-arrow:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 212, 255, 0.4);
+  color: var(--bright);
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.08),
+    0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-arrow:active {
+  transform: translateY(0);
+}
+
+.portfolio-arrow[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.portfolio-slider {
+  position: relative;
+}
+
+.portfolio-viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.portfolio-track {
+  display: flex;
+  gap: 1.25rem;
+  will-change: transform;
+  padding-bottom: 0.25rem;
+}
+
+.portfolio-slide {
+  flex: 0 0 clamp(280px, 84vw, 420px);
 }
 
 .site-footer {

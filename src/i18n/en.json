@@ -1,29 +1,35 @@
 {
   "common": { "learnMore": "Learn More" },
-  "navbar": { "brand": "Bitelex", "service": "Service", "product": "Product", "about": "About" },
-  "hero": {
-    "badge": "For developers",
-    "title": "We share ideas",
-    "subtitle": "Technical solutions.",
-    "note": "This page is for developers—modern stack, clean components.",
-    "headline": {
-      "line1": "We share",
-      "accent": "ideas",
-      "suffix": " and",
-      "outline": "solutions."
-    },
-    "sub": {
-      "kicker": "// web developer studio",
-      "text": "Modern stack, clean components, and scalable architecture — everything you need for your next project."
-    },
-    "stats": {
-      "projects": "Projects",
-      "experience": "Experience",
-      "clients": "Happy clients"
-    },
-    "ctaExplore": "Explore Services",
-    "ctaView": "View Products"
+  "navbar": {
+    "brand": "Bitelex",
+    "service": "Service",
+    "product": "Product",
+    "about": "About",
+    "contact": "Contact"
   },
+  "hero": {
+  "badge": "Built for serious growth",
+  "title": "Web solutions",
+  "subtitle": "that drive results.",
+  "note": "We build fast, modern and scalable web applications for companies that want more leads, more sales and better automation.",
+  "headline": {
+    "line1": "Web solutions",
+    "accent": "for serious",
+    "suffix": "",
+    "outline": "growth."
+  },
+  "sub": {
+    "kicker": "// web development studio",
+    "text": "We design and develop reliable, scalable websites and applications that help your business grow."
+  },
+  "stats": {
+    "projects": "Projects",
+    "experience": "Years of Experience",
+    "clients": "Happy Clients"
+  },
+  "ctaExplore": "Request a Quote",
+  "ctaView": "View Our Work"
+},
   "sections": {
     "services": {
       "title": "Services",
@@ -98,5 +104,23 @@
       "contact": "Contact"
     },
     "rights": "All rights reserved."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Send us your enquiry and we’ll reply as soon as possible.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "name@company.com",
+      "subject": "How can we help?",
+      "message": "Describe what you need…"
+    },
+    "submit": "Send enquiry",
+    "success": "Thanks — your message has been sent."
   }
 }

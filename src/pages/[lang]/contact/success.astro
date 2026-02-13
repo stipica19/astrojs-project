@@ -1,0 +1,48 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getT } from "../../../i18n";
+
+export async function getStaticPaths() {
+  const langs = ["hr", "en"] as const;
+  return langs.map((lang) => ({
+    params: { lang },
+    props: { lang, t: getT(lang) },
+  }));
+}
+
+interface PageProps {
+  lang: "hr" | "en";
+  t: any;
+}
+
+const { lang, t } = Astro.props as PageProps;
+const c = t.contact;
+---
+
+<Layout
+  brand={t.navbar.brand}
+  labels={{
+    service: t.navbar.service,
+    product: t.navbar.product,
+    about: t.navbar.about,
+    contact: t.navbar.contact,
+  }}
+>
+  <div class="page-bg" aria-hidden="true">
+    <div class="grid-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <main class="contact-page">
+    <div class="mx-auto max-w-3xl px-4 md:px-6 py-28">
+      <section class="contact-card contact-card--success" aria-label={c.title}>
+        <h1 class="contact-title">{c.title}</h1>
+        <p class="contact-success">{c.success}</p>
+        <div class="contact-actions">
+          <a class="contact-submit" href={`/${lang}/`}>OK</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
