@@ -1,8 +1,9 @@
 ---
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/Navbar/Navbar.astro";
 import "../styles/global.css";
-import Footer from "../components/Footer.astro";
-import BackgroundStripes from "../components/BackgroundStripes.astro";
+import Footer from "../components/Footer/Footer.astro";
+import TechSlider from "../components/TechSlider/TechSlider.astro";
+import BackgroundStripes from "../components/BackgroundStripes/BackgroundStripes.astro";
 
 const lang = (Astro.params?.lang ?? "hr") as "hr" | "en";
 const {
@@ -28,14 +29,9 @@ const {
     <title>Bitelex</title>
   </head>
   <body>
-    <BackgroundStripes
-      color="rgba(255,255,255,0.06)"
-      thickness={1}
-      gap={160}
-      opacity={0.12}
-    />
     <Navbar brand={brand} labels={labels} lang={lang} />
     <slot />
+
     <Footer brand={brand} lang={lang} />
   </body>
 </html>

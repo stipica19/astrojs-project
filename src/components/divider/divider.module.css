@@ -1,0 +1,15 @@
+.divider-bulb {
+  color: var(--accent2);
+  border: 1px solid rgba(var(--accent2-rgb), 0.55);
+  box-shadow:
+    0 0 0 1px rgba(var(--accent2-rgb), 0.12),
+    0 0 18px rgba(var(--accent2-rgb), 0.12);
+}
+
+.divider-bulb--dark {
+  background: rgba(13, 17, 23, 0.65);
+}
+
+.divider-bulb--light {
+  background: rgba(8, 12, 16, 0.25);
+}

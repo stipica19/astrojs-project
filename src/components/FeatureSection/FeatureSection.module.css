@@ -1,0 +1,133 @@
+.feature {
+  display: block;
+}
+
+.feature-rows {
+  display: block;
+}
+
+.feature-rows__bg {
+  display: block;
+}
+
+.feature-row {
+  display: block;
+}
+
+.feature-media {
+  display: block;
+}
+
+.feature-copy {
+  display: block;
+}
+
+.feature-title {
+  color: var(--bright);
+}
+
+.feature-card {
+  position: relative;
+  border: 1px solid rgba(30, 45, 61, 0.9);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 17, 23, 0.78) 0%,
+    rgba(8, 12, 16, 0.72) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.06),
+    0 24px 70px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  background:
+    radial-gradient(
+      420px 260px at 20% 15%,
+      rgba(0, 212, 255, 0.22),
+      transparent 55%
+    ),
+    radial-gradient(
+      420px 260px at 80% 85%,
+      rgba(0, 102, 255, 0.18),
+      transparent 60%
+    );
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 212, 255, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.12),
+    0 28px 84px rgba(0, 0, 0, 0.45);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card--highlight {
+  border-color: rgba(0, 212, 255, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.18),
+    0 0 24px rgba(0, 212, 255, 0.08),
+    0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.feature-card__icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--accent2);
+}
+
+.feature-card__title {
+  margin-top: 0.85rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--bright);
+  letter-spacing: -0.01em;
+}
+
+.feature-card__line {
+  margin-top: 1rem;
+  height: 2px;
+  width: 72px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    rgba(var(--accent2-rgb), 0.6) 100%
+  );
+}
+
+.feature-card__desc {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.feature-illustration {
+  color: var(--accent2);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: rgba(2, 6, 23, 0.28);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 4 / 3;
+  padding: 22px;
+  margin-inline: auto;
+}

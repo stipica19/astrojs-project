@@ -1,4 +1,6 @@
 ---
+import styles from "./BackgroundStripes.module.css";
+
 interface Props {
   color?: string;
   thickness?: number;
@@ -16,9 +18,12 @@ const {
 }: Props = Astro.props;
 ---
 
-<div class="fixed inset-0 pointer-events-none" style="z-index:10">
+<div
+  class={`${styles.wrapper} fixed inset-0 pointer-events-none`}
+  style="z-index:10"
+>
   <div
-    class="h-full w-full bg-stripes"
+    class={`${styles.stripes} h-full w-full bg-stripes`}
     style={`opacity:${opacity};--stripe-color:${color};--stripe-thickness:${thickness}px;--stripe-gap:${gap}px;background-position:${offsetX}px 0;`}
   >
   </div>

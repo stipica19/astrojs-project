@@ -1,0 +1,136 @@
+---
+import styles from "./TechSlider.module.css";
+
+const items = [
+  {
+    label: "C",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+  },
+  {
+    label: "C++",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+  },
+  {
+    label: "Rust",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg",
+  },
+  {
+    label: "Java",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  },
+  {
+    label: "Spring Boot",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+  },
+  {
+    label: "JavaScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  },
+  {
+    label: "TypeScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
+    label: "Node.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  },
+  {
+    label: "Next.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  },
+  {
+    label: "React",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    label: "Linux",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+  },
+  {
+    label: "KiCad",
+    icon: null,
+  },
+];
+---
+
+<section class={styles.slider} aria-label="Technology logos" data-speed="42">
+  <div class={styles.inner} data-slider-inner>
+    <div class={styles.track} data-slider-track>
+      {
+        items.map((item) => (
+          <div class={styles.item} title={item.label}>
+            {item.icon ? (
+              <img
+                src={item.icon}
+                alt={item.label}
+                loading="lazy"
+                decoding="async"
+                class={styles.icon}
+              />
+            ) : (
+              <span class={styles.text}>{item.label}</span>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const slider = document.querySelector("[data-speed]");
+  const inner = slider?.querySelector("[data-slider-inner]");
+  const track = slider?.querySelector("[data-slider-track]");
+
+  if (slider && inner && track) {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+    if (!prefersReduced.matches) {
+      const clone = track.cloneNode(true) as Element;
+      clone.setAttribute("aria-hidden", "true");
+      inner.appendChild(clone);
+      const innerElement = inner as HTMLElement;
+
+      let trackWidth = track.scrollWidth;
+      let offset = 0;
+      let lastTime = 0;
+      let paused = false;
+      const speed = Number(slider.getAttribute("data-speed") || "40");
+
+      const updateWidth = () => {
+        trackWidth = track.scrollWidth;
+        if (trackWidth > 0) {
+          offset = offset % trackWidth;
+        }
+      };
+
+      const step = (time: any) => {
+        if (!lastTime) lastTime = time;
+        const delta = (time - lastTime) / 1000;
+        lastTime = time;
+
+        if (!paused && trackWidth > 0) {
+          offset -= speed * delta;
+          if (offset <= -trackWidth) {
+            offset += trackWidth;
+          }
+          innerElement.style.transform = `translate3d(${offset}px, 0, 0)`;
+        }
+
+        requestAnimationFrame(step);
+      };
+
+      slider.addEventListener("pointerenter", () => {
+        paused = true;
+      });
+      slider.addEventListener("pointerleave", () => {
+        paused = false;
+      });
+
+      window.addEventListener("resize", updateWidth);
+      updateWidth();
+      requestAnimationFrame(step);
+    }
+  }
+</script>

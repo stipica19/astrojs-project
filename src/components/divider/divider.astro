@@ -1,5 +1,6 @@
 ---
 import { Lightbulb } from "@lucide/astro";
+import styles from "./divider.module.css";
 
 interface Props {
   dark?: boolean;
@@ -24,8 +25,8 @@ const {
   </div>
 
   <span
-    class={`divider-bulb inline-flex h-10 w-10 items-center justify-center rounded-full ${
-      dark ? "divider-bulb--dark" : "divider-bulb--light"
+    class={`${styles["divider-bulb"]} inline-flex h-10 w-10 items-center justify-center rounded-full ${
+      dark ? styles["divider-bulb--dark"] : styles["divider-bulb--light"]
     }`}
   >
     <Lightbulb width={iconSize} height={iconSize} />

@@ -1,6 +1,7 @@
 ---
 import { Github, Instagram, Linkedin } from "@lucide/astro";
-import { getT, type Locale } from "../i18n";
+import { getT, type Locale } from "../../i18n";
+import styles from "./Footer.module.css";
 
 interface Props {
   brand?: string;
@@ -26,10 +27,10 @@ const f = t.footer ?? {
 };
 ---
 
-<footer class="site-footer relative overflow-hidden">
+<footer class={`${styles["site-footer"]} relative overflow-hidden`}>
   <!-- background glow -->
   <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-    <div class="site-footer__divider"></div>
+    <div class={styles["site-footer__divider"]}></div>
   </div>
 
   <div class="relative mx-auto max-w-7xl px-4 md:px-6 py-16">
@@ -40,30 +41,33 @@ const f = t.footer ?? {
           href={lang ? `/${lang}/` : "/"}
           class="inline-flex items-center gap-2"
         >
-          <span class="site-footer__brand text-2xl font-bold tracking-tight"
+          <span
+            class={`${styles["site-footer__brand"]} text-2xl font-bold tracking-tight`}
             >{brand}</span
           >
         </a>
-        <p class="site-footer__muted mt-4 max-w-md">{f.tagline}</p>
+        <p class={`${styles["site-footer__muted"]} mt-4 max-w-md`}>
+          {f.tagline}
+        </p>
         <div class="mt-6 flex items-center gap-4">
           <a
             href="#"
             aria-label="GitHub"
-            class="site-footer__social rounded-md p-2 transition-colors"
+            class={`${styles["site-footer__social"]} rounded-md p-2 transition-colors`}
           >
             <Github class="h-5 w-5" />
           </a>
           <a
             href="#"
             aria-label="LinkedIn"
-            class="site-footer__social rounded-md p-2 transition-colors"
+            class={`${styles["site-footer__social"]} rounded-md p-2 transition-colors`}
           >
             <Linkedin class="h-5 w-5" />
           </a>
           <a
             href="#"
             aria-label="Twitter"
-            class="site-footer__social rounded-md p-2 transition-colors"
+            class={`${styles["site-footer__social"]} rounded-md p-2 transition-colors`}
           >
             <Instagram class="h-5 w-5" />
           </a>
@@ -72,24 +76,26 @@ const f = t.footer ?? {
 
       <!-- Company links -->
       <div>
-        <h3 class="site-footer__heading text-sm font-semibold">{f.company}</h3>
-        <ul class="site-footer__list mt-4 space-y-2">
+        <h3 class={`${styles["site-footer__heading"]} text-sm font-semibold`}>
+          {f.company}
+        </h3>
+        <ul class={`${styles["site-footer__list"]} mt-4 space-y-2`}>
           <li>
             <a
-              class="site-footer__link"
+              class={styles["site-footer__link"]}
               href={lang ? `/${lang}/#about` : "#about"}>{f.links.about}</a
             >
           </li>
           <li>
             <a
-              class="site-footer__link"
+              class={styles["site-footer__link"]}
               href={lang ? `/${lang}/#service` : "#service"}
               >{f.links.services}</a
             >
           </li>
           <li>
             <a
-              class="site-footer__link"
+              class={styles["site-footer__link"]}
               href={lang ? `/${lang}/#product` : "#product"}
               >{f.links.products}</a
             >
@@ -99,29 +105,29 @@ const f = t.footer ?? {
 
       <!-- Resources links -->
       <div>
-        <h3 class="site-footer__heading text-sm font-semibold">
+        <h3 class={`${styles["site-footer__heading"]} text-sm font-semibold`}>
           {f.resources}
         </h3>
-        <ul class="site-footer__list mt-4 space-y-2">
+        <ul class={`${styles["site-footer__list"]} mt-4 space-y-2`}>
           <li>
-            <a class="site-footer__link" href={`/${lang}/contact`}
+            <a class={styles["site-footer__link"]} href={`/${lang}/contact`}
               >{f.links.contact}</a
             >
           </li>
-          <li><a class="site-footer__link" href="#">Privacy</a></li>
-          <li><a class="site-footer__link" href="#">Terms</a></li>
+          <li><a class={styles["site-footer__link"]} href="#">Privacy</a></li>
+          <li><a class={styles["site-footer__link"]} href="#">Terms</a></li>
         </ul>
       </div>
     </div>
 
     <div
-      class="site-footer__bottom mt-12 flex flex-col items-start gap-4 pt-6 text-sm md:flex-row md:items-center md:justify-between"
+      class={`${styles["site-footer__bottom"]} mt-12 flex flex-col items-start gap-4 pt-6 text-sm md:flex-row md:items-center md:justify-between`}
     >
       <p>© {new Date().getFullYear()} {brand}. {f.rights}</p>
       <div class="flex items-center gap-4">
-        <a href="#" class="site-footer__link">Privacy</a>
-        <span class="site-footer__dot">•</span>
-        <a href="#" class="site-footer__link">Cookies</a>
+        <a href="#" class={styles["site-footer__link"]}>Privacy</a>
+        <span class={styles["site-footer__dot"]}>•</span>
+        <a href="#" class={styles["site-footer__link"]}>Cookies</a>
       </div>
     </div>
   </div>

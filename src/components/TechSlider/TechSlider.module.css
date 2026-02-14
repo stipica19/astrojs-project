@@ -1,0 +1,61 @@
+.slider {
+  position: relative;
+  z-index: 1;
+  margin: 2.5rem auto 0;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(30, 45, 61, 0.6);
+  border-bottom: 1px solid rgba(30, 45, 61, 0.6);
+  background: linear-gradient(
+    90deg,
+    rgba(8, 12, 16, 0.9) 0%,
+    rgba(13, 17, 23, 0.75) 50%,
+    rgba(8, 12, 16, 0.9) 100%
+  );
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  align-items: center;
+  flex-wrap: nowrap;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-shrink: 0;
+  min-width: max-content;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 48px;
+  padding: 0.3rem 0.65rem;
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  filter: brightness(1.1);
+}
+
+.text {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--bright);
+  letter-spacing: 0.04em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner {
+    transform: none;
+  }
+}

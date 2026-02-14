@@ -1,6 +1,7 @@
 ---
 import { PenLine, Monitor, Mail } from "@lucide/astro";
-import { getT, type Locale } from "../i18n";
+import { getT, type Locale } from "../../i18n";
+import styles from "./BuildWebsiteSection.module.css";
 
 interface StepItem {
   title: string;
@@ -49,11 +50,16 @@ const finalItems: StepItem[] = (
 }));
 ---
 
-<section id={id} class="build relative mx-auto overflow-hidden px-4 py-16 md:px-6">
+<section
+  id={id}
+  class={`${styles.build} relative mx-auto overflow-hidden px-4 py-16 md:px-6`}
+>
   <div class="relative mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
-    <div class="build__glow" aria-hidden="true" />
+    <div class={styles["build__glow"]} aria-hidden="true"></div>
     <!-- Left: Image with purple overlay fade -->
-    <div class="build-media relative min-h-85 md:min-h-140 rounded-xl overflow-hidden">
+    <div
+      class={`${styles["build-media"]} relative min-h-85 md:min-h-140 rounded-xl overflow-hidden`}
+    >
       <img
         src={image.src}
         alt={image.alt ?? ""}
@@ -62,20 +68,22 @@ const finalItems: StepItem[] = (
 
       <!-- subtle vignette at bottom right -->
       <div
-        class="build-media__vignette absolute right-0 bottom-0 h-48 w-48 translate-x-16 translate-y-16 rounded-full blur-2xl"
+        class={`${styles["build-media__vignette"]} absolute right-0 bottom-0 h-48 w-48 translate-x-16 translate-y-16 rounded-full blur-2xl`}
       >
       </div>
     </div>
 
     <!-- Right: Content -->
-    <div class="build-card relative rounded-xl p-6 md:p-8">
+    <div class={`${styles["build-card"]} relative rounded-xl p-6 md:p-8`}>
       <div
-        class="build-card__dot absolute -top-5 left-6 h-10 w-10 rounded-full"
+        class={`${styles["build-card__dot"]} absolute -top-5 left-6 h-10 w-10 rounded-full`}
       >
       </div>
 
-      <h2 class="build-title text-3xl font-bold">{finalTitle}</h2>
-      <p class="build-desc mt-4">{finalDesc}</p>
+      <h2 class={`${styles["build-title"]} text-3xl font-bold`}>
+        {finalTitle}
+      </h2>
+      <p class={`${styles["build-desc"]} mt-4`}>{finalDesc}</p>
 
       <div class="mt-10 space-y-10">
         {
@@ -86,14 +94,20 @@ const finalItems: StepItem[] = (
             return (
               <div class="grid grid-cols-[44px_1fr] gap-4 items-start">
                 <div class="flex flex-col items-center">
-                  <Icon class="build-step__icon h-7 w-7" />
-                  {!isLast && <div class="build-step__line mt-3 h-16 w-px" />}
+                  <Icon class={`${styles["build-step__icon"]} h-7 w-7`} />
+                  {!isLast && (
+                    <div
+                      class={`${styles["build-step__line"]} mt-3 h-16 w-px`}
+                    />
+                  )}
                 </div>
                 <div>
-                  <span class="build-step__badge inline-block rounded px-3 py-1 text-xs font-semibold">
+                  <span
+                    class={`${styles["build-step__badge"]} inline-block rounded px-3 py-1 text-xs font-semibold`}
+                  >
                     {label}
                   </span>
-                  <p class="build-step__text mt-3">{it.text}</p>
+                  <p class={`${styles["build-step__text"]} mt-3`}>{it.text}</p>
                 </div>
               </div>
             );

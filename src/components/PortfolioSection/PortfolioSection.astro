@@ -1,6 +1,7 @@
 ---
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "@lucide/astro";
-import { getT, type Locale } from "../i18n";
+import { getT, type Locale } from "../../i18n";
+import styles from "./PortfolioSection.module.css";
 
 interface WorkItem {
   title: string;
@@ -58,22 +59,27 @@ const demoItems: WorkItem[] = [
 const list = (items?.length ? items : demoItems) as WorkItem[];
 ---
 
-<section id={id} class="portfolio relative overflow-hidden px-4 py-16 md:px-6">
+<section
+  id={id}
+  class={`${styles.portfolio} relative overflow-hidden px-4 py-16 md:px-6`}
+>
   <div class="mx-auto max-w-7xl">
-    <div class="portfolio-head">
-      <h2 class="portfolio-title text-3xl font-bold">{sectionTitle}</h2>
+    <div class={styles["portfolio-head"]}>
+      <h2 class={`${styles["portfolio-title"]} text-3xl font-bold`}>
+        {sectionTitle}
+      </h2>
     </div>
 
-    <div class="portfolio-slider mt-8" aria-label={sectionTitle}>
-      <div class="portfolio-viewport">
-        <div class="portfolio-track">
+    <div class={`${styles["portfolio-slider"]} mt-8`} aria-label={sectionTitle}>
+      <div class={styles["portfolio-viewport"]}>
+        <div class={styles["portfolio-track"]}>
           {
             list.map((w) => (
               <a
                 href={w.url}
                 target="_blank"
                 rel="noopener"
-                class="portfolio-slide portfolio-card group block overflow-hidden rounded-xl"
+                class={`${styles["portfolio-slide"]} ${styles["portfolio-card"]} group block overflow-hidden rounded-xl`}
               >
                 <div class="relative h-48 w-full overflow-hidden">
                   <img
@@ -81,24 +87,36 @@ const list = (items?.length ? items : demoItems) as WorkItem[];
                     alt={w.title}
                     class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div class="portfolio-card__overlay absolute inset-0" />
+                  <div
+                    class={`${styles["portfolio-card__overlay"]} absolute inset-0`}
+                  />
                   {w.tag && (
-                    <span class="portfolio-tag absolute left-3 top-3 rounded px-2 py-0.5 text-xs font-semibold">
+                    <span
+                      class={`${styles["portfolio-tag"]} absolute left-3 top-3 rounded px-2 py-0.5 text-xs font-semibold`}
+                    >
                       {w.tag}
                     </span>
                   )}
                 </div>
                 <div class="p-4">
                   <div class="flex items-start justify-between gap-3">
-                    <h3 class="portfolio-card__title text-lg font-semibold">
+                    <h3
+                      class={`${styles["portfolio-card__title"]} text-lg font-semibold`}
+                    >
                       {w.title}
                     </h3>
-                    <ArrowUpRight class="portfolio-card__icon h-5 w-5" />
+                    <ArrowUpRight
+                      class={`${styles["portfolio-card__icon"]} h-5 w-5`}
+                    />
                   </div>
                   {w.desc && (
-                    <p class="portfolio-card__desc mt-2 text-sm">{w.desc}</p>
+                    <p class={`${styles["portfolio-card__desc"]} mt-2 text-sm`}>
+                      {w.desc}
+                    </p>
                   )}
-                  <span class="portfolio-card__cta mt-4 inline-flex items-center gap-1 text-sm font-medium">
+                  <span
+                    class={`${styles["portfolio-card__cta"]} mt-4 inline-flex items-center gap-1 text-sm font-medium`}
+                  >
                     {cta}
                   </span>
                 </div>

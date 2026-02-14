@@ -1,0 +1,143 @@
+.portfolio {
+  position: relative;
+}
+
+.portfolio-title {
+  color: var(--bright);
+}
+
+.portfolio-card {
+  border: 1px solid rgba(30, 45, 61, 0.9);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 17, 23, 0.78) 0%,
+    rgba(8, 12, 16, 0.72) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.05),
+    0 22px 64px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 212, 255, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.12),
+    0 26px 80px rgba(0, 0, 0, 0.45);
+}
+
+.portfolio-card__overlay {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(8, 12, 16, 0.65) 65%,
+    rgba(8, 12, 16, 0.88) 100%
+  );
+  opacity: 0.9;
+}
+
+.portfolio-tag {
+  color: var(--bright);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  background: rgba(8, 12, 16, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.portfolio-card__title {
+  color: var(--bright);
+  letter-spacing: -0.01em;
+}
+
+.portfolio-card__icon {
+  color: rgba(201, 216, 230, 0.55);
+  transition: color 180ms ease;
+}
+
+.portfolio-card:hover .portfolio-card__icon {
+  color: rgba(0, 212, 255, 0.9);
+}
+
+.portfolio-card__desc {
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1.7;
+}
+
+.portfolio-card__cta {
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.portfolio-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.portfolio-controls {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.portfolio-arrow {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 45, 61, 0.9);
+  background: rgba(8, 12, 16, 0.55);
+  color: rgba(201, 216, 230, 0.85);
+  backdrop-filter: blur(10px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+.portfolio-arrow:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 212, 255, 0.4);
+  color: var(--bright);
+  box-shadow:
+    0 0 0 1px rgba(0, 212, 255, 0.08),
+    0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-arrow:active {
+  transform: translateY(0);
+}
+
+.portfolio-arrow[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.portfolio-slider {
+  position: relative;
+}
+
+.portfolio-viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.portfolio-track {
+  display: flex;
+  gap: 1.25rem;
+  will-change: transform;
+  padding-bottom: 0.25rem;
+}
+
+.portfolio-slide {
+  flex: 0 0 clamp(280px, 84vw, 420px);
+}

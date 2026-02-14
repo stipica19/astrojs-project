@@ -1,11 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Hero from "../../components/Hero.astro";
-import FeatureSection from "../../components/FeatureSection.astro";
-import BuildWebsiteSectin from "../../components/BuildWebsiteSection.astro";
-import PortfolioSection from "../../components/PortfolioSection.astro";
+import Hero from "../../components/Hero/Hero.astro";
+import FeatureSection from "../../components/FeatureSection/FeatureSection.astro";
+import BuildWebsiteSectin from "../../components/BuildWebsiteSection/BuildWebsiteSection.astro";
+import PortfolioSection from "../../components/PortfolioSection/PortfolioSection.astro";
 import { getT } from "../../i18n";
-import Divider from "../../components/divider.astro";
+import Divider from "../../components/divider/divider.astro";
+import TechSlider from "../../components/TechSlider/TechSlider.astro";
 
 export async function getStaticPaths() {
   const langs = ["hr", "en"];
@@ -73,5 +74,6 @@ const { lang, t } = Astro.props as PageProps;
     />
     <Divider />
     <PortfolioSection lang={lang} />
+    <TechSlider />
   </main>
 </Layout>

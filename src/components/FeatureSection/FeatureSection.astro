@@ -1,4 +1,6 @@
 ---
+import styles from "./FeatureSection.module.css";
+
 interface FeatureItem {
   icon: any;
   title: string;
@@ -40,19 +42,21 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
 {
   variant === "rows" ? (
     <section
-      class="feature-rows relative overflow-hidden px-4 py-20 md:px-6"
+      class={`${styles["feature-rows"]} relative overflow-hidden px-4 py-20 md:px-6`}
       id={id}
     >
-      <div class="feature-rows__bg" aria-hidden="true" />
+      <div class={styles["feature-rows__bg"]} aria-hidden="true" />
       <div class="mx-auto max-w-7xl">
         <h2 class="text-3xl font-bold text-white md:text-4xl">{title}</h2>
 
         <div class="mt-10 space-y-14 md:mt-14">
           {items.map((f: FeatureItem, i: number) => (
-            <div class="feature-row">
+            <div class={styles["feature-row"]}>
               <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-                <div class={`feature-media ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <div class="feature-illustration">
+                <div
+                  class={`${styles["feature-media"]} ${i % 2 === 1 ? "lg:order-2" : ""}`}
+                >
+                  <div class={styles["feature-illustration"]}>
                     {i === 0 ? (
                       <svg
                         viewBox="0 0 520 360"
@@ -190,7 +194,9 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
                   </div>
                 </div>
 
-                <div class={`feature-copy ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                <div
+                  class={`${styles["feature-copy"]} ${i % 2 === 1 ? "lg:order-1" : ""}`}
+                >
                   <h3 class="text-3xl font-extrabold text-white md:text-4xl">
                     {f.title}
                   </h3>
@@ -212,12 +218,12 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
     </section>
   ) : (
     <section
-      class={`px-4 feature relative py-16 md:px-6 ${dark ? "bg-gray-950" : ""}`}
+      class={`px-4 ${styles.feature} relative py-16 md:px-6 ${dark ? "bg-gray-950" : ""}`}
       id={id}
     >
       <div class="mx-auto max-w-7xl">
         <h2
-          class={`feature-title text-3xl font-bold ${
+          class={`${styles["feature-title"]} text-3xl font-bold ${
             dark ? "text-left" : "text-center"
           }`}
         >
@@ -228,14 +234,14 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
         >
           {items.map((f: FeatureItem, i: number) => (
             <div
-              class={`feature-card rounded-xl p-6 h-full transition-transform ${
-                i === highlightIndex ? "feature-card--highlight" : ""
+              class={`${styles["feature-card"]} rounded-xl p-6 h-full transition-transform ${
+                i === highlightIndex ? styles["feature-card--highlight"] : ""
               }`}
             >
-              <div class="feature-card__icon">{f.icon}</div>
-              <h3 class="feature-card__title">{f.title}</h3>
-              <div class="feature-card__line" />
-              <p class="feature-card__desc">{f.desc}</p>
+              <div class={styles["feature-card__icon"]}>{f.icon}</div>
+              <h3 class={styles["feature-card__title"]}>{f.title}</h3>
+              <div class={styles["feature-card__line"]} />
+              <p class={styles["feature-card__desc"]}>{f.desc}</p>
             </div>
           ))}
         </div>
@@ -244,11 +250,18 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
   )
 }
 
-<script>
+<script
+  define:vars={{
+    featureCard: styles["feature-card"],
+    featureRow: styles["feature-row"],
+    feature: styles.feature,
+    featureRows: styles["feature-rows"],
+  }}
+>
   import { gsap } from "gsap";
 
-  const cards = document.querySelectorAll(".feature-card");
-  const rows = document.querySelectorAll(".feature-row");
+  const cards = document.querySelectorAll(`.${featureCard}`);
+  const rows = document.querySelectorAll(`.${featureRow}`);
 
   if (cards.length) {
     gsap.set(cards, {
@@ -262,19 +275,32 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
       y: 0,
       rotateX: 0,
       duration: 0.6,
-      ease: "power2.out",
-      stagger: 0.12,
+      ease: "power3.out",
+      stagger: 0.08,
+      scrollTrigger: {
+        trigger: `.${feature}`,
+        start: "top 70%",
+        once: true,
+      },
     });
   }
 
   if (rows.length) {
-    gsap.set(rows, { autoAlpha: 0, y: 22 });
+    gsap.set(rows, {
+      autoAlpha: 0,
+      y: 36,
+    });
     gsap.to(rows, {
       autoAlpha: 1,
       y: 0,
       duration: 0.7,
-      ease: "power2.out",
-      stagger: 0.14,
+      ease: "power3.out",
+      stagger: 0.12,
+      scrollTrigger: {
+        trigger: `.${featureRows}`,
+        start: "top 70%",
+        once: true,
+      },
     });
   }
 </script>
