@@ -8,7 +8,7 @@
     "contact": "Kontakt"
   },
 "hero": {
-  "badge": "Za ozbiljan rast",
+  "badge": "Mi djelimo ideje",
   "title": "Web rješenja",
   "subtitle": "koja donose rezultate.",
   "note": "Gradimo brze, moderne i skalabilne web aplikacije za tvrtke koje žele više klijenata, više prodaje i bolju automatizaciju.",
@@ -19,8 +19,8 @@
     "outline": "rast."
   },
   "sub": {
-    "kicker": "// web development studio",
-    "text": "Razvijamo pouzdane i skalabilne web stranice i aplikacije koje pomažu vašem poslovanju rasti."
+    "kicker": "// engineering",
+    "text": "Razvijamo pouzdana i skalabilna inženjerska rješenja s fokusom na inovaciju, efikasnost i dugoročnu održivost."
   },
   "stats": {
     "projects": "Projekata",
@@ -67,9 +67,9 @@
       "title": "Proizvodi",
       "items": [
         {
-          "title": "DINIO DNS",
-          "desc": "Jedinstveno DNS rješenje, registracija domena, dinamički DNS, API, web preusmjeravanje, ad-blocking DNS, DoH, DoT",
-          "icon": "🔒"
+          "title": "Dinio DNS",
+         "desc": "All-in-one DNS rješenje u razvoju, sa širokim spektrom funkcionalnosti uključujući georutiranje, blokiranje, filtriranje.",
+          "icon": "🌐"
         }
       ]
     },

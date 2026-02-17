@@ -8,7 +8,7 @@
     "contact": "Contact"
   },
   "hero": {
-  "badge": "Built for serious growth",
+  "badge": "We share ideas",
   "title": "Technical solutions",
   "subtitle": "that drive results.",
   "note": "We build fast, modern and scalable web applications for companies that want more leads, more sales and better automation.",
@@ -19,8 +19,8 @@
     "outline": "growth."
   },
   "sub": {
-    "kicker": "// web development studio",
-    "text": "We design and develop reliable, scalable websites and applications that help your business grow."
+    "kicker": "// engineering",
+    "text": "We design and develop reliable, scalable engineering solutions with a focus on innovation, efficiency, and long-term sustainability."
   },
   "stats": {
     "projects": "Projects",
@@ -67,9 +67,9 @@
       "title": "Products",
       "items": [
         {
-          "title": "DINIO DNS",
-          "desc": "Unique DNS solution, domain acquisition, dynamic DNS, API, web redirection, ad-blocking DNS, DoH, DoT",
-          "icon": "🔒"
+          "title": "Dinio DNS",
+          "desc": "All-in-one DNS platform under development, offering advanced features such as geo-routing, blocking, filtering.",
+          "icon": "🌐"
         }
       ]
     },
