@@ -34,20 +34,18 @@
     "services": {
       "title": "Services",
       "items": [
+        
+        {
+          "title": "Web and applications",
+          "desc": "We design websites, applications, microservices, and high-performance applications"
+        },
         {
           "title": "Electrotechnical solutions",
-          "desc": "Tailored solutions in electrical engineering, electronics, and automation, meeting unique client needs",
-          "icon": "💡"
+          "desc": "Tailored solutions in electrical engineering, electronics, and automation, meeting unique client needs"
         },
         {
           "title": "Open source system integrator",
-          "desc": "Affordable and sustainable open-source solution integrations",
-          "icon": "👆"
-        },
-        {
-          "title": "Web and applications",
-          "desc": "We design websites, applications, microservices, and high-performance applications",
-          "icon": "</>"
+          "desc": "Affordable and sustainable open-source solution integrations"
         }
       ]
     },
@@ -58,9 +56,9 @@
     "mission": {
       "title": "Our mission",
       "items": [
-        { "title": "Privacy and security", "desc": "We prioritize digital privacy and security.", "icon": "🔒" },
-        { "title": "Open source", "desc": "We stand by the Open Source community, using and enhancing their products.", "icon": "🧩" },
-        { "title": "Accessibility", "desc": "We aim to deliver innovative solutions while staying mindful of affordability.", "icon": "♿" }
+        { "title": "Privacy and security", "desc": "We prioritize digital privacy and security." },
+        { "title": "Open source", "desc": "We stand by the Open Source community, using and enhancing their products." },
+        { "title": "Accessibility", "desc": "We aim to deliver innovative solutions while staying mindful of affordability." }
       ]
     },
     "products": {
@@ -68,8 +66,7 @@
       "items": [
         {
           "title": "Dinio DNS",
-          "desc": "All-in-one DNS platform under development, offering advanced features such as geo-routing, blocking, filtering.",
-          "icon": "🌐"
+          "desc": "All-in-one DNS platform under development, offering advanced features such as geo-routing, blocking, filtering."
         }
       ]
     },

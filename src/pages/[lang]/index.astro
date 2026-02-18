@@ -1,10 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero/Hero.astro";
-import FeatureSection from "../../components/FeatureSection/FeatureSection.astro";
+import FeatureCards from "../../components/FeatureSection/FeatureCards.astro";
+import FeatureRows from "../../components/FeatureSection/FeatureRows.astro";
 import BuildWebsiteSectin from "../../components/BuildWebsiteSection/BuildWebsiteSection.astro";
 import PortfolioSection from "../../components/PortfolioSection/PortfolioSection.astro";
 import { getT } from "../../i18n";
+import { featureIcons } from "../../i18n/featureIcons";
 import Divider from "../../components/divider/divider.astro";
 import TechSlider from "../../components/TechSlider/TechSlider.astro";
 
@@ -21,6 +23,9 @@ interface PageProps {
   t: any;
 }
 const { lang, t } = Astro.props as PageProps;
+
+const withIcons = (items: any[], icons: any[]) =>
+  items.map((item, idx) => ({ ...item, icon: icons[idx] }));
 ---
 
 <Layout
@@ -48,29 +53,27 @@ const { lang, t } = Astro.props as PageProps;
   />
   <Divider />
   <main class="mx-auto px-0 md:px-0">
-    <FeatureSection
+    <FeatureRows
       id="service"
       title={t.sections.services.title}
-      variant="rows"
       ctaLabel={t.common.learnMore}
-      highlightIndex={1}
       items={t.sections.services.items}
     />
     <BuildWebsiteSectin lang={lang} />
-    <FeatureSection
+    <FeatureCards
       id="our-mission"
       title={t.sections.mission.title}
       dark={false}
       highlightIndex={1}
-      items={t.sections.mission.items}
+      items={withIcons(t.sections.mission.items, featureIcons.mission)}
     />
     <Divider />
-    <FeatureSection
+    <FeatureCards
       id="product"
       title={t.sections.products.title}
       dark={false}
       highlightIndex={1}
-      items={t.sections.products.items}
+      items={withIcons(t.sections.products.items, featureIcons.products)}
     />
     <Divider />
     <PortfolioSection lang={lang} />

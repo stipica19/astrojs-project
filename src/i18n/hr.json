@@ -34,20 +34,18 @@
     "services": {
       "title": "Usluge",
       "items": [
+        
+        {
+          "title": "Web i aplikacije",
+          "desc": "Dizajniramo web stranice, aplikacije, mikroservise i visokoučinkovite aplikacije"
+        },
         {
           "title": "Elektrotehnička rješenja",
-          "desc": "Prilagođena rješenja u elektrotehnici, elektronici i automatizaciji, prema potrebama klijenata",
-          "icon": "💡"
+          "desc": "Prilagođena rješenja u elektrotehnici, elektronici i automatizaciji, prema potrebama klijenata"
         },
         {
           "title": "Integrator otvorenog koda",
-          "desc": "Pristupačne i održive integracije rješenja otvorenog koda",
-          "icon": "👆"
-        },
-        {
-          "title": "Web i aplikacije",
-          "desc": "Dizajniramo web stranice, aplikacije, mikroservise i visokoučinkovite aplikacije",
-          "icon": "</>"
+          "desc": "Pristupačne i održive integracije rješenja otvorenog koda"
         }
       ]
     },
@@ -58,9 +56,9 @@
     "mission": {
       "title": "Naša misija",
       "items": [
-        { "title": "Privatnost i sigurnost", "desc": "Prioritet su nam digitalna privatnost i sigurnost.", "icon": "🔒" },
-        { "title": "Otvoreni kod", "desc": "Podržavamo OSS zajednicu koristeći i unaprjeđujući njihove proizvode.", "icon": "🧩" },
-        { "title": "Pristupačnost", "desc": "Cilj nam je inovativnost uz brigu o pristupačnosti.", "icon": "♿" }
+        { "title": "Privatnost i sigurnost", "desc": "Prioritet su nam digitalna privatnost i sigurnost." },
+        { "title": "Otvoreni kod", "desc": "Podržavamo OSS zajednicu koristeći i unaprjeđujući njihove proizvode." },
+        { "title": "Pristupačnost", "desc": "Cilj nam je inovativnost uz brigu o pristupačnosti." }
       ]
     },
     "products": {
@@ -68,8 +66,7 @@
       "items": [
         {
           "title": "Dinio DNS",
-         "desc": "All-in-one DNS rješenje u razvoju, sa širokim spektrom funkcionalnosti uključujući georutiranje, blokiranje, filtriranje.",
-          "icon": "🌐"
+         "desc": "All-in-one DNS rješenje u razvoju, sa širokim spektrom funkcionalnosti uključujući georutiranje, blokiranje, filtriranje."
         }
       ]
     },

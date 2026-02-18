@@ -1,0 +1,68 @@
+---
+import styles from "./FeatureSection.module.css";
+
+interface FeatureItem {
+  icon?: any;
+  title: string;
+  desc: string;
+}
+
+interface Props {
+  title: string;
+  items: FeatureItem[];
+  dark: boolean;
+  highlightIndex: number;
+  id: string;
+}
+
+const { title, items, dark, highlightIndex, id }: Props = Astro.props;
+
+const length = items.length;
+
+const lgCols: Record<number, string> = {
+  1: "lg:grid-cols-1",
+  2: "lg:grid-cols-2",
+  3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4",
+};
+
+const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
+---
+
+<section
+  class={`px-4 ${styles.feature} relative py-16 md:px-6 ${dark ? "bg-gray-950" : ""}`}
+  id={id}
+>
+  <div class="mx-auto max-w-7xl">
+    <h2
+      class={`${styles["feature-title"]} text-3xl font-bold ${
+        dark ? "text-left" : "text-center"
+      }`}
+    >
+      {title}
+    </h2>
+    <div
+      class={`mt-8 grid items-stretch gap-6 grid-cols-1 md:grid-cols-2 ${desktopCols}`}
+    >
+      {
+        items.map((f: FeatureItem, i: number) => {
+          const Icon = f.icon;
+          return (
+            <div
+              class={`${styles["feature-card"]} rounded-xl p-6 h-full transition-transform ${
+                i === highlightIndex ? styles["feature-card--highlight"] : ""
+              }`}
+            >
+              <div class={styles["feature-card__icon"]}>
+                {Icon ? <Icon size={28} aria-hidden="true" /> : null}
+              </div>
+              <h3 class={styles["feature-card__title"]}>{f.title}</h3>
+              <div class={styles["feature-card__line"]} />
+              <p class={styles["feature-card__desc"]}>{f.desc}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
