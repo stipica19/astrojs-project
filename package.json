@@ -14,6 +14,10 @@
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.6",
     "gsap": "^3.12.5",
+    "resend": "^6.9.2",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.7.0"
   }
 }
