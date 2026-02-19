@@ -1,0 +1,66 @@
+---
+import { ArrowUpRight } from "@lucide/astro";
+import styles from "../PortfolioSection/PortfolioSection.module.css";
+
+interface Item {
+  title: string;
+  desc: string;
+  image: string;
+  tag?: string;
+  url?: string;
+}
+
+interface Props {
+  items: Item[];
+  ctaLabel: string;
+}
+
+const { items, ctaLabel }: Props = Astro.props;
+---
+
+<div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  {
+    items.map((w) => (
+      <a
+        href={w.url ?? "#"}
+        class={`${styles["portfolio-card"]} group block overflow-hidden rounded-xl`}
+      >
+        <div class="relative h-48 w-full overflow-hidden">
+          <img
+            src={w.image}
+            alt={w.title}
+            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div
+            class={`${styles["portfolio-card__overlay"]} absolute inset-0`}
+          />
+          {w.tag && (
+            <span
+              class={`${styles["portfolio-tag"]} absolute left-3 top-3 rounded px-2 py-0.5 text-xs font-semibold`}
+            >
+              {w.tag}
+            </span>
+          )}
+        </div>
+        <div class="p-4">
+          <div class="flex items-start justify-between gap-3">
+            <h3
+              class={`${styles["portfolio-card__title"]} text-lg font-semibold`}
+            >
+              {w.title}
+            </h3>
+            <ArrowUpRight class={`${styles["portfolio-card__icon"]} h-5 w-5`} />
+          </div>
+          <p class={`${styles["portfolio-card__desc"]} mt-2 text-sm`}>
+            {w.desc}
+          </p>
+          <span
+            class={`${styles["portfolio-card__cta"]} mt-4 inline-flex items-center gap-1 text-sm font-medium`}
+          >
+            {ctaLabel}
+          </span>
+        </div>
+      </a>
+    ))
+  }
+</div>

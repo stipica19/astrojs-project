@@ -1,0 +1,34 @@
+---
+import featureStyles from "../FeatureSection/FeatureSection.module.css";
+import styles from "./WebLab.module.css";
+
+interface Item {
+  title: string;
+  desc: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items }: Props = Astro.props;
+---
+
+<div
+  class={`${featureStyles["feature-card"]} ${styles["table-card"]} rounded-xl p-6`}
+>
+  <table class={styles.table} role="table">
+    <tbody>
+      {
+        items.map((item) => (
+          <tr class={styles["table-row"]}>
+            <td class={styles["table-cell"]}>
+              <div class={styles["table-title"]}>{item.title}</div>
+              <div class={styles["table-desc"]}>{item.desc}</div>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

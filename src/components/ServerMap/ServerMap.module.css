@@ -1,0 +1,92 @@
+.map-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--accent);
+}
+
+.dot {
+  fill: currentColor;
+  opacity: 0.85;
+}
+
+.dot-rect {
+  fill: url(#dotPattern);
+}
+
+.marker {
+  cursor: pointer;
+  outline: none;
+}
+
+.marker-dot {
+  fill: var(--accent);
+  stroke: rgba(0, 212, 255, 0.7);
+  stroke-width: 2;
+}
+
+.marker-ring {
+  fill: none;
+  stroke: rgba(0, 212, 255, 0.45);
+  stroke-width: 2;
+  opacity: 0.6;
+}
+
+.marker:hover .marker-ring,
+.marker:focus-visible .marker-ring {
+  animation: marker-pulse 1.4s ease-out infinite;
+}
+
+.tooltip {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.marker:hover .tooltip,
+.marker:focus-visible .tooltip {
+  opacity: 1;
+}
+
+.tooltip-bg {
+  fill: rgba(8, 12, 16, 0.85);
+  stroke: rgba(0, 212, 255, 0.35);
+  stroke-width: 1;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+}
+
+.tooltip-text {
+  fill: var(--bright);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+}
+
+.list {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  color: rgba(201, 216, 230, 0.78);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+}
+
+@keyframes marker-pulse {
+  0% {
+    opacity: 0.65;
+    r: 9;
+  }
+  70% {
+    opacity: 0;
+    r: 18;
+  }
+  100% {
+    opacity: 0;
+    r: 18;
+  }
+}

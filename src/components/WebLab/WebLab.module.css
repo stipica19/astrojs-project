@@ -1,0 +1,132 @@
+.section-lead {
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1.8;
+  max-width: 70ch;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.lang-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0.5rem 1.1rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lang-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.lang-link--active {
+  border-color: rgba(var(--accent2-rgb), 0.55);
+  color: var(--bright);
+  box-shadow: 0 0 0 1px rgba(var(--accent2-rgb), 0.2);
+}
+
+.table-card {
+  position: relative;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-row {
+  border-bottom: 1px solid rgba(30, 45, 61, 0.8);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-cell {
+  padding: 0.95rem 0;
+  vertical-align: top;
+}
+
+.table-title {
+  color: var(--bright);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.table-desc {
+  color: rgba(201, 216, 230, 0.78);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 0.35rem;
+}
+
+.tech-note {
+  color: rgba(201, 216, 230, 0.8);
+  font-family: "JetBrains Mono", monospace;
+  margin-top: 1.5rem;
+  line-height: 1.7;
+}
+
+.map-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.map-svg {
+  width: 100%;
+  height: auto;
+}
+
+.map-grid {
+  stroke: rgba(30, 45, 61, 0.6);
+  stroke-width: 1;
+}
+
+.map-land {
+  fill: rgba(var(--accent2-rgb), 0.1);
+  stroke: rgba(var(--accent2-rgb), 0.4);
+  stroke-width: 1;
+}
+
+.map-dot {
+  fill: var(--accent);
+  stroke: rgba(0, 212, 255, 0.6);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.4));
+}
+
+.map-label {
+  fill: var(--bright);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+}
+
+.locations {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  color: rgba(201, 216, 230, 0.8);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,24 @@
+---
+import featureStyles from "../FeatureSection/FeatureSection.module.css";
+import styles from "./ServerMap.module.css";
+import mapa from "../../assets/mapa.png";
+
+interface Location {
+  country: string;
+  city: string;
+  x: number;
+  y: number;
+}
+
+interface Props {
+  ariaLabel: string;
+  locations: Location[];
+}
+const { ariaLabel }: Props = Astro.props;
+---
+
+<div
+  class={`${featureStyles["feature-card"]} ${styles["map-card"]} rounded-xl p-6`}
+>
+  <img src={mapa.src} class="w-full h-auto" alt={ariaLabel} />
+</div>

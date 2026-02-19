@@ -123,9 +123,9 @@
 
 .feature-card__desc {
   margin-top: 1.25rem;
-  color: var(--muted);
+  color: var(--text);
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.75;
 }
 

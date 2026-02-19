@@ -1,0 +1,261 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FeatureCards from "../../components/FeatureSection/FeatureCards.astro";
+import Divider from "../../components/divider/divider.astro";
+import TechSlider from "../../components/TechSlider/TechSlider.astro";
+import WebLabMaintenanceTable from "../../components/WebLab/WebLabMaintenanceTable.astro";
+import WebLabPortfolioGrid from "../../components/WebLab/WebLabPortfolioGrid.astro";
+import ServerMap from "../../components/ServerMap/ServerMap.astro";
+import styles from "../../components/WebLab/WebLab.module.css";
+import { getT } from "../../i18n";
+import { featureIcons } from "../../i18n/featureIcons";
+
+export async function getStaticPaths() {
+  const langs = ["hr", "en"] as const;
+  return langs.map((lang) => ({
+    params: { lang },
+    props: { lang, t: getT(lang) },
+  }));
+}
+
+interface PageProps {
+  lang: "hr" | "en";
+  t: any;
+}
+
+const { lang, t } = Astro.props as PageProps;
+const web = t.webLab;
+
+const withIcons = (items: any[], icons: any[]) =>
+  items.map((item, idx) => ({ ...item, icon: icons[idx] }));
+
+const langLinks = [
+  { label: web.langToggle.hr, href: "/hr/web-lab", active: lang === "hr" },
+  { label: web.langToggle.en, href: "/en/web-lab", active: lang === "en" },
+];
+
+const serverMeta = [
+  { city: "Frankfurt", x: 590, y: 170 },
+  { city: "Toronto", x: 240, y: 160 },
+  { city: "Zagreb", x: 605, y: 200 },
+  { city: "Sarajevo", x: 595, y: 210 },
+];
+
+const serverLocations = web.servers.locations.map(
+  (country: string, idx: number) => ({
+    country,
+    city: serverMeta[idx]?.city ?? "",
+    x: serverMeta[idx]?.x ?? 0,
+    y: serverMeta[idx]?.y ?? 0,
+  }),
+);
+---
+
+<Layout
+  brand={t.navbar.brand}
+  labels={{
+    service: t.navbar.service,
+    product: t.navbar.product,
+    about: t.navbar.about,
+    contact: t.navbar.contact,
+  }}
+>
+  <div class="page-bg" aria-hidden="true">
+    <div class="grid-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <main class="mx-auto px-0 md:px-0">
+    <section class="px-4 py-20 md:px-6">
+      <div class="mx-auto max-w-7xl">
+        <div
+          class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between"
+        >
+          <div class="max-w-3xl">
+            <h1 class="text-3xl font-bold text-white md:text-4xl">
+              {web.about.title}
+            </h1>
+            <p class={`${styles["section-lead"]} mt-4`}>{web.about.text}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Divider />
+
+    <FeatureCards
+      id="web-lab-what"
+      title={web.whatWeDo.title}
+      dark={false}
+      highlightIndex={1}
+      items={withIcons(web.whatWeDo.items, featureIcons.webLabWhatWeDo)}
+    />
+
+    <Divider />
+
+    <section class="px-4 py-16 md:px-6" id="web-lab-maintenance">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="text-3xl font-bold text-white md:text-4xl">
+          {web.maintenance.title}
+        </h2>
+        <div class="mt-8">
+          <WebLabMaintenanceTable items={web.maintenance.items} />
+        </div>
+      </div>
+    </section>
+
+    <Divider />
+
+    <section class="px-4 py-16 md:px-6" id="web-lab-tech">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="text-3xl font-bold text-white md:text-4xl">
+          {web.tech.title}
+        </h2>
+        <p class={`${styles["section-lead"]} mt-4`}>{web.tech.desc}</p>
+        <p class={styles["tech-note"]}>{web.tech.stack}</p>
+        <TechSlider />
+        <p class={styles["tech-note"]}>{web.tech.philosophy}</p>
+      </div>
+    </section>
+
+    <Divider />
+
+    <FeatureCards
+      id="web-lab-cooperation"
+      title={web.cooperation.title}
+      dark={false}
+      highlightIndex={0}
+      items={withIcons(web.cooperation.items, featureIcons.webLabCooperation)}
+    />
+
+    <Divider />
+
+    <section class="px-4 py-16 md:px-6" id="web-lab-portfolio">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="text-3xl font-bold text-white md:text-4xl">
+          {web.portfolio.title}
+        </h2>
+        <div class="mt-8">
+          <WebLabPortfolioGrid
+            items={web.portfolio.items}
+            ctaLabel={web.portfolio.cta}
+          />
+        </div>
+      </div>
+    </section>
+
+    <Divider />
+
+    <section class="px-4 py-16 md:px-6" id="web-lab-servers">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+          <div>
+            <h2 class="text-3xl font-bold text-white md:text-4xl">
+              {web.servers.title}
+            </h2>
+            <p class={`${styles["section-lead"]} mt-4`}>{web.servers.desc}</p>
+          </div>
+          <ServerMap
+            ariaLabel={web.servers.mapLabel}
+            locations={serverLocations}
+          />
+        </div>
+      </div>
+    </section>
+
+    <Divider />
+
+    <section class="px-4 py-16 md:px-6" id="web-lab-contact">
+      <div class="mx-auto max-w-5xl">
+        <header class="contact-hero">
+          <h2 class="contact-title">{web.contact.title}</h2>
+          <p class="contact-lead">{web.contact.lead}</p>
+        </header>
+
+        <section class="contact-card" aria-label={web.contact.title}>
+          <form
+            class="contact-form"
+            name="web-lab"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action={`/${lang}/contact/success`}
+          >
+            <input type="hidden" name="form-name" value="web-lab" />
+            <p class="contact-honeypot">
+              <label>
+                {web.contact.honeypot}
+                <input name="bot-field" />
+              </label>
+            </p>
+
+            <div class="contact-grid">
+              <div class="contact-field">
+                <label class="contact-label" for="name">
+                  {web.contact.fields.name}
+                </label>
+                <input
+                  class="contact-input"
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder={web.contact.placeholders.name}
+                  autocomplete="name"
+                  required
+                />
+              </div>
+
+              <div class="contact-field">
+                <label class="contact-label" for="email">
+                  {web.contact.fields.email}
+                </label>
+                <input
+                  class="contact-input"
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder={web.contact.placeholders.email}
+                  autocomplete="email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-label" for="project">
+                {web.contact.fields.project}
+              </label>
+              <textarea
+                class="contact-textarea"
+                id="project"
+                name="project"
+                rows={6}
+                placeholder={web.contact.placeholders.project}
+                required></textarea>
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-label" for="budget">
+                {web.contact.fields.budget}
+              </label>
+              <input
+                class="contact-input"
+                id="budget"
+                name="budget"
+                type="text"
+                placeholder={web.contact.placeholders.budget}
+              />
+            </div>
+
+            <div class="contact-actions">
+              <button class="contact-submit" type="submit">
+                {web.contact.submit}
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+</Layout>
