@@ -16,12 +16,12 @@ export const POST: APIRoute = async ({ request }) => {
                 { status: 400 },
             );
         }
-
+        console.log("Received contact form submission:", import.meta.env.RESEND_API_KEY);
         const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
         await resend.emails.send({
             from: "Bitelex <onboarding@resend.dev>", // kasnije zamijeni sa verified domain
-            to: ["stipica.klepic@gmail.com"], // ili tvoj business mail
+            to: ["pipiklepic1@gmail.com"], // ili tvoj business mail
             replyTo: email,
             subject: `New quote request — ${subject || "No subject"}`,
             text: `
