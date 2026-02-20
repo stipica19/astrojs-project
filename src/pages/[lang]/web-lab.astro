@@ -10,6 +10,8 @@ import styles from "../../components/WebLab/WebLab.module.css";
 import { getT } from "../../i18n";
 import { featureIcons } from "../../i18n/featureIcons";
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const langs = ["hr", "en"] as const;
   return langs.map((lang) => ({
@@ -22,8 +24,9 @@ interface PageProps {
   lang: "hr" | "en";
   t: any;
 }
-
-const { lang, t } = Astro.props as PageProps;
+const pageProps = Astro.props as Partial<PageProps> | undefined;
+const lang = pageProps?.lang ?? (Astro.params?.lang as "hr" | "en") ?? "hr";
+const t = pageProps?.t ?? getT(lang);
 const web = t.webLab;
 
 const withIcons = (items: any[], icons: any[]) =>
