@@ -1,0 +1,122 @@
+---
+import styles from "./KontaktForm.module.css";
+---
+
+<section class={styles["contact-card"]}>
+  <form
+    class={styles["contact-form"]}
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/api/contact"
+    id="quoteForm"
+  >
+    <input type="hidden" name="form-name" value="contact" />
+    <p class={styles["contact-honeypot"]}>
+      <label>
+        Don't fill this out: <input name="bot-field" />
+      </label>
+    </p>
+
+    <div class={styles["contact-grid"]}>
+      <div class={styles["contact-field"]}>
+        <label class={styles["contact-label"]} for="name">Name</label>
+        <input
+          class={styles["contact-input"]}
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Name"
+          autocomplete="name"
+          required
+        />
+      </div>
+
+      <div class={styles["contact-field"]}>
+        <label class={styles["contact-label"]} for="email">Email</label>
+        <input
+          class={styles["contact-input"]}
+          id="email"
+          name="email"
+          type="email"
+          placeholder="E-mail"
+          autocomplete="email"
+          required
+        />
+      </div>
+    </div>
+
+    <div class={styles["contact-field"]}>
+      <label class={styles["contact-label"]} for="subject">Subject</label>
+      <input
+        class={styles["contact-input"]}
+        id="subject"
+        name="subject"
+        type="text"
+        placeholder="Subject"
+        required
+      />
+    </div>
+
+    <div class={styles["contact-field"]}>
+      <label class={styles["contact-label"]} for="message">Message</label>
+      <textarea
+        class={styles["contact-textarea"]}
+        id="message"
+        name="message"
+        rows={7}
+        placeholder="Message"
+        required></textarea>
+    </div>
+
+    <div class={styles["contact-actions"]}>
+      <button class={styles["contact-submit"]} type="submit">Submit</button>
+    </div>
+  </form>
+
+  <div
+    id="contactToast"
+    class={styles["contact-toast"]}
+    role="status"
+    aria-live="polite"
+    data-visible="false"
+    data-message-hr="Hvala! Uskoro stize odgovor."
+    data-message-en="Thanks! You'll get a reply soon."
+  >
+    Hvala! Uskoro stize odgovor.
+  </div>
+
+  <script is:inline>
+    const form = document.getElementById("quoteForm");
+    const toast = document.getElementById("contactToast");
+
+    if (form instanceof HTMLFormElement && toast) {
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        try {
+          await fetch("/api/contact", {
+            method: "POST",
+            body: new FormData(form),
+          });
+        } catch (error) {
+          // Ignore errors for now, we only show a toast.
+        }
+
+        const lang = document.documentElement.lang || "hr";
+        const messageKey = lang.toLowerCase().startsWith("en")
+          ? "messageEn"
+          : "messageHr";
+        const message = toast.dataset[messageKey] || toast.textContent || "";
+
+        toast.textContent = message;
+        toast.setAttribute("data-visible", "true");
+
+        window.setTimeout(() => {
+          toast.setAttribute("data-visible", "false");
+        }, 4000);
+      });
+    }
+  </script>
+</section>

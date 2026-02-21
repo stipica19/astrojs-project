@@ -1,14 +1,15 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import FeatureCards from "../../components/FeatureSection/FeatureCards.astro";
-import Divider from "../../components/divider/divider.astro";
-import TechSlider from "../../components/TechSlider/TechSlider.astro";
-import WebLabMaintenanceTable from "../../components/WebLab/WebLabMaintenanceTable.astro";
-import WebLabPortfolioGrid from "../../components/WebLab/WebLabPortfolioGrid.astro";
-import ServerMap from "../../components/ServerMap/ServerMap.astro";
-import styles from "../../components/WebLab/WebLab.module.css";
-import { getT } from "../../i18n";
-import { featureIcons } from "../../i18n/featureIcons";
+import Layout from "@/layouts/Layout.astro";
+import FeatureCards from "@/components/Feature/FeatureCards.astro";
+import Divider from "@/components/divider/divider.astro";
+import TechSlider from "@/components/TechSlider/TechSlider.astro";
+import WebLabMaintenanceTable from "@/components/WebLab/WebLabMaintenanceTable.astro";
+import WebLabPortfolioGrid from "@/components/WebLab/WebLabPortfolioGrid.astro";
+import ServerMap from "@/components/ServerMap/ServerMap.astro";
+import styles from "@/components/WebLab/WebLab.module.css";
+import { getT } from "@/i18n";
+import { featureIcons } from "@/i18n/featureIcons";
+import KontaktForm from "@/components/kontakt/KontaktForm.astro";
 
 export const prerender = true;
 
@@ -61,6 +62,7 @@ const serverLocations = web.servers.locations.map(
     product: t.navbar.product,
     about: t.navbar.about,
     contact: t.navbar.contact,
+    webLab: t.navbar.webLab,
   }}
 >
   <div class="page-bg" aria-hidden="true">
@@ -76,7 +78,9 @@ const serverLocations = web.servers.locations.map(
           class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between"
         >
           <div class="max-w-3xl">
-            <h1 class="text-3xl font-bold text-white md:text-4xl">
+            <h1
+              class={`text-4xl font-bold text-white md:text-5xl ${styles["outline-word"]}`}
+            >
               {web.about.title}
             </h1>
             <p class={`${styles["section-lead"]} mt-4`}>{web.about.text}</p>
@@ -176,88 +180,7 @@ const serverLocations = web.servers.locations.map(
           <p class="contact-lead">{web.contact.lead}</p>
         </header>
 
-        <section class="contact-card" aria-label={web.contact.title}>
-          <form
-            class="contact-form"
-            name="web-lab"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            action={`/${lang}/contact/success`}
-          >
-            <input type="hidden" name="form-name" value="web-lab" />
-            <p class="contact-honeypot">
-              <label>
-                {web.contact.honeypot}
-                <input name="bot-field" />
-              </label>
-            </p>
-
-            <div class="contact-grid">
-              <div class="contact-field">
-                <label class="contact-label" for="name">
-                  {web.contact.fields.name}
-                </label>
-                <input
-                  class="contact-input"
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder={web.contact.placeholders.name}
-                  autocomplete="name"
-                  required
-                />
-              </div>
-
-              <div class="contact-field">
-                <label class="contact-label" for="email">
-                  {web.contact.fields.email}
-                </label>
-                <input
-                  class="contact-input"
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder={web.contact.placeholders.email}
-                  autocomplete="email"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="contact-field">
-              <label class="contact-label" for="project">
-                {web.contact.fields.project}
-              </label>
-              <textarea
-                class="contact-textarea"
-                id="project"
-                name="project"
-                rows={6}
-                placeholder={web.contact.placeholders.project}
-                required></textarea>
-            </div>
-
-            <div class="contact-field">
-              <label class="contact-label" for="budget">
-                {web.contact.fields.budget}
-              </label>
-              <input
-                class="contact-input"
-                id="budget"
-                name="budget"
-                type="text"
-                placeholder={web.contact.placeholders.budget}
-              />
-            </div>
-
-            <div class="contact-actions">
-              <button class="contact-submit" type="submit">
-                {web.contact.submit}
-              </button>
-            </div>
-          </form>
-        </section>
+        <KontaktForm />
       </div>
     </section>
   </main>

@@ -6,7 +6,13 @@ import Footer from "../components/Footer/Footer.astro";
 const lang = (Astro.params?.lang ?? "hr") as "hr" | "en";
 const {
   brand = "Bitelex",
-  labels = { service: "Service", product: "Product", about: "About" },
+  labels = {
+    service: "Service",
+    product: "Product",
+    about: "About",
+    contact: "Contact",
+    webLab: "Web Lab",
+  },
 } = Astro.props;
 ---
 
@@ -24,6 +30,7 @@ const {
       href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
       rel="stylesheet"
     />
+
     <title>Bitelex</title>
   </head>
   <body>

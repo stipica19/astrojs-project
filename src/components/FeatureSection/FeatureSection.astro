@@ -1,4 +1,4 @@
-<!-- ---
+---
 import FeatureCards from "./FeatureCards.astro";
 import FeatureRows from "./FeatureRows.astro";
 import styles from "./FeatureSection.module.css";
@@ -7,6 +7,7 @@ interface FeatureItem {
   icon?: any;
   title: string;
   desc: string;
+  href?: string;
 }
 
 interface Props {
@@ -44,57 +45,4 @@ const {
   )
 }
 
-<script
-  define:vars={{
-    featureCard: styles["feature-card"],
-    featureRow: styles["feature-row"],
-    feature: styles.feature,
-    featureRows: styles["feature-rows"],
-  }}
->
-  import { gsap } from "gsap";
-
-  const cards = document.querySelectorAll(`.${featureCard}`);
-  const rows = document.querySelectorAll(`.${featureRow}`);
-
-  if (cards.length) {
-    gsap.set(cards, {
-      autoAlpha: 0,
-      y: 24,
-      rotateX: 8,
-      transformOrigin: "50% 100%",
-    });
-    gsap.to(cards, {
-      autoAlpha: 1,
-      y: 0,
-      rotateX: 0,
-      duration: 0.6,
-      ease: "power3.out",
-      stagger: 0.08,
-      scrollTrigger: {
-        trigger: `.${feature}`,
-        start: "top 70%",
-        once: true,
-      },
-    });
-  }
-
-  if (rows.length) {
-    gsap.set(rows, {
-      autoAlpha: 0,
-      y: 36,
-    });
-    gsap.to(rows, {
-      autoAlpha: 1,
-      y: 0,
-      duration: 0.7,
-      ease: "power3.out",
-      stagger: 0.12,
-      scrollTrigger: {
-        trigger: `.${featureRows}`,
-        start: "top 70%",
-        once: true,
-      },
-    });
-  }
-</script> -->
+<script src="../../lib/feature-gsap.ts"></script>

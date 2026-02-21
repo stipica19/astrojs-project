@@ -1,12 +1,12 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Hero from "../../components/Hero/Hero.astro";
-import FeatureSection from "../../components/FeatureSection/FeatureSection.astro";
-import BuildWebsiteSectin from "../../components/BuildWebsiteSection/BuildWebsiteSection.astro";
-import PortfolioSection from "../../components/PortfolioSection/PortfolioSection.astro";
-import { getT } from "../../i18n";
-import Divider from "../../components/divider/divider.astro";
-import TechSlider from "../../components/TechSlider/TechSlider.astro";
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero/Hero.astro";
+import FeatureSection from "@/components/FeatureSection/FeatureSection.astro";
+import BuildWebsiteSectin from "@/components/BuildWebsiteSection/BuildWebsiteSection.astro";
+import PortfolioSection from "@/components/PortfolioSection/PortfolioSection.astro";
+import { getT } from "@/i18n";
+import Divider from "@/components/divider/divider.astro";
+import TechSlider from "@/components/TechSlider/TechSlider.astro";
 
 export const prerender = true;
 
@@ -25,6 +25,19 @@ interface PageProps {
 const pageProps = Astro.props as Partial<PageProps> | undefined;
 const lang = pageProps?.lang ?? (Astro.params?.lang as "hr" | "en") ?? "hr";
 const t = pageProps?.t ?? getT(lang);
+
+const withLangPrefix = (href?: string) => {
+  if (!href) return "#";
+  if (/^https?:\/\//.test(href)) return href; // eksterni link
+  return href.startsWith(`/${lang}/`)
+    ? href
+    : `/${lang}${href.startsWith("/") ? href : `/${href}`}`;
+};
+
+const serviceItems = t.sections.services.items.map((item: any) => ({
+  ...item,
+  href: withLangPrefix(item.href),
+}));
 ---
 
 <Layout
@@ -34,6 +47,7 @@ const t = pageProps?.t ?? getT(lang);
     product: t.navbar.product,
     about: t.navbar.about,
     contact: t.navbar.contact,
+    webLab: t.navbar.webLab,
   }}
 >
   <div class="page-bg" aria-hidden="true">
@@ -49,6 +63,7 @@ const t = pageProps?.t ?? getT(lang);
     statsLabels={t.hero.stats}
     ctaExplore={t.hero.ctaExplore}
     ctaView={t.hero.ctaView}
+    lang={lang}
   />
   <Divider />
   <main class="mx-auto px-0 md:px-0">
@@ -58,7 +73,7 @@ const t = pageProps?.t ?? getT(lang);
       variant="rows"
       ctaLabel={t.common.learnMore}
       highlightIndex={1}
-      items={t.sections.services.items}
+      items={serviceItems}
     />
     <BuildWebsiteSectin lang={lang} />
     <FeatureSection

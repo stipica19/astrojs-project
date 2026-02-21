@@ -22,6 +22,7 @@ interface Props {
   ctaExplore?: string;
   ctaView?: string;
   statsLabels?: StatsLabels;
+  lang?: "hr" | "en";
 }
 
 const {
@@ -41,6 +42,7 @@ const {
     experience: "Years of Experience",
     clients: "Happy Clients",
   },
+  lang = "hr",
 }: Props = Astro.props;
 ---
 
@@ -73,7 +75,7 @@ const {
     </p>
 
     <div class={styles["cta-row"]}>
-      <a href="#service" class={styles["btn-primary"]}>
+      <a href={`/${lang}/contact`} class={styles["btn-primary"]}>
         {ctaExplore}
         <span class={styles.arrow}>→</span>
       </a>
@@ -220,7 +222,9 @@ const {
       </svg>
 
       <div class={`${styles["geo-label"]} ${styles["gl-1"]}`}>01 / plan</div>
-      <div class={`${styles["geo-label"]} ${styles["gl-2"]}`}>02 / implement</div>
+      <div class={`${styles["geo-label"]} ${styles["gl-2"]}`}>
+        02 / implement
+      </div>
       <div class={`${styles["geo-label"]} ${styles["gl-3"]}`}>03 / deliver</div>
     </div>
   </div>

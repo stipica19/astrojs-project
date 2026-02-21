@@ -5,7 +5,9 @@
     "service": "Usluge",
     "product": "Proizvodi",
     "about": "O nama",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "webLab": "Web Lab",
+    "openSourceIntegrator": "Open Source Integrator"
   },
 "hero": {
   "badge": "Mi djelimo ideje",
@@ -37,15 +39,18 @@
         
         {
           "title": "Web i aplikacije",
-          "desc": "Dizajniramo web stranice, aplikacije, mikroservise i visokoučinkovite aplikacije"
+          "desc": "Dizajniramo web stranice, aplikacije, mikroservise i visokoučinkovite aplikacije",
+          "href": "/web-lab"
         },
         {
           "title": "Elektrotehnička rješenja",
-          "desc": "Prilagođena rješenja u elektrotehnici, elektronici i automatizaciji, prema potrebama klijenata"
+          "desc": "Prilagođena rješenja u elektrotehnici, elektronici i automatizaciji, prema potrebama klijenata",
+          "href": "/"
         },
         {
           "title": "Integrator otvorenog koda",
-          "desc": "Pristupačne i održive integracije rješenja otvorenog koda"
+          "desc": "Pristupačne i održive integracije rješenja otvorenog koda",
+          "href": "/open-source-integrator"
         }
       ]
     },
@@ -150,7 +155,7 @@
       "title": "Tehnologije",
       "desc": "Pratimo najnovije trendove u industriji, ali se oslanjamo i na provjerene tehnologije koje garantiraju stabilnost i dugoročnu održivost.",
       "stack": "Radimo s: C, C++, Rust, Java, Spring Boot, JavaScript, TypeScript, Node.js, Next.js, React, Linux i mnogim drugim alatima.",
-      "philosophy": "Naš pristup je kombinacija inovacije i sigurnosti – koristimo moderne jezike i okvire, ali uvijek pazimo da rješenja budu skalabilna i pouzdana."
+      "philosophy": "Naš pristup je kombinacija inovacije i sigurnosti - koristimo moderne jezike i okvire, ali uvijek pazimo da rješenja budu skalabilna i pouzdana."
     },
     "cooperation": {
       "title": "Modeli suradnje",
@@ -196,7 +201,7 @@
     },
     "servers": {
       "title": "Serveri",
-      "desc": "Naša infrastruktura je distribuirana – servere imamo u Njemačkoj, Kanadi, Hrvatskoj i Bosni i Hercegovini s daljnjim širenjem za globalnu dostupnost.",
+      "desc": "Naša infrastruktura je distribuirana - servere imamo u Njemačkoj, Kanadi, Hrvatskoj i Bosni i Hercegovini s daljnjim širenjem za globalnu dostupnost.",
       "mapLabel": "Lokacije servera",
       "locations": ["Njemačka", "Kanada", "Hrvatska", "Bosna i Hercegovina"]
     },
@@ -248,5 +253,68 @@
     },
     "submit": "Pošalji upit",
     "success": "Hvala — vaša poruka je poslana."
+  },
+  "openSourceIntegrator": {
+    "hero": {
+      "title": "Open Source integrator",
+      "description": "Otvoreni kod donosi slobodu, fleksibilnost i sigurnost - ali njegovo postavljanje i odrzavanje moze biti izazovno. Mi smo vas open source integrator: preuzimamo brigu o integraciji, hostingu i sigurnosti open source rjesenja, kako biste vi mogli koristiti alate bez tehnickih komplikacija.",
+      "seoDescription": "Otvoreni kod donosi slobodu, fleksibilnost i sigurnost, ali postavljanje i odrzavanje moze biti izazovno. Integriramo, hostamo i stitimo open source alate."
+    },
+    "services": {
+      "title": "Nase usluge",
+      "items": [
+        {
+          "title": "Integracija open source sustava",
+          "desc": "Integracija open source sustava prema vasim potrebama."
+        },
+        {
+          "title": "Cloud hosting",
+          "desc": "Hosting u oblaku s potpunom infrastrukturnom podrskom."
+        },
+        {
+          "title": "Sigurnost",
+          "desc": "SSL certifikati, DDoS zastita i VPN kanali."
+        },
+        {
+          "title": "Backup sustavi",
+          "desc": "Backup i dislocirani backup za potpunu pouzdanost."
+        },
+        {
+          "title": "Self-hosted podrska",
+          "desc": "Self-hosted podrska unutar vase mreze (operativno ograniceno prema lokaciji)."
+        }
+      ]
+    },
+    "tools": {
+      "title": "Podrzani alati",
+      "description": "Izbor open source rjesenja je ogroman. Kako bismo olaksali odabir, pripremili smo portfelj vec integriranih sustava - od sustava za suradnju i komunikaciju, do CRM-a, ERP-a i analitickih alata. Na zahtjev mozemo integrirati i druga rjesenja.",
+      "cta": "Pogledaj",
+      "items": [
+        {
+          "title": "Suradnja i komunikacija",
+          "desc": "Kolaboracijski alati za timove, projekte i internu komunikaciju.",
+          "image": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1400&auto=format&fit=crop"
+        },
+        {
+          "title": "CRM i prodaja",
+          "desc": "Sustavi za pracenje leadova, prodaje i odnosa s klijentima.",
+          "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1400&auto=format&fit=crop"
+        },
+        {
+          "title": "ERP i analitika",
+          "desc": "Platforme za operativne procese, izvjestaje i analitiku.",
+          "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1400&auto=format&fit=crop"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Cjenik",
+      "description": "Cijena nasih usluga integracije dostupna je na upit. Za cloud hosting, obracun se vrsi prema koristenju resursa: CPU, RAM, Disk, Promet. Mozemo napraviti procjenu prema vasim potrebama."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Za personaliziranu ponudu ispunite nasu kontakt formu i nas tim ce vam se javiti s detaljima.",
+      "cta": "Kontakt forma"
+    }
   }
 }

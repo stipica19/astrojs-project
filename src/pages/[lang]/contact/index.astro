@@ -1,6 +1,7 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import { getT } from "../../../i18n";
+import Layout from "@/layouts/Layout.astro";
+import { getT } from "@/i18n";
+import KontaktForm from "@/components/Kontakt/KontaktForm.astro";
 
 export const prerender = true;
 
@@ -29,6 +30,7 @@ const c = t.contact;
     product: t.navbar.product,
     about: t.navbar.about,
     contact: t.navbar.contact,
+    webLab: t.navbar.webLab,
   }}
 >
   <div class="page-bg" aria-hidden="true">
@@ -43,110 +45,7 @@ const c = t.contact;
         <h1 class="contact-title">{c.title}</h1>
         <p class="contact-lead">{c.lead}</p>
       </header>
-
-      <section class="contact-card" aria-label={c.title}>
-        <form
-          class="contact-form"
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/api/contact"
-          id="quoteForm"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="contact-honeypot">
-            <label>
-              Don't fill this out: <input name="bot-field" />
-            </label>
-          </p>
-
-          <div class="contact-grid">
-            <div class="contact-field">
-              <label class="contact-label" for="name">{c.fields.name}</label>
-              <input
-                class="contact-input"
-                id="name"
-                name="name"
-                type="text"
-                placeholder={c.placeholders.name}
-                autocomplete="name"
-                required
-              />
-            </div>
-
-            <div class="contact-field">
-              <label class="contact-label" for="email">{c.fields.email}</label>
-              <input
-                class="contact-input"
-                id="email"
-                name="email"
-                type="email"
-                placeholder={c.placeholders.email}
-                autocomplete="email"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="contact-field">
-            <label class="contact-label" for="subject">{c.fields.subject}</label
-            >
-            <input
-              class="contact-input"
-              id="subject"
-              name="subject"
-              type="text"
-              placeholder={c.placeholders.subject}
-              required
-            />
-          </div>
-
-          <div class="contact-field">
-            <label class="contact-label" for="message">{c.fields.message}</label
-            >
-            <textarea
-              class="contact-textarea"
-              id="message"
-              name="message"
-              rows={7}
-              placeholder={c.placeholders.message}
-              required></textarea>
-          </div>
-
-          <div class="contact-actions">
-            <button class="contact-submit" type="submit">{c.submit}</button>
-          </div>
-        </form>
-        <p id="formMsg" class="hidden"></p>
-      </section>
+      <KontaktForm />
     </div>
   </main>
-
-  <script>
-    const form = document.getElementById("quoteForm") as HTMLFormElement;
-    const msg = document.getElementById("formMsg");
-
-    if (form && msg) {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          body: new FormData(form),
-        });
-
-        const data = await res.json();
-
-        msg.classList.remove("hidden");
-
-        if (data.ok) {
-          msg.textContent = "Hvala! Javit ćemo vam se uskoro.";
-          form.reset();
-        } else {
-          msg.textContent = "Greška. Pokušaj ponovo.";
-        }
-      });
-    }
-  </script>
 </Layout>

@@ -4,6 +4,10 @@
   line-height: 1.8;
   max-width: 70ch;
 }
+.outline-word {
+  -webkit-text-stroke: 2px var(--accent2);
+  color: transparent;
+}
 
 .lang-toggle {
   display: inline-flex;

@@ -3,7 +3,13 @@ import styles from "./Navbar.module.css";
 
 export interface Props {
   brand?: string;
-  labels?: { service: string; product: string; about: string; contact: string };
+  labels?: {
+    service: string;
+    product: string;
+    about: string;
+    contact: string;
+    webLab: string;
+  };
   lang?: "hr" | "en";
   currentPath?: string;
 }
@@ -14,6 +20,7 @@ const {
     product: "Product",
     about: "About",
     contact: "Contact",
+    webLab: "Web Lab",
   },
   lang = "hr",
   currentPath,
@@ -73,6 +80,15 @@ const enHref = getLangHref("en");
         >
           <span class="link-index">04</span>
           <span class="link-label">{labels.contact}</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href={lang ? `/${lang}/web-lab` : "/web-lab"}
+          class={styles["site-nav__link"]}
+        >
+          <span class="link-index">05</span>
+          <span class="link-label">{labels.webLab}</span>
         </a>
       </li>
     </ul>
@@ -217,6 +233,15 @@ const enHref = getLangHref("en");
         >
           <span class={styles["mobile-index"]}>04</span>
           {labels.contact}
+        </a>
+      </li>
+      <li>
+        <a
+          href={lang ? `/${lang}/web-lab` : "/web-lab"}
+          class={styles["mobile-link"]}
+        >
+          <span class={styles["mobile-index"]}>05</span>
+          {labels.webLab}
         </a>
       </li>
     </ul>
