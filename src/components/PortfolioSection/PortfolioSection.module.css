@@ -4,6 +4,9 @@
 
 .portfolio-title {
   color: var(--bright);
+  font-family: "JetBrains Mono", monospace;
+
+  text-align: center;
 }
 
 .portfolio-card {
@@ -74,9 +77,10 @@
 
 .portfolio-head {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .portfolio-controls {
@@ -126,18 +130,11 @@
   position: relative;
 }
 
-.portfolio-viewport {
+.portfolio-swiper {
   overflow: hidden;
-  touch-action: pan-y;
-}
-
-.portfolio-track {
-  display: flex;
-  gap: 1.25rem;
-  will-change: transform;
   padding-bottom: 0.25rem;
 }
 
 .portfolio-slide {
-  flex: 0 0 clamp(280px, 84vw, 420px);
+  height: auto;
 }

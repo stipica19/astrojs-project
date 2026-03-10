@@ -43,7 +43,7 @@ const demoItems: WorkItem[] = [
     desc: "Warm, inviting homepage with menu highlights",
     image:
       "https://images.unsplash.com/photo-1626130569162-f90681b6982a?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    url: "https://bitelex2.netlify.app",
+    url: "https://www.enduro-spirit.com/de",
     tag: "Website",
   },
   {
@@ -51,76 +51,102 @@ const demoItems: WorkItem[] = [
     desc: "Modern SaaS landing with product tour",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKFoo8y4kLV98oUwTZTAQCzqmlJUqOR0NLFg&s",
-    url: "https://bitelex2.netlify.app",
+    url: "https://www.hoteldeluxe.ba/",
     tag: "Website",
   },
 ];
 
 const list = (items?.length ? items : demoItems) as WorkItem[];
+
+const swiperCssHref =
+  "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
 ---
+
+<link rel="stylesheet" href={swiperCssHref} />
 
 <section
   id={id}
   class={`${styles.portfolio} relative overflow-hidden px-4 py-16 md:px-6`}
+  data-portfolio-root
 >
   <div class="mx-auto max-w-7xl">
     <div class={styles["portfolio-head"]}>
       <h2 class={`${styles["portfolio-title"]} text-3xl font-bold`}>
         {sectionTitle}
       </h2>
+      <div class={styles["portfolio-controls"]}>
+        <button
+          class={`${styles["portfolio-arrow"]} portfolio-prev`}
+          type="button"
+          aria-label="Previous"
+          data-portfolio-prev
+        >
+          <ChevronLeft class="h-5 w-5" />
+        </button>
+        <button
+          class={`${styles["portfolio-arrow"]} portfolio-next`}
+          type="button"
+          aria-label="Next"
+          data-portfolio-next
+        >
+          <ChevronRight class="h-5 w-5" />
+        </button>
+      </div>
     </div>
 
     <div class={`${styles["portfolio-slider"]} mt-8`} aria-label={sectionTitle}>
-      <div class={styles["portfolio-viewport"]}>
-        <div class={styles["portfolio-track"]}>
+      <div class={`swiper ${styles["portfolio-swiper"]}`} data-portfolio-swiper>
+        <div class="swiper-wrapper">
           {
             list.map((w) => (
-              <a
-                href={w.url}
-                target="_blank"
-                rel="noopener"
-                class={`${styles["portfolio-slide"]} ${styles["portfolio-card"]} group block overflow-hidden rounded-xl`}
-              >
-                <div class="relative h-48 w-full overflow-hidden">
-                  <img
-                    src={w.image}
-                    alt={w.title}
-                    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div
-                    class={`${styles["portfolio-card__overlay"]} absolute inset-0`}
-                  />
-                  {w.tag && (
-                    <span
-                      class={`${styles["portfolio-tag"]} absolute left-3 top-3 rounded px-2 py-0.5 text-xs font-semibold`}
-                    >
-                      {w.tag}
-                    </span>
-                  )}
-                </div>
-                <div class="p-4">
-                  <div class="flex items-start justify-between gap-3">
-                    <h3
-                      class={`${styles["portfolio-card__title"]} text-lg font-semibold`}
-                    >
-                      {w.title}
-                    </h3>
-                    <ArrowUpRight
-                      class={`${styles["portfolio-card__icon"]} h-5 w-5`}
+              <div class={`swiper-slide ${styles["portfolio-slide"]}`}>
+                <a
+                  href={w.url}
+                  target="_blank"
+                  rel="noopener"
+                  class={`${styles["portfolio-card"]} group block overflow-hidden rounded-xl`}
+                >
+                  <div class="relative h-48 w-full overflow-hidden">
+                    <img
+                      src={w.image}
+                      alt={w.title}
+                      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
+                    <div
+                      class={`${styles["portfolio-card__overlay"]} absolute inset-0`}
+                    />
+                    {w.tag && (
+                      <span
+                        class={`${styles["portfolio-tag"]} absolute left-3 top-3 rounded px-2 py-0.5 text-xs font-semibold`}
+                      >
+                        {w.tag}
+                      </span>
+                    )}
                   </div>
-                  {w.desc && (
-                    <p class={`${styles["portfolio-card__desc"]} mt-2 text-sm`}>
-                      {w.desc}
-                    </p>
-                  )}
-                  <span
-                    class={`${styles["portfolio-card__cta"]} mt-4 inline-flex items-center gap-1 text-sm font-medium`}
-                  >
-                    {cta}
-                  </span>
-                </div>
-              </a>
+                  <div class="p-4">
+                    <div class="flex items-start justify-between gap-3">
+                      <h3
+                        class={`${styles["portfolio-card__title"]} text-lg font-semibold`}
+                      >
+                        {w.title}
+                      </h3>
+                      <ArrowUpRight
+                        class={`${styles["portfolio-card__icon"]} h-5 w-5`}
+                      />
+                    </div>
+                    {/* {w.desc && (
+                      <p class={`${styles["portfolio-card__desc"]} mt-2 text-sm`}>
+                        {w.desc}
+                      </p>
+                    )} */}
+                    <span
+                      class={`${styles["portfolio-card__cta"]} mt-4 inline-flex items-center gap-1 text-sm font-medium`}
+                    >
+                      {cta}
+                    </span>
+                  </div>
+                </a>
+              </div>
             ))
           }
         </div>
@@ -128,3 +154,32 @@ const list = (items?.length ? items : demoItems) as WorkItem[];
     </div>
   </div>
 </section>
+
+<script is:inline type="module">
+  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+  const roots = document.querySelectorAll("[data-portfolio-root]");
+
+  roots.forEach((root) => {
+    const swiperEl = root.querySelector("[data-portfolio-swiper]");
+    if (!swiperEl) return;
+
+    const prevEl = root.querySelector("[data-portfolio-prev]");
+    const nextEl = root.querySelector("[data-portfolio-next]");
+
+    new Swiper(swiperEl, {
+      slidesPerView: 1.05,
+      spaceBetween: 16,
+      speed: 650,
+      navigation: {
+        prevEl,
+        nextEl,
+      },
+      breakpoints: {
+        640: { slidesPerView: 1.4, spaceBetween: 18 },
+        900: { slidesPerView: 2.1, spaceBetween: 20 },
+        1200: { slidesPerView: 3, spaceBetween: 24 },
+      },
+    });
+  });
+</script>

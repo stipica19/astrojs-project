@@ -48,9 +48,13 @@ const enHref = getLangHref("en");
       class={styles["site-nav__brand"]}
       aria-label={brand}
     >
-      <span class={styles["brand-bracket"]}>&lt;</span>
-      <span class={styles["brand-name"]}>{brand}</span>
-      <span class={styles["brand-bracket"]}>/&gt;</span>
+      <img
+        src="/logo_svg.png"
+        alt=""
+        width="65"
+        height="65"
+        aria-hidden="true"
+      />
     </a>
 
     <!-- Desktop links -->
@@ -300,22 +304,52 @@ const enHref = getLangHref("en");
   </div>
 </nav>
 
-<script
-  define:vars={{
-    toggleClass: styles["site-nav__toggle"],
-    mobileClass: styles["site-nav__mobile"],
-    mobileOpenClass: styles["site-nav__mobile--open"],
-  }}
->
-  const toggle = document.querySelector(`.${toggleClass}`);
-  const menu = document.querySelector(`.${mobileClass}`);
+<script>
+  const nav = document.getElementById("site-nav");
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const SCROLL_THRESHOLD = 200;
 
   if (toggle && menu) {
     toggle.addEventListener("click", () => {
       const isOpen = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!isOpen));
       menu.setAttribute("aria-hidden", String(isOpen));
-      menu.classList.toggle(mobileOpenClass, !isOpen);
+      menu.classList.toggle("site-nav__mobile--open", !isOpen);
+    });
+  }
+
+  if (nav) {
+    const getDocumentScrollTop = () => {
+      const scrollElement = document.scrollingElement;
+      const scrollTop =
+        window.scrollY ||
+        window.pageYOffset ||
+        scrollElement?.scrollTop ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0;
+
+      if (scrollTop) return scrollTop;
+      const bodyTop = document.body?.getBoundingClientRect?.().top ?? 0;
+      return Math.abs(bodyTop);
+    };
+
+    const updateNav = (event?: Event) => {
+      const target = event?.target;
+      const targetScrollTop =
+        target instanceof HTMLElement ? target.scrollTop : 0;
+      const scrollTop = targetScrollTop || getDocumentScrollTop();
+      const isScrolled = scrollTop >= SCROLL_THRESHOLD;
+      nav.dataset.scrolled = isScrolled ? "true" : "false";
+    };
+
+    updateNav();
+    window.addEventListener("scroll", updateNav, { passive: true });
+    window.addEventListener("resize", updateNav, { passive: true });
+    document.addEventListener("scroll", updateNav, {
+      passive: true,
+      capture: true,
     });
   }
 </script>

@@ -24,6 +24,7 @@
 
 .feature-title {
   color: var(--bright);
+  font-family: "JetBrains Mono", monospace;
 }
 
 .feature-card {
@@ -52,17 +53,6 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 180ms ease;
-  background:
-    radial-gradient(
-      420px 260px at 20% 15%,
-      rgba(0, 212, 255, 0.22),
-      transparent 55%
-    ),
-    radial-gradient(
-      420px 260px at 80% 85%,
-      rgba(0, 102, 255, 0.18),
-      transparent 60%
-    );
 }
 
 .feature-card:hover {
@@ -124,7 +114,7 @@
 .feature-card__desc {
   margin-top: 1.25rem;
   color: var(--text);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   line-height: 1.75;
 }
