@@ -19,10 +19,7 @@ const { lang, t } = Astro.props as PageProps;
 const c = t.contact;
 ---
 
-<Layout
-  brand={t.navbar.brand}
-  labels={t.navbar}
->
+<Layout brand={t.navbar.brand} labels={t.navbar}>
   <div class="page-bg" aria-hidden="true">
     <div class="grid-bg"></div>
     <div class="orb orb-1"></div>
