@@ -28,20 +28,11 @@ const t = pageProps?.t ?? getT(lang);
 const c = t.openSourceIntegrator;
 ---
 
-<head>
-  <title>{c.hero.title}</title>
-  <meta name="description" content={c.hero.seoDescription} />
-</head>
-
 <Layout
   brand={t.navbar.brand}
-  labels={{
-    service: t.navbar.service,
-    product: t.navbar.product,
-    about: t.navbar.about,
-    contact: t.navbar.contact,
-    webLab: t.navbar.webLab,
-  }}
+  labels={t.navbar}
+  title={c.hero.title}
+  description={c.hero.seoDescription}
 >
   <div class="page-bg" aria-hidden="true">
     <div class="grid-bg"></div>

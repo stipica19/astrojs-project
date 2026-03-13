@@ -14,6 +14,7 @@ import {
 } from "@lucide/astro";
 
 export const featureIcons = {
+    services: [Monitor, Wrench, Network],
     mission: [ShieldCheck, Code, Accessibility],
     products: [Globe],
     webLabWhatWeDo: [Monitor, Network, Gauge, Sliders],

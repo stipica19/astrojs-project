@@ -91,7 +91,7 @@
 .hero-sub {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--text);
   line-height: 1.7;
   max-width: 480px;
   margin-bottom: 2.5rem;

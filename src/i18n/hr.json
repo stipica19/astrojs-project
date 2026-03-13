@@ -98,7 +98,7 @@
   "webLab": {
     "langToggle": { "label": "Jezik", "hr": "HR", "en": "EN" },
     "about": {
-      "title": "Tko smo mi",
+      "title": "Web Lab",
       "text": "Mi smo mali, ali snažan tim softverskih i sistemskih inženjera, grafičkih dizajnera i kreatora. Naša strast je stvaranje digitalnih rješenja koja kombiniraju funkcionalnost, performanse i estetiku."
     },
     "whatWeDo": {
@@ -257,37 +257,37 @@
   "openSourceIntegrator": {
     "hero": {
       "title": "Open Source integrator",
-      "description": "Otvoreni kod donosi slobodu, fleksibilnost i sigurnost - ali njegovo postavljanje i odrzavanje moze biti izazovno. Mi smo vas open source integrator: preuzimamo brigu o integraciji, hostingu i sigurnosti open source rjesenja, kako biste vi mogli koristiti alate bez tehnickih komplikacija.",
-      "seoDescription": "Otvoreni kod donosi slobodu, fleksibilnost i sigurnost, ali postavljanje i odrzavanje moze biti izazovno. Integriramo, hostamo i stitimo open source alate."
+      "description": "Otvoreni kod donosi slobodu, fleksibilnost i sigurnost - ali njegovo postavljanje i održavanje može biti izazovno. Mi smo vaš open source integrator: preuzimamo brigu o integraciji, hostingu i sigurnosti open source rješenja, kako biste vi mogli koristiti alate bez tehničkih komplikacija.",
+      "seoDescription": "Otvoreni kod donosi slobodu, fleksibilnost i sigurnost, ali postavljanje i održavanje može biti izazovno. Integriramo, hostamo i štitimo open source alate."
     },
     "services": {
-      "title": "Nase usluge",
+      "title": "Naše usluge",
       "items": [
         {
           "title": "Integracija open source sustava",
-          "desc": "Integracija open source sustava prema vasim potrebama."
+          "desc": "Integracija open source sustava prema vašim potrebama."
         },
         {
           "title": "Cloud hosting",
-          "desc": "Hosting u oblaku s potpunom infrastrukturnom podrskom."
+          "desc": "Hosting u oblaku s potpunom infrastrukturnom podrškom."
         },
         {
           "title": "Sigurnost",
-          "desc": "SSL certifikati, DDoS zastita i VPN kanali."
+          "desc": "SSL certifikati, DDoS zaštita i VPN kanali."
         },
         {
           "title": "Backup sustavi",
           "desc": "Backup i dislocirani backup za potpunu pouzdanost."
         },
         {
-          "title": "Self-hosted podrska",
-          "desc": "Self-hosted podrska unutar vase mreze (operativno ograniceno prema lokaciji)."
+          "title": "Self-hosted podrška",
+          "desc": "Self-hosted podrška unutar vaše mreže (operativno ograničeno prema lokaciji)."
         }
       ]
     },
     "tools": {
-      "title": "Podrzani alati",
-      "description": "Izbor open source rjesenja je ogroman. Kako bismo olaksali odabir, pripremili smo portfelj vec integriranih sustava - od sustava za suradnju i komunikaciju, do CRM-a, ERP-a i analitickih alata. Na zahtjev mozemo integrirati i druga rjesenja.",
+      "title": "Podržani alati",
+      "description": "Izbor open source rješenja je ogroman. Kako bismo olakšali odabir, pripremili smo portfelj već integriranih sustava - od sustava za suradnju i komunikaciju, do CRM-a, ERP-a i analitičkih alata. Na zahtjev možemo integrirati i druga rješenja.",
       "cta": "Pogledaj",
       "items": [
         {
@@ -297,23 +297,23 @@
         },
         {
           "title": "CRM i prodaja",
-          "desc": "Sustavi za pracenje leadova, prodaje i odnosa s klijentima.",
+          "desc": "Sustavi za praćenje leadova, prodaje i odnosa s klijentima.",
           "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1400&auto=format&fit=crop"
         },
         {
           "title": "ERP i analitika",
-          "desc": "Platforme za operativne procese, izvjestaje i analitiku.",
+          "desc": "Platforme za operativne procese, izvještaje i analitiku.",
           "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1400&auto=format&fit=crop"
         }
       ]
     },
     "pricing": {
       "title": "Cjenik",
-      "description": "Cijena nasih usluga integracije dostupna je na upit. Za cloud hosting, obracun se vrsi prema koristenju resursa: CPU, RAM, Disk, Promet. Mozemo napraviti procjenu prema vasim potrebama."
+      "description": "Cijena naših usluga integracije dostupna je na upit. Za cloud hosting, obračun se vrši prema korištenju resursa: CPU, RAM, Disk, Promet. Možemo napraviti procjenu prema vašim potrebama."
     },
     "contact": {
       "title": "Kontakt",
-      "description": "Za personaliziranu ponudu ispunite nasu kontakt formu i nas tim ce vam se javiti s detaljima.",
+      "description": "Za personaliziranu ponudu ispunite našu kontakt formu i naš tim će vam se javiti s detaljima.",
       "cta": "Kontakt forma"
     }
   }

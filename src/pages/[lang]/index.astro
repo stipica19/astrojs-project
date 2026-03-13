@@ -5,8 +5,8 @@ import FeatureSection from "@/components/FeatureSection/FeatureSection.astro";
 import BuildWebsiteSectin from "@/components/BuildWebsiteSection/BuildWebsiteSection.astro";
 import PortfolioSection from "@/components/PortfolioSection/PortfolioSection.astro";
 import { getT } from "@/i18n";
+import { featureIcons } from "@/i18n/featureIcons";
 import Divider from "@/components/divider/divider.astro";
-import TechSlider from "@/components/TechSlider/TechSlider.astro";
 
 export const prerender = true;
 
@@ -38,18 +38,22 @@ const serviceItems = t.sections.services.items.map((item: any) => ({
   ...item,
   href: withLangPrefix(item.href),
 }));
+
+const withIcons = (items: any[], icons: any[]) =>
+  items.map((item, idx) => ({ ...item, icon: icons[idx] }));
+
+const serviceItemsWithIcons = withIcons(serviceItems, featureIcons.services);
+const missionItemsWithIcons = withIcons(
+  t.sections.mission.items,
+  featureIcons.mission,
+);
+const productItemsWithIcons = withIcons(
+  t.sections.products.items,
+  featureIcons.products,
+);
 ---
 
-<Layout
-  brand={t.navbar.brand}
-  labels={{
-    service: t.navbar.service,
-    product: t.navbar.product,
-    about: t.navbar.about,
-    contact: t.navbar.contact,
-    webLab: t.navbar.webLab,
-  }}
->
+<Layout brand={t.navbar.brand} labels={t.navbar}>
   <div class="page-bg" aria-hidden="true">
     <div class="grid-bg"></div>
     <div class="orb orb-1"></div>
@@ -73,24 +77,26 @@ const serviceItems = t.sections.services.items.map((item: any) => ({
       variant="cards"
       ctaLabel={t.common.learnMore}
       highlightIndex={1}
-      items={serviceItems}
+      items={serviceItemsWithIcons}
     />
-    <BuildWebsiteSectin lang={lang} />
-    <FeatureSection
-      id="our-mission"
-      title={t.sections.mission.title}
-      dark={false}
-      highlightIndex={1}
-      items={t.sections.mission.items}
-    />
-    <Divider />
+
     <FeatureSection
       id="product"
       title={t.sections.products.title}
       dark={false}
       highlightIndex={1}
-      items={t.sections.products.items}
+      items={productItemsWithIcons}
     />
+    <!-- <BuildWebsiteSectin lang={lang} /> -->
+    <Divider />
+    <FeatureSection
+      id="our-mission"
+      title={t.sections.mission.title}
+      dark={false}
+      highlightIndex={1}
+      items={missionItemsWithIcons}
+    />
+
     <Divider />
     <PortfolioSection lang={lang} />
     <!-- <TechSlider /> -->

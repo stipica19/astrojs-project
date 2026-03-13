@@ -10,6 +10,7 @@ import styles from "@/components/WebLab/WebLab.module.css";
 import { getT } from "@/i18n";
 import { featureIcons } from "@/i18n/featureIcons";
 import KontaktForm from "@/components/Kontakt/KontaktForm.astro";
+import PortfolioSection from "@/components/PortfolioSection/PortfolioSection.astro";
 
 export const prerender = true;
 
@@ -55,16 +56,7 @@ const serverLocations = web.servers.locations.map(
 );
 ---
 
-<Layout
-  brand={t.navbar.brand}
-  labels={{
-    service: t.navbar.service,
-    product: t.navbar.product,
-    about: t.navbar.about,
-    contact: t.navbar.contact,
-    webLab: t.navbar.webLab,
-  }}
->
+<Layout brand={t.navbar.brand} labels={t.navbar}>
   <div class="page-bg" aria-hidden="true">
     <div class="grid-bg"></div>
     <div class="orb orb-1"></div>
@@ -120,7 +112,7 @@ const serverLocations = web.servers.locations.map(
           {web.tech.title}
         </h2>
         <p class={`${styles["section-lead"]} mt-4`}>{web.tech.desc}</p>
-        <p class={styles["tech-note"]}>{web.tech.stack}</p>
+
         <TechSlider />
         <p class={styles["tech-note"]}>{web.tech.philosophy}</p>
       </div>
@@ -144,10 +136,11 @@ const serverLocations = web.servers.locations.map(
           {web.portfolio.title}
         </h2>
         <div class="mt-8">
-          <WebLabPortfolioGrid
+          <!-- <PortfolioGrid
             items={web.portfolio.items}
             ctaLabel={web.portfolio.cta}
-          />
+          /> -->
+          <PortfolioSection />
         </div>
       </div>
     </section>

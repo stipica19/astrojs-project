@@ -6,12 +6,15 @@ import Footer from "../components/Footer/Footer.astro";
 const lang = (Astro.params?.lang ?? "hr") as "hr" | "en";
 const {
   brand = "Bitelex",
+  title = "Bitelex",
+  description,
   labels = {
     service: "Service",
     product: "Product",
     about: "About",
     contact: "Contact",
     webLab: "Web Lab",
+    openSourceIntegrator: "Open Source Integrator",
   },
 } = Astro.props;
 ---
@@ -31,7 +34,8 @@ const {
       rel="stylesheet"
     />
 
-    <title>Bitelex</title>
+    <title>{title}</title>
+    {description ? <meta name="description" content={description} /> : null}
   </head>
   <body>
     <Navbar brand={brand} labels={labels} lang={lang} />

@@ -98,7 +98,7 @@
   "webLab": {
     "langToggle": { "label": "Language", "hr": "HR", "en": "EN" },
     "about": {
-      "title": "Who we are",
+      "title": "Web Lab",
       "text": "We are a compact but powerful team of software and systems engineers, graphic designers, and makers. Our passion is building digital products that blend performance, functionality, and aesthetics."
     },
     "whatWeDo": {
@@ -222,7 +222,7 @@
         "project": "Describe your project and goals",
         "budget": "Estimated budget"
       },
-      "honeypot": "Don’t fill this out:",
+      "honeypot": "Don't fill this out:",
       "submit": "Request a quote"
     }
   },
