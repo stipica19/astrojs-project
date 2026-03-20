@@ -71,7 +71,8 @@
       "items": [
         {
           "title": "Dinio DNS",
-          "desc": "All-in-one DNS platform under development, offering advanced features such as geo-routing, blocking, filtering."
+          "desc": "All-in-one DNS platform under development, offering advanced features such as geo-routing, blocking, filtering.",
+          "href": "/dinio-dns"
         }
       ]
     },
@@ -255,6 +256,173 @@
     },
     "submit": "Send enquiry",
     "success": "Thanks — your message has been sent."
+  },
+  "aboutPage": {
+    "title": "About Us",
+    "paragraphs": [
+      "Bitelex is focused on developing technical solutions tailored to the unique needs of its clients. Our goal is to build reliable and efficient technologies that help individuals and organizations create and manage their digital infrastructure.",
+      "Our teams are currently focused on web-oriented services, including the development of web applications and internet-based services."
+    ],
+    "aboutDinio": "As the first product in our portfolio, we introduce DinioDNS, our modern DNS management platform currently under development."
+  },
+  "dinioDnsPage": {
+    "seoTitle": "DinioDNS | One DNS platform. Total control.",
+    "seoDescription": "An all-in-one DNS platform combining authoritative hosting, intelligent traffic routing, privacy-focused DNS filtering, and a global edge network.",
+    "hero": {
+      "title": "One DNS platform. Total control.",
+      "lead": "An all-in-one DNS platform that combines:",
+      "points": [
+        "Authoritative DNS hosting",
+        "Intelligent traffic routing",
+        "Privacy-focused DNS filtering",
+        "Powered by a global edge network"
+      ],
+      "ctaPrimary": "Join the waitlist",
+      "ctaSecondary": "Get updates",
+      "notice": "Currently in development - sign up to receive updates and early access."
+    },
+    "problem": {
+      "title": "The problem we solve",
+      "subtitle": "DNS today is fragmented",
+      "lead": "Modern infrastructure often requires multiple tools:",
+      "tools": [
+        "DNS hosting providers",
+        "geo-routing solutions",
+        "DNS filtering services",
+        "analytics tools",
+        "security layers"
+      ],
+      "conclusion": "Managing them separately increases complexity, cost, and latency. Our DNS platform unifies everything."
+    },
+    "authoritative": {
+      "title": "Authoritative DNS Hosting",
+      "lead": "Reliable, programmable DNS infrastructure for modern applications.",
+      "features": [
+        {
+          "title": "Geo routing",
+          "desc": "Route traffic based on user location without complex anycast infrastructure."
+        },
+        {
+          "title": "Geo blocking",
+          "desc": "Restrict access from specific regions directly at the DNS layer."
+        },
+        {
+          "title": "Health checks",
+          "desc": "Automatically reroute traffic when a service becomes unavailable."
+        },
+        {
+          "title": "API-first management",
+          "desc": "Automate DNS configuration and integrate it with your infrastructure."
+        },
+        {
+          "title": "DDoS protection",
+          "desc": "Built-in protection against DNS-based attacks."
+        },
+        {
+          "title": "Web redirects",
+          "desc": "Redirect domains and subdomains without extra services."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "DNS Shield",
+      "lead": "Privacy-focused DNS resolution for devices and networks.",
+      "idealForTitle": "Perfect for:",
+      "idealFor": [
+        "privacy-focused users",
+        "IoT networks",
+        "company networks",
+        "self-hosted environments"
+      ],
+      "features": [
+        {
+          "title": "Blocklists",
+          "desc": "Filter trackers, malware, and unwanted domains."
+        },
+        {
+          "title": "Allowlists",
+          "desc": "Define trusted domain exceptions."
+        },
+        {
+          "title": "Black IP blocking",
+          "desc": "Prevent communication with known malicious IP addresses."
+        },
+        {
+          "title": "Intelligent edge caching",
+          "desc": "Frequently used records are refreshed and cached closer to the edge to reduce latency."
+        }
+      ]
+    },
+    "useCases": {
+      "title": "Use cases",
+      "subtitle": "Built for different DNS use cases",
+      "items": [
+        {
+          "title": "Application infrastructure",
+          "points": ["geo routing", "failover", "API automation"]
+        },
+        {
+          "title": "Private networks",
+          "points": ["DNS filtering", "blocklists", "security"]
+        },
+        {
+          "title": "IoT environments",
+          "points": ["lightweight DNS filtering", "edge caching", "network protection"]
+        },
+        {
+          "title": "Self-hosted setups",
+          "points": ["private DNS node", "custom filtering rules", "full control"]
+        }
+      ]
+    },
+    "edge": {
+      "title": "EDGE NETWORK",
+      "subtitle": "Built for the edge",
+      "lead": "Both DNS layers run on our global edge infrastructure.",
+      "benefitsTitle": "Benefits",
+      "benefits": [
+        "Global low-latency resolution",
+        "Distributed resilience",
+        "Edge analytics",
+        "Unified API"
+      ],
+      "featuresTitle": "Features",
+      "features": [
+        "Global edge presence",
+        "Real-time analytics",
+        "API-driven management"
+      ]
+    },
+    "expansion": {
+      "title": "Built to expand",
+      "lead": "Our DNS platform is designed to evolve beyond traditional DNS capabilities.",
+      "futureTitle": "Upcoming capabilities may include:",
+      "future": [
+        "content acceleration",
+        "deeper traffic intelligence"
+      ],
+      "note": "Join the waitlist to stay updated."
+    },
+    "why": {
+      "title": "Why we are building this",
+      "paragraphs": [
+        "The demand for reliable DNS services continues to grow as internet infrastructure becomes increasingly complex.",
+        "At the same time, security and privacy challenges require new approaches. We believe part of the defense should start at the very core of internet communication - the DNS layer.",
+        "We also believe the future of infrastructure lies in distributed edge systems, enabling a faster and more resilient internet.",
+        "Our goal is not to replace existing solutions, but to contribute to a healthier and more resilient DNS ecosystem by reducing dependency on a small number of large providers."
+      ]
+    },
+    "closing": {
+      "title": "DNS is evolving. Be the first to try it.",
+      "lead": "Our platform is currently in development.",
+      "ctaLead": "Join the waitlist to:",
+      "points": [
+        "receive updates",
+        "get early access",
+        "help shape the product"
+      ],
+      "cta": "Join the waitlist"
+    }
   },
   "openSourceIntegrator": {
     "hero": {

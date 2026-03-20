@@ -1,0 +1,187 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Divider from "@/components/divider/divider.astro";
+import FeatureCards from "@/components/FeatureSection/FeatureCards.astro";
+import { getT } from "@/i18n";
+import styles from "./DinioDns.module.css";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const langs = ["hr", "en"] as const;
+  return langs.map((lang) => ({
+    params: { lang },
+    props: { lang, t: getT(lang) },
+  }));
+}
+
+interface PageProps {
+  lang: "hr" | "en";
+  t: any;
+}
+
+const pageProps = Astro.props as Partial<PageProps> | undefined;
+const lang = pageProps?.lang ?? (Astro.params?.lang as "hr" | "en") ?? "hr";
+const t = pageProps?.t ?? getT(lang);
+const p = t.dinioDnsPage;
+const waitlistHref = `/${lang}/contact`;
+const featuresLabel = lang === "hr" ? "Značajke" : "Features";
+---
+
+<Layout
+  brand={t.navbar.brand}
+  labels={t.navbar}
+  title={p.seoTitle}
+  description={p.seoDescription}
+>
+  <div class="page-bg" aria-hidden="true">
+    <div class="grid-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <main class={styles["page"]}>
+    <section class={styles["hero"]}>
+      <h1 class={styles["hero-title"]}>{p.hero.title}</h1>
+      <p class={styles["hero-lead"]}>{p.hero.lead}</p>
+      <ul class={styles["bullet-list"]}>
+        {p.hero.points.map((point: string) => <li>{point}</li>)}
+      </ul>
+      <div class={styles["cta-row"]}>
+        <a href={waitlistHref} class={styles["btn-primary"]}
+          >{p.hero.ctaPrimary}</a
+        >
+        <a href={waitlistHref} class={styles["btn-secondary"]}
+          >{p.hero.ctaSecondary}</a
+        >
+      </div>
+      <p class={styles["notice"]}>{p.hero.notice}</p>
+    </section>
+
+    <Divider />
+
+    <section class={styles["section"]}>
+      <h2>{p.problem.title}</h2>
+      <p class={styles["subheading"]}>{p.problem.subtitle}</p>
+      <p>{p.problem.lead}</p>
+      <ul class={styles["bullet-list"]}>
+        {p.problem.tools.map((item: string) => <li>{item}</li>)}
+      </ul>
+      <p class={styles["strong-copy"]}>{p.problem.conclusion}</p>
+    </section>
+
+    <Divider />
+
+    <section class={styles["section"]}>
+      <h2>{p.authoritative.title}</h2>
+      <p>{p.authoritative.lead}</p>
+    </section>
+
+    <FeatureCards
+      id="dinio-authoritative-features"
+      title={featuresLabel}
+      dark={false}
+      highlightIndex={-1}
+      items={p.authoritative.features}
+    />
+
+    <Divider />
+
+    <section class={styles["section"]}>
+      <h2>{p.privacy.title}</h2>
+      <p>{p.privacy.lead}</p>
+      <h3 class={styles["list-title"]}>{p.privacy.idealForTitle}</h3>
+      <ul class={styles["bullet-list"]}>
+        {p.privacy.idealFor.map((item: string) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <FeatureCards
+      id="dinio-privacy-features"
+      title={featuresLabel}
+      dark={false}
+      highlightIndex={-1}
+      items={p.privacy.features}
+    />
+
+    <Divider />
+
+    <section class={styles["section"]}>
+      <h2>{p.useCases.title}</h2>
+      <p class={styles["subheading"]}>{p.useCases.subtitle}</p>
+      <div class={styles["usecase-grid"]}>
+        {
+          p.useCases.items.map(
+            (useCase: { title: string; points: string[] }) => (
+              <article class={styles["usecase-card"]}>
+                <h3>{useCase.title}</h3>
+                <ul>
+                  {useCase.points.map((point) => (
+                    <li>{point}</li>
+                  ))}
+                </ul>
+              </article>
+            ),
+          )
+        }
+      </div>
+    </section>
+
+    <Divider />
+
+    <section class={styles["section"]}>
+      <h2>{p.edge.title}</h2>
+      <p class={styles["subheading"]}>{p.edge.subtitle}</p>
+      <p>{p.edge.lead}</p>
+      <div class={styles["two-col"]}>
+        <article class={styles["surface"]}>
+          <h3>{p.edge.benefitsTitle}</h3>
+          <ul class={styles["bullet-list"]}>
+            {p.edge.benefits.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </article>
+        <article class={styles["surface"]}>
+          <h3>{p.edge.featuresTitle}</h3>
+          <ul class={styles["bullet-list"]}>
+            {p.edge.features.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <Divider />
+
+    <section class={styles["section"]}>
+      <h2>{p.expansion.title}</h2>
+      <p>{p.expansion.lead}</p>
+      <h3 class={styles["list-title"]}>{p.expansion.futureTitle}</h3>
+      <ul class={styles["bullet-list"]}>
+        {p.expansion.future.map((item: string) => <li>{item}</li>)}
+      </ul>
+      <p class={styles["strong-copy"]}>{p.expansion.note}</p>
+    </section>
+
+    <Divider />
+
+    <section class={styles["section"]}>
+      <h2>{p.why.title}</h2>
+      <div class={styles["long-copy"]}>
+        {p.why.paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
+      </div>
+    </section>
+
+    <Divider />
+
+    <section class={`${styles["section"]} ${styles["closing"]}`}>
+      <h2>{p.closing.title}</h2>
+      <p>{p.closing.lead}</p>
+      <p class={styles["list-title"]}>{p.closing.ctaLead}</p>
+      <ul class={styles["bullet-list"]}>
+        {p.closing.points.map((item: string) => <li>{item}</li>)}
+      </ul>
+      <a href={waitlistHref} class={`${styles["btn-primary"]} mt-4`}
+        >{p.closing.cta}</a
+      >
+    </section>
+  </main>
+</Layout>

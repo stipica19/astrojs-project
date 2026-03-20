@@ -71,7 +71,8 @@
       "items": [
         {
           "title": "Dinio DNS",
-         "desc": "All-in-one DNS rješenje u razvoju, sa širokim spektrom funkcionalnosti uključujući georutiranje, blokiranje, filtriranje."
+         "desc": "All-in-one DNS rješenje u razvoju, sa širokim spektrom funkcionalnosti uključujući georutiranje, blokiranje, filtriranje.",
+         "href": "/dinio-dns"
         }
       ]
     },
@@ -253,6 +254,173 @@
     },
     "submit": "Pošalji upit",
     "success": "Hvala — vaša poruka je poslana."
+  },
+  "aboutPage": {
+    "title": "O nama",
+    "paragraphs": [
+      "Bitelex je usmjeren na razvoj tehničkih rješenja prilagođenih jedinstvenim potrebama klijenata. Naš cilj je razvijati pouzdane i učinkovite tehnologije koje pomažu pojedincima i organizacijama u izgradnji i upravljanju njihovom digitalnom infrastrukturom.",
+      "Trenutni fokus naših timova usmjeren je na web-orijentirane usluge, uključujući razvoj web aplikacija i internetskih servisa."      
+    ],
+    "aboutDinio":"Kao prvi proizvod u našem portfelju, predstavljamo DinioDNS, našu modernu platformu za upravljanje DNS-om koja je trenutno u razvoju."
+  },
+  "dinioDnsPage": {
+    "seoTitle": "DinioDNS | Jedna DNS platforma. Potpuna kontrola.",
+    "seoDescription": "Sve-u-jednom DNS platforma: authoritative hosting, inteligentno usmjeravanje, DNS filtriranje privatnosti i globalna edge mreža.",
+    "hero": {
+      "title": "Jedna DNS platforma. Potpuna kontrola.",
+      "lead": "Sve-u-jednom DNS platforma koja objedinjuje:",
+      "points": [
+        "Authoritative DNS hosting",
+        "Inteligentno usmjeravanje prometa",
+        "DNS filtriranje usmjereno na privatnost",
+        "Pokretano globalnom edge mrežom"
+      ],
+      "ctaPrimary": "Prijavi se na listu čekanja",
+      "ctaSecondary": "Primaj novosti",
+      "notice": "Trenutno u razvoju — prijavi se kako bi primao novosti i dobio rani pristup."
+    },
+    "problem": {
+      "title": "Problem koji rješavamo",
+      "subtitle": "DNS je danas fragmentiran",
+      "lead": "Moderna infrastruktura često zahtijeva više različitih alata:",
+      "tools": [
+        "pružatelja DNS hostinga",
+        "rješenja za geo usmjeravanje",
+        "DNS filtering servise",
+        "analitičke alate",
+        "sigurnosne slojeve"
+      ],
+      "conclusion": "Upravljanje svim tim sustavima odvojeno povećava složenost, troškove i latenciju. Naša DNS platforma objedinjuje sve na jednom mjestu."
+    },
+    "authoritative": {
+      "title": "Authoritative DNS Hosting",
+      "lead": "Pouzdana i programabilna DNS infrastruktura za moderne aplikacije.",
+      "features": [
+        {
+          "title": "Geo usmjeravanje",
+          "desc": "Usmjerava promet prema korisnikovoj lokaciji bez potrebe za kompleksnom anycast infrastrukturom."
+        },
+        {
+          "title": "Geo blokiranje",
+          "desc": "Ograničite pristup određenim regijama izravno na DNS razini."
+        },
+        {
+          "title": "Health checks",
+          "desc": "Automatski preusmjerite promet kada servis postane nedostupan."
+        },
+        {
+          "title": "API-first upravljanje",
+          "desc": "Automatizirajte konfiguraciju DNS-a i integrirajte ga s vlastitom infrastrukturom."
+        },
+        {
+          "title": "DDoS zaštita",
+          "desc": "Ugrađena zaštita od DNS napada."
+        },
+        {
+          "title": "Web preusmjeravanja",
+          "desc": "Preusmjerite domene i poddomene bez dodatnih servisa."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "DNS filtriranje i privatnost",
+      "lead": "DNS rezolucija usmjerena na privatnost za uređaje i mreže.",
+      "idealForTitle": "Idealno za:",
+      "idealFor": [
+        "korisnike koji brinu o privatnosti",
+        "IoT mreže",
+        "poslovne mreže",
+        "self-hosted okruženja"
+      ],
+      "features": [
+        {
+          "title": "Crne liste (blocklists)",
+          "desc": "Filtriranje trackera, malwarea i neželjenih domena."
+        },
+        {
+          "title": "Bijele liste (allowlists)",
+          "desc": "Definirajte izuzetke za pouzdane domene."
+        },
+        {
+          "title": "Blokiranje zlonamjernih IP adresa",
+          "desc": "Sprječava komunikaciju s IP adresama koje se nalaze na crnim listama."
+        },
+        {
+          "title": "Inteligentno edge predmemoriranje",
+          "desc": "Često korišteni zapisi automatski se obnavljaju i predmemoriraju bliže rubu mreže kako bi se smanjila latencija."
+        }
+      ]
+    },
+    "useCases": {
+      "title": "Slučajevi uporabe",
+      "subtitle": "Izgrađeno za različite DNS scenarije",
+      "items": [
+        {
+          "title": "Infrastruktura aplikacija",
+          "points": ["geo usmjeravanje", "failover", "API automatizacija"]
+        },
+        {
+          "title": "Privatne mreže",
+          "points": ["DNS filtriranje", "blockliste", "sigurnosni sloj"]
+        },
+        {
+          "title": "IoT okruženja",
+          "points": ["lagano DNS filtriranje", "edge predmemoriranje", "zaštita mreže"]
+        },
+        {
+          "title": "Self-hosted sustavi",
+          "points": ["privatni DNS čvor", "prilagođena pravila filtriranja", "potpuna kontrola"]
+        }
+      ]
+    },
+    "edge": {
+      "title": "Edge mreža",
+      "subtitle": "Dizajnirano za rad na rubu mreže",
+      "lead": "Oba DNS sloja rade na našoj globalnoj edge infrastrukturi.",
+      "benefitsTitle": "Prednosti",
+      "benefits": [
+        "globalna rezolucija s niskom latencijom",
+        "distribuirana otpornost sustava",
+        "edge analitika",
+        "jedinstveni API"
+      ],
+      "featuresTitle": "Značajke",
+      "features": [
+        "globalna prisutnost na rubu mreže",
+        "analitika u stvarnom vremenu",
+        "upravljanje putem API-ja"
+      ]
+    },
+    "expansion": {
+      "title": "Spremno za proširenje",
+      "lead": "Naša DNS platforma dizajnirana je tako da se razvija izvan tradicionalnih DNS mogućnosti.",
+      "futureTitle": "Buduće funkcionalnosti mogu uključivati:",
+      "future": [
+        "ubrzanje isporuke sadržaja",
+        "naprednu analizu mrežnog prometa"
+      ],
+      "note": "Prijavite se na listu čekanja kako biste ostali u tijeku."
+    },
+    "why": {
+      "title": "Zašto gradimo ovo",
+      "paragraphs": [
+        "Potreba za pouzdanim DNS uslugama stalno raste kako internet infrastruktura postaje sve složenija.",
+        "Istovremeno, izazovi vezani uz sigurnost i privatnost zahtijevaju nove pristupe. Vjerujemo da dio obrane treba započeti već u samoj jezgri internetske komunikacije — na DNS sloju.",
+        "Također vjerujemo da budućnost infrastrukture leži u distribuiranim sustavima na rubu mreže, koji omogućuju brži i otporniji internet.",
+        "Naš cilj nije zamijeniti postojeća rješenja, već doprinijeti zdravijem i otpornijem DNS ekosustavu smanjujući ovisnost o nekolicini velikih pružatelja usluga."
+      ]
+    },
+    "closing": {
+      "title": "DNS se razvija. Budite među prvima koji će ga isprobati.",
+      "lead": "Naša platforma trenutno je u razvoju.",
+      "ctaLead": "Prijavite se na listu čekanja kako biste:",
+      "points": [
+        "primali novosti",
+        "dobili rani pristup",
+        "pomogli oblikovati proizvod"
+      ],
+      "cta": "Prijavi se na listu čekanja"
+    }
   },
   "openSourceIntegrator": {
     "hero": {

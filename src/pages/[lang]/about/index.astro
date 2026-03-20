@@ -1,0 +1,60 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getT } from "@/i18n";
+import styles from "./About.module.css";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const langs = ["hr", "en"] as const;
+  return langs.map((lang) => ({
+    params: { lang },
+    props: { lang, t: getT(lang) },
+  }));
+}
+
+interface PageProps {
+  lang: "hr" | "en";
+  t: any;
+}
+
+const pageProps = Astro.props as Partial<PageProps> | undefined;
+const lang = pageProps?.lang ?? (Astro.params?.lang as "hr" | "en") ?? "hr";
+const t = pageProps?.t ?? getT(lang);
+const about = t.aboutPage;
+const paragraphs = Array.isArray(about?.paragraphs) ? about.paragraphs : [];
+const aboutDinio = about?.aboutDinio ?? paragraphs[2] ?? "";
+const bodyParagraphs = aboutDinio ? paragraphs.slice(0, 2) : paragraphs;
+---
+
+<Layout brand={t.navbar.brand} labels={t.navbar}>
+  <div class="page-bg" aria-hidden="true">
+    <div class="grid-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <main class={styles["about-main"]}>
+    <section class={styles["about-hero"]}>
+      <h1 class={`${styles["about-title"]} ${styles["outline-word"]}`}>
+        {about.title}
+      </h1>
+
+      <article class={styles["about-copy"]}>
+        {
+          bodyParagraphs.map((paragraph: string) => (
+            <p class={styles["section-lead"]}>{paragraph}</p>
+          ))
+        }
+      </article>
+
+      {
+        aboutDinio && (
+          <article class={styles["dinio-card"]}>
+            <p class={styles["dinio-card__text"]}>{aboutDinio}</p>
+          </article>
+        )
+      }
+    </section>
+  </main>
+</Layout>

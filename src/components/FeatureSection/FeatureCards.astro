@@ -5,6 +5,7 @@ interface FeatureItem {
   icon?: any;
   title: string;
   desc: string;
+  href?: string;
 }
 
 interface Props {
@@ -47,8 +48,10 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
       {
         items.map((f: FeatureItem, i: number) => {
           const Icon = f.icon;
+          const CardTag = f.href ? "a" : "div";
           return (
-            <div
+            <CardTag
+              href={f.href}
               class={`${styles["feature-card"]} feature-card rounded-xl p-6 h-full transition-transform ${
                 i === highlightIndex ? styles["feature-card--highlight"] : ""
               }`}
@@ -59,7 +62,7 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
               <h3 class={styles["feature-card__title"]}>{f.title}</h3>
               <div class={styles["feature-card__line"]} />
               <p class={styles["feature-card__desc"]}>{f.desc}</p>
-            </div>
+            </CardTag>
           );
         })
       }

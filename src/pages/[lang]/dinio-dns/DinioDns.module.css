@@ -1,0 +1,211 @@
+.page {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  z-index: 1;
+}
+
+.hero,
+.section {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 4.25rem 1rem;
+}
+
+.hero-title {
+  font-family: JetBrains Mono, monospace;
+  margin: 0.6rem 0 0;
+  color: var(--bright);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.hero-lead {
+  margin: 1rem 0 0;
+  color: var(--text);
+  max-width: 52rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.bullet-list {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+  list-style-position: outside;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+}
+
+.bullet-list li::marker {
+  color: var(--accent2);
+  
+}
+
+.cta-row {
+  margin-top: 1.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--accent2);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
+}
+
+.btn-primary {
+  color: #fff;
+  
+}
+
+.btn-secondary {
+  color: var(--bright);
+  border: 1px solid rgba(118, 230, 255, 0.5);
+  background: rgba(16, 26, 40, 0.55);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.notice {
+  margin-top: 1rem;
+  color: rgba(220, 230, 255, 0.8);
+  font-size: 0.98rem;
+}
+
+.section h2 {
+  font-family: JetBrains Mono, monospace;
+  margin: 0;
+  color: var(--bright);
+  font-size: clamp(1.65rem, 3.4vw, 2.5rem);
+  font-weight: 800;
+}
+
+.section p {
+  color: var(--text);
+  font-size: 1.04rem;
+  line-height: 1.8;
+  font-family: "Inter", sans-serif;
+}
+
+.subheading {
+  margin-top: 0.5rem;
+  color: var(--accent2);
+  font-weight: 600;
+}
+
+.strong-copy {
+  margin-top: 1rem;
+  color: rgba(233, 244, 255, 0.95);
+  font-weight: 600;
+}
+
+.list-title {
+  font-family: JetBrains Mono, monospace;
+  margin-top: 1.35rem;
+  color: var(--bright);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.usecase-grid {
+  margin-top: 1.1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.usecase-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.usecase-card,
+.surface{
+  border: 1px solid rgba(34, 56, 80, 0.95);
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 18, 26, 0.72) 0%,
+    rgba(8, 12, 19, 0.82) 100%
+  );
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35);
+}
+
+.usecase-card,
+.surface {
+  padding: 1rem;
+}
+
+.usecase-card h3,
+.surface h3 {
+  font-family: JetBrains Mono, monospace;
+  margin: 0;
+  color: rgba(239, 247, 255, 0.96);
+  font-size: 1.05rem;
+}
+
+.usecase-card ul,
+.surface ul {
+  margin-top: 0.7rem;
+}
+
+.usecase-card ul {
+  padding-left: 1rem;
+  list-style: disc;
+  list-style-position: outside;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text);
+}
+
+.usecase-card li::marker {
+  color: var(--accent2);
+}
+
+.two-col {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.long-copy {
+  margin-top: 1rem;
+  max-width: 70rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.closing {
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero,
+  .section {
+    padding: 4.25rem 1.5rem;
+  }
+}
