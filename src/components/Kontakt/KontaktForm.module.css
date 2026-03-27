@@ -90,6 +90,7 @@
 }
 
 .contact-label {
+  padding-top: 0.95rem;
   font-family: "JetBrains Mono", monospace;
   font-size: 0.75rem;
   letter-spacing: 0.08em;

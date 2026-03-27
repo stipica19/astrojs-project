@@ -1,5 +1,5 @@
 ---
-import { Github, Instagram, Linkedin } from "@lucide/astro";
+import { Facebook, Github, Instagram, Linkedin, Phone } from "@lucide/astro";
 import { getT, type Locale } from "../../i18n";
 import styles from "./Footer.module.css";
 
@@ -14,7 +14,7 @@ const lang = ((Astro.params?.lang as Locale) ??
 const { brand = "Bitelex" } = Astro.props as Props;
 const t = getT(lang);
 const f = t.footer ?? {
-  tagline: "Open technology, trusted delivery.",
+  tagline: "Technical solutions",
   company: "Company",
   resources: "Resources",
   links: {
@@ -51,26 +51,40 @@ const f = t.footer ?? {
         </p>
         <div class="mt-6 flex items-center gap-4">
           <a
-            href="#"
+            href="https://www.github.com/bitelex"
             aria-label="GitHub"
             class={`${styles["site-footer__social"]} rounded-md p-2 transition-colors`}
           >
             <Github class="h-5 w-5" />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/company/bitelex"
             aria-label="LinkedIn"
             class={`${styles["site-footer__social"]} rounded-md p-2 transition-colors`}
           >
             <Linkedin class="h-5 w-5" />
           </a>
           <a
-            href="#"
-            aria-label="Twitter"
+            href="https://www.instagram.com/bitelex_"
+            aria-label="Instagram"
             class={`${styles["site-footer__social"]} rounded-md p-2 transition-colors`}
           >
             <Instagram class="h-5 w-5" />
           </a>
+          <a
+            href="https://www.facebook.com/bitelex"
+            aria-label="Facebook"
+            class={`${styles["site-footer__social"]} rounded-md p-2 transition-colors`}
+          >
+            <Facebook class="h-5 w-5" />
+          </a>
+          <!-- <a
+            href="https://wa.me/38763970958"
+            aria-label="WhatsApp"
+            class={`${styles["site-footer__social"]} rounded-md p-2 transition-colors`}
+          >
+            <Phone class="h-5 w-5" />
+          </a> -->
         </div>
       </div>
 
@@ -114,8 +128,18 @@ const f = t.footer ?? {
               >{f.links.contact}</a
             >
           </li>
-
-          <li><a class={styles["site-footer__link"]} href="#">Terms</a></li>
+          <li>
+            <a class={styles["site-footer__link"]} href="mailto:hello@bitelex.com">
+              hello@bitelex.com
+            </a>
+          </li>
+      
+          <li>
+            <a class={styles["site-footer__link"]} href="tel:+38763970958">
+              +387 63 970 958
+            </a>
+          </li>
+          <!-- <li><a class={styles["site-footer__link"]} href="#">Terms</a></li> -->
         </ul>
       </div>
     </div>
@@ -125,9 +149,9 @@ const f = t.footer ?? {
     >
       <p>© {new Date().getFullYear()} {brand}. {f.rights}</p>
       <div class="flex items-center gap-4">
-        <a href="#" class={styles["site-footer__link"]}>Privacy</a>
+        <!-- <a href="#" class={styles["site-footer__link"]}>Privacy</a>
         <span class={styles["site-footer__dot"]}>•</span>
-        <a href="#" class={styles["site-footer__link"]}>Cookies</a>
+        <a href="#" class={styles["site-footer__link"]}>Cookies</a> -->
       </div>
     </div>
   </div>

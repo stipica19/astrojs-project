@@ -107,19 +107,19 @@
       "items": [
         {
           "title": "Razvoj internet stranica i aplikacija",
-          "desc": "Razvoj internet stranica i aplikacija"
+          "desc": "Kreiramo moderne i funkcionalne web stranice te aplikacije koje pružaju izvrsno korisničko iskustvo i prilagođene su specifičnim ciljevima poslovanja."
         },
         {
           "title": "Izrada mikroservisa i distribuiranih sustava",
-          "desc": "Izrada mikroservisa i distribuiranih sustava"
+          "desc": "Gradimo skalabilne mikroservise i distribuirane sustave koji omogućuju bržu obradu podataka, veću fleksibilnost i pouzdano funkcioniranje u dinamičnim okruženjima."
         },
         {
           "title": "Razvoj aplikacija visokih performansi",
-          "desc": "Razvoj aplikacija visokih performansi"
+          "desc": "Specijalizirani smo za aplikacije koje podnose velika opterećenja, optimizirane su za brzinu i stabilnost te osiguravaju maksimalnu učinkovitost u radu."
         },
         {
           "title": "Integracija modernih tehnologija",
-          "desc": "Integracija modernih tehnologija i prilagodba specifičnim potrebama klijenata"
+          "desc": "Povezujemo najnovije tehnologije s oslovnim procesima i prilagođavamo ih jedinstvenim potrebama, kako bi ješenje bilo inovativno i dugoročno održivo."
         }
       ]
     },
@@ -163,22 +163,22 @@
       "items": [
         {
           "title": "Izrada softvera",
-          "span":"trebate projekt od početka do kraja?",
+          "span":"Trebate projekt od početka do kraja?",
           "desc": "Dogovaramo transparentan plan i isporučujemo rješenje u skladu s vašim ciljevima."
         },
         {
           "title": "Održavanje + hosting",
-            "span":"želite bezbrižnost?",
+            "span":"Želite bezbrižnost?",
           "desc": "Brinemo o serverima, sigurnosti, backupu i monitoringu, a vi uživate u povoljnim uvjetima uz fiksnu mjesečnu/godišnju naknadu."
         },
         {
           "title": "Održavanje po potrebi",
-          "span":"povremena pomoć?",
+          "span":"Povremena pomoć?",
           "desc": "Brzo reagiramo i naplaćujemo prema dogovoru, kako bi vaša poslovanja uvijek bila u dobrom ritmu."
         },
         {
           "title": "Iznajmljivanje (SaaS model)",
-          "span":"želite softver, ali bez potrebe za infrastrukturom?",
+          "span":"Želite softver, ali bez potrebe za infrastrukturom?",
           "desc": "Mi razvijamo, hostamo i održavamo, a vi uživate u fleksibilnosti i prednostima, plaćajući povoljan mjesečni/godišnji iznos."
         }
       ]
@@ -205,8 +205,8 @@
       ]
     },
     "servers": {
-      "title": "Serveri",
-      "desc": "Naša infrastruktura je distribuirana - servere imamo u Njemačkoj, Kanadi, Hrvatskoj i Bosni i Hercegovini s daljnjim širenjem za globalnu dostupnost.",
+      "title": "Poslužitelji",
+      "desc": "Naša infrastruktura je distribuirana - poslužitelje imamo u Njemačkoj, Kanadi, Hrvatskoj i Bosni i Hercegovini s daljnjim širenjem za globalnu dostupnost.",
       "mapLabel": "Lokacije servera",
       "locations": ["Njemačka", "Kanada", "Hrvatska", "Bosna i Hercegovina"]
     },
@@ -230,7 +230,7 @@
     }
   },
   "footer": {
-    "tagline": "Otvorena tehnologija, isporuka od povjerenja.",
+    "tagline": "Tehnička rješenja",
     "company": "Tvrtka",
     "resources": "Resursi",
     "links": {
