@@ -182,6 +182,12 @@
   transform: translateY(0);
 }
 
+.contact-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .contact-card--success {
   padding: 1.6rem;
 }
@@ -214,4 +220,9 @@
 .contact-toast[data-visible="true"] {
   opacity: 1;
   transform: translateY(0);
+}
+
+.contact-toast[data-tone="error"] {
+  border-color: rgba(255, 99, 132, 0.45);
+  color: rgba(255, 208, 218, 0.95);
 }

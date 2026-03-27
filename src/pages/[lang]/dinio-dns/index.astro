@@ -3,6 +3,16 @@ import Layout from "@/layouts/Layout.astro";
 import Divider from "@/components/divider/divider.astro";
 import FeatureCards from "@/components/FeatureSection/FeatureCards.astro";
 import { getT } from "@/i18n";
+import {
+  Code,
+  Gauge,
+  Globe,
+  Network,
+  Repeat,
+  Server,
+  ShieldCheck,
+  Sliders,
+} from "@lucide/astro";
 import styles from "./DinioDns.module.css";
 
 export const prerender = true;
@@ -26,6 +36,17 @@ const t = pageProps?.t ?? getT(lang);
 const p = t.dinioDnsPage;
 const waitlistHref = `/${lang}/contact`;
 const featuresLabel = lang === "hr" ? "Značajke" : "Features";
+const dinioAuthoritativeIcons = [
+  Globe,
+  Network,
+  Gauge,
+  Code,
+  ShieldCheck,
+  Repeat,
+];
+const dinioPrivacyIcons = [ShieldCheck, Sliders, Server, Gauge];
+const withIcons = (items: any[], icons: any[]) =>
+  items.map((item, idx) => ({ ...item, icon: icons[idx] }));
 ---
 
 <Layout
@@ -42,7 +63,11 @@ const featuresLabel = lang === "hr" ? "Značajke" : "Features";
 
   <main class={styles["page"]}>
     <section class={styles["hero"]}>
-      <h1 class={styles["hero-title"]}>{p.hero.title}</h1>
+      <h1
+        class={`${styles["outline-word"]} text-4xl font-bold text-white md:text-5xl`}
+      >
+        {p.hero.title}
+      </h1>
       <p class={styles["hero-lead"]}>{p.hero.lead}</p>
       <ul class={styles["bullet-list"]}>
         {p.hero.points.map((point: string) => <li>{point}</li>)}
@@ -59,7 +84,7 @@ const featuresLabel = lang === "hr" ? "Značajke" : "Features";
     </section>
 
     <Divider />
-
+    <!-- The problem we solve -->
     <section class={styles["section"]}>
       <h2>{p.problem.title}</h2>
       <p class={styles["subheading"]}>{p.problem.subtitle}</p>
@@ -71,22 +96,22 @@ const featuresLabel = lang === "hr" ? "Značajke" : "Features";
     </section>
 
     <Divider />
-
+    <!-- Authoritative DNS Hosting -->
     <section class={styles["section"]}>
       <h2>{p.authoritative.title}</h2>
       <p>{p.authoritative.lead}</p>
+
+      <FeatureCards
+        id="dinio-authoritative-features"
+        title={featuresLabel}
+        dark={false}
+        highlightIndex={-1}
+        items={withIcons(p.authoritative.features, dinioAuthoritativeIcons)}
+      />
     </section>
 
-    <FeatureCards
-      id="dinio-authoritative-features"
-      title={featuresLabel}
-      dark={false}
-      highlightIndex={-1}
-      items={p.authoritative.features}
-    />
-
     <Divider />
-
+    <!-- DNS Shield -->
     <section class={styles["section"]}>
       <h2>{p.privacy.title}</h2>
       <p>{p.privacy.lead}</p>
@@ -94,16 +119,15 @@ const featuresLabel = lang === "hr" ? "Značajke" : "Features";
       <ul class={styles["bullet-list"]}>
         {p.privacy.idealFor.map((item: string) => <li>{item}</li>)}
       </ul>
+
+      <FeatureCards
+        id="dinio-privacy-features"
+        title={featuresLabel}
+        dark={false}
+        highlightIndex={-1}
+        items={withIcons(p.privacy.features, dinioPrivacyIcons)}
+      />
     </section>
-
-    <FeatureCards
-      id="dinio-privacy-features"
-      title={featuresLabel}
-      dark={false}
-      highlightIndex={-1}
-      items={p.privacy.features}
-    />
-
     <Divider />
 
     <section class={styles["section"]}>
@@ -114,7 +138,7 @@ const featuresLabel = lang === "hr" ? "Značajke" : "Features";
           p.useCases.items.map(
             (useCase: { title: string; points: string[] }) => (
               <article class={styles["usecase-card"]}>
-                <h3>{useCase.title}</h3>
+                <h3 class="font-bold">{useCase.title}</h3>
                 <ul>
                   {useCase.points.map((point) => (
                     <li>{point}</li>
@@ -135,13 +159,13 @@ const featuresLabel = lang === "hr" ? "Značajke" : "Features";
       <p>{p.edge.lead}</p>
       <div class={styles["two-col"]}>
         <article class={styles["surface"]}>
-          <h3>{p.edge.benefitsTitle}</h3>
+          <h3 class="font-bold">{p.edge.benefitsTitle}</h3>
           <ul class={styles["bullet-list"]}>
             {p.edge.benefits.map((item: string) => <li>{item}</li>)}
           </ul>
         </article>
         <article class={styles["surface"]}>
-          <h3>{p.edge.featuresTitle}</h3>
+          <h3 class="font-bold">{p.edge.featuresTitle}</h3>
           <ul class={styles["bullet-list"]}>
             {p.edge.features.map((item: string) => <li>{item}</li>)}
           </ul>

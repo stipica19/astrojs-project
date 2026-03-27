@@ -81,8 +81,11 @@ import styles from "./KontaktForm.module.css";
     role="status"
     aria-live="polite"
     data-visible="false"
+    data-tone="success"
     data-message-hr="Hvala! Uskoro stize odgovor."
     data-message-en="Thanks! You'll get a reply soon."
+    data-error-hr="Dogodila se greska. Pokusaj ponovno."
+    data-error-en="Something went wrong. Please try again."
   >
     Hvala! Uskoro stize odgovor.
   </div>
@@ -95,27 +98,49 @@ import styles from "./KontaktForm.module.css";
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = true;
+        }
+
+        let isSuccess = false;
+
         try {
-          await fetch("/api/contact", {
+          const response = await fetch("/api/contact", {
             method: "POST",
             body: new FormData(form),
           });
-        } catch (error) {
-          // Ignore errors for now, we only show a toast.
+
+          isSuccess = response.ok;
+        } catch {
+          isSuccess = false;
         }
 
         const lang = document.documentElement.lang || "hr";
         const messageKey = lang.toLowerCase().startsWith("en")
-          ? "messageEn"
-          : "messageHr";
+          ? isSuccess
+            ? "messageEn"
+            : "errorEn"
+          : isSuccess
+            ? "messageHr"
+            : "errorHr";
         const message = toast.dataset[messageKey] || toast.textContent || "";
 
         toast.textContent = message;
+        toast.setAttribute("data-tone", isSuccess ? "success" : "error");
         toast.setAttribute("data-visible", "true");
+
+        if (isSuccess) {
+          form.reset();
+        }
 
         window.setTimeout(() => {
           toast.setAttribute("data-visible", "false");
         }, 4000);
+
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = false;
+        }
       });
     }
   </script>

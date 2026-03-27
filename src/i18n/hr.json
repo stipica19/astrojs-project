@@ -163,19 +163,23 @@
       "items": [
         {
           "title": "Izrada softvera",
-          "desc": "trebate projekt od početka do kraja? Dogovaramo transparentan plan i isporučujemo rješenje u skladu s vašim ciljevima."
+          "span":"trebate projekt od početka do kraja?",
+          "desc": "Dogovaramo transparentan plan i isporučujemo rješenje u skladu s vašim ciljevima."
         },
         {
           "title": "Održavanje + hosting",
-          "desc": "želite bezbrižnost? Brinemo o serverima, sigurnosti, backupu i monitoringu, a vi uživate u povoljnim uvjetima uz fiksnu mjesečnu/godišnju naknadu."
+            "span":"želite bezbrižnost?",
+          "desc": "Brinemo o serverima, sigurnosti, backupu i monitoringu, a vi uživate u povoljnim uvjetima uz fiksnu mjesečnu/godišnju naknadu."
         },
         {
           "title": "Održavanje po potrebi",
-          "desc": "povremena pomoć? Brzo reagiramo i naplaćujemo prema dogovoru, kako bi vaša poslovanja uvijek bila u dobrom ritmu."
+          "span":"povremena pomoć?",
+          "desc": "Brzo reagiramo i naplaćujemo prema dogovoru, kako bi vaša poslovanja uvijek bila u dobrom ritmu."
         },
         {
           "title": "Iznajmljivanje (SaaS model)",
-          "desc": "želite softver, ali bez potrebe za infrastrukturom? Mi razvijamo, hostamo i održavamo, a vi uživate u fleksibilnosti i prednostima, plaćajući povoljan mjesečni/godišnji iznos."
+          "span":"želite softver, ali bez potrebe za infrastrukturom?",
+          "desc": "Mi razvijamo, hostamo i održavamo, a vi uživate u fleksibilnosti i prednostima, plaćajući povoljan mjesečni/godišnji iznos."
         }
       ]
     },
@@ -208,7 +212,7 @@
     },
     "contact": {
       "title": "Kontakt forma",
-      "lead": "Pošaljite upit i javit ćemo vam se u najkraćem roku.",
+      "lead": "Za personaliziranu ponudu ispunite našu kontakt formu i naš tim će vam se javiti s detaljima.",
       "fields": {
         "name": "Ime",
         "email": "Email",
@@ -239,7 +243,7 @@
   },
   "contact": {
     "title": "Kontakt",
-    "lead": "Pošaljite upit i javit ćemo vam se u najkraćem roku.",
+    "lead": "Za personaliziranu ponudu ispunite našu kontakt formu i naš tim će vam se javiti s detaljima.",
     "fields": {
       "name": "Ime",
       "email": "Email",
@@ -455,7 +459,7 @@
     },
     "tools": {
       "title": "Podržani alati",
-      "description": "Izbor open source rješenja je ogroman. Kako bismo olakšali odabir, pripremili smo portfelj već integriranih sustava - od sustava za suradnju i komunikaciju, do CRM-a, ERP-a i analitičkih alata. Na zahtjev možemo integrirati i druga rješenja.",
+      "description": "Izbor open source rješenja je ogroman. Kako bismo olakšali odabir, pripremili smo portfelj već integriranih sustava. Na zahtjev možemo integrirati i druga rješenja.",
       "cta": "Pogledaj",
       "items": [
         {
@@ -477,7 +481,7 @@
     },
     "pricing": {
       "title": "Cjenik",
-      "description": "Cijena naših usluga integracije dostupna je na upit. Za cloud hosting, obračun se vrši prema korištenju resursa: CPU, RAM, Disk, Promet. Možemo napraviti procjenu prema vašim potrebama."
+      "description": "Cijena naših usluga integracije dostupna je na upit. Za cloud hosting, obračun se vrši prema korištenju resursa: CPU, RAM, Disk, promet. Možemo napraviti procjenu prema vašim potrebama."
     },
     "contact": {
       "title": "Kontakt",

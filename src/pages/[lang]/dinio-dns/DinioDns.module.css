@@ -11,7 +11,10 @@
   margin: 0 auto;
   padding: 4.25rem 1rem;
 }
-
+.outline-word {
+  -webkit-text-stroke: 2px var(--accent2);
+  color: transparent;
+}
 .hero-title {
   font-family: JetBrains Mono, monospace;
   margin: 0.6rem 0 0;

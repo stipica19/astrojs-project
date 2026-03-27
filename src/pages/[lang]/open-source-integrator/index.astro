@@ -6,6 +6,7 @@ import WebLabPortfolioGrid from "@/components/WebLab/WebLabPortfolioGrid.astro";
 import styles from "@/components/WebLab/WebLab.module.css";
 import { getT } from "@/i18n";
 import KontaktForm from "@/components/Kontakt/KontaktForm.astro";
+import { Network, Server, ShieldCheck, Repeat, Wrench } from "@lucide/astro";
 
 export const prerender = true;
 
@@ -26,6 +27,9 @@ const pageProps = Astro.props as Partial<PageProps> | undefined;
 const lang = pageProps?.lang ?? (Astro.params?.lang as "hr" | "en") ?? "hr";
 const t = pageProps?.t ?? getT(lang);
 const c = t.openSourceIntegrator;
+const openSourceServiceIcons = [Network, Server, ShieldCheck, Repeat, Wrench];
+const withIcons = (items: any[], icons: any[]) =>
+  items.map((item, idx) => ({ ...item, icon: icons[idx] }));
 ---
 
 <Layout
@@ -67,7 +71,7 @@ const c = t.openSourceIntegrator;
       title={c.services.title}
       dark={false}
       highlightIndex={1}
-      items={c.services.items}
+      items={withIcons(c.services.items, openSourceServiceIcons)}
     />
 
     <Divider />
@@ -77,7 +81,7 @@ const c = t.openSourceIntegrator;
         <h2 class="text-3xl font-bold text-white md:text-4xl">
           {c.tools.title}
         </h2>
-        <p class={`${styles["section-lead"]} mt-4`}>
+        <p class={`${styles["section-lead"]} ${styles["lead-inter"]} mt-4`}>
           {c.tools.description}
         </p>
         <div class="mt-8">
@@ -93,7 +97,7 @@ const c = t.openSourceIntegrator;
         <h2 class="text-3xl font-bold text-white md:text-4xl">
           {c.pricing.title}
         </h2>
-        <p class={`${styles["section-lead"]} mt-4`}>
+        <p class={`${styles["section-lead"]} ${styles["lead-inter"]} mt-4`}>
           {c.pricing.description}
         </p>
       </div>

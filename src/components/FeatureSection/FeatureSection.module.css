@@ -119,6 +119,11 @@
   line-height: 1.75;
 }
 
+.feature-card__span {
+  color: var(--accent2);
+  font-weight: 700;
+}
+
 .feature-illustration {
   color: var(--accent2);
   border: 1px solid rgba(56, 189, 248, 0.35);

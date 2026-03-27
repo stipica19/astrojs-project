@@ -45,7 +45,7 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "service",
-    href: "#service",
+    href: lang ? `/${lang}/#service` : "/#service",
     children: [
       {
         label: "webLab",
@@ -61,7 +61,7 @@ const navItems: NavItem[] = [
   },
   {
     label: "product",
-    href: "#product",
+    href: lang ? `/${lang}/#product` : "/#product",
   },
   {
     label: "about",
@@ -232,6 +232,22 @@ const enHref = getLangHref("en");
   const toggle = document.getElementById("nav-toggle");
   const menu = document.getElementById("mobile-menu");
   const SCROLL_THRESHOLD = 200;
+  const HOME_SCROLL_KEY = "home-scroll-target";
+
+  const scrollToHashTarget = (hash: string) => {
+    if (!hash || hash.length < 2) return;
+    const target = document.querySelector(hash);
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const consumePendingHomeScroll = () => {
+    const pendingHash = sessionStorage.getItem(HOME_SCROLL_KEY);
+    if (!pendingHash) return;
+    sessionStorage.removeItem(HOME_SCROLL_KEY);
+    // Wait one frame so layout/sections are ready before scrolling.
+    requestAnimationFrame(() => scrollToHashTarget(pendingHash));
+  };
 
   if (toggle && menu) {
     toggle.addEventListener("click", () => {
@@ -241,6 +257,27 @@ const enHref = getLangHref("en");
       menu.classList.toggle("site-nav__mobile--open", !isOpen);
     });
   }
+
+  const navHashLinks = document.querySelectorAll('#site-nav a[href*="/#"]');
+  navHashLinks.forEach((link) => {
+    if (!(link instanceof HTMLAnchorElement)) return;
+    link.addEventListener("click", () => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+      const url = new URL(href, window.location.origin);
+      if (!url.hash) return;
+
+      const navigatingAcrossPages = url.pathname !== window.location.pathname;
+      if (navigatingAcrossPages) {
+        sessionStorage.setItem(HOME_SCROLL_KEY, url.hash);
+      }
+    });
+  });
+
+  if (window.location.hash) {
+    requestAnimationFrame(() => scrollToHashTarget(window.location.hash));
+  }
+  consumePendingHomeScroll();
 
   if (nav) {
     const getDocumentScrollTop = () => {

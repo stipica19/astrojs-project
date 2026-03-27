@@ -165,19 +165,23 @@
       "items": [
         {
           "title": "Full product build",
-          "desc": "Need a project from start to finish? We define a clear plan and deliver to your goals."
+          "span": "Need a project from start to finish?",
+          "desc": "We define a clear plan and deliver to your goals."
         },
         {
           "title": "Maintenance + hosting",
-          "desc": "Want peace of mind? We handle servers, security, backups, and monitoring on a fixed monthly or yearly fee."
+          "span": "Want peace of mind?",
+          "desc": "We handle servers, security, backups, and monitoring on a fixed monthly or yearly fee."
         },
         {
           "title": "On-demand maintenance",
-          "desc": "Need occasional help? We respond fast and bill by agreement to keep things running smoothly."
+          "span": "Need occasional help?",
+          "desc": "We respond fast and bill by agreement to keep things running smoothly."
         },
         {
           "title": "SaaS rental model",
-          "desc": "Want the software without the infrastructure? We build, host, and maintain it while you pay a flexible subscription."
+          "span": "Want the software without the infrastructure?",
+          "desc": "We build, host, and maintain it while you pay a flexible subscription."
         }
       ]
     },
@@ -241,7 +245,7 @@
   },
   "contact": {
     "title": "Contact",
-    "lead": "Send us your enquiry and we’ll reply as soon as possible.",
+    "lead": "For a personalized offer, fill out our contact form and our team will get back to you with details.",
     "fields": {
       "name": "Name",
       "email": "Email",
@@ -316,7 +320,7 @@
         },
         {
           "title": "DDoS protection",
-          "desc": "Built-in protection against DNS-based attacks."
+          "desc": "Built-in protection against DDoS-based attacks."
         },
         {
           "title": "Web redirects",
@@ -457,7 +461,7 @@
     },
     "tools": {
       "title": "Supported tools",
-      "description": "The choice of open source solutions is huge. To make selection easier, we prepared a portfolio of already integrated systems - from collaboration and communication to CRM, ERP, and analytics. We can integrate other solutions on request.",
+      "description": "The choice of open source solutions is huge. To make selection easier, we prepared a portfolio of already integrated systems. On request, we can integrate other solutions as well.",
       "cta": "View",
       "items": [
         {

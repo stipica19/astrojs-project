@@ -4,6 +4,7 @@ import styles from "./FeatureSection.module.css";
 interface FeatureItem {
   icon?: any;
   title: string;
+  span?: string;
   desc: string;
   href?: string;
 }
@@ -61,7 +62,12 @@ const desktopCols = lgCols[length] ?? "lg:grid-cols-3";
               </div>
               <h3 class={styles["feature-card__title"]}>{f.title}</h3>
               <div class={styles["feature-card__line"]} />
-              <p class={styles["feature-card__desc"]}>{f.desc}</p>
+              <p class={styles["feature-card__desc"]}>
+                {f.span ? (
+                  <span class={styles["feature-card__span"]}>{f.span} </span>
+                ) : null}
+                {f.desc}
+              </p>
             </CardTag>
           );
         })
