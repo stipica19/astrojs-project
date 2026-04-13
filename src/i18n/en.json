@@ -107,21 +107,21 @@
       "items": [
         {
           "title": "Websites and applications",
-          "desc": "From marketing sites to complex web apps built for growth."
+          "desc": "We create modern and functional websites and applications that deliver an excellent user experience and are tailored to the specific goals of your business"
            
         },
         {
           "title": "Microservices and distributed systems",
-          "desc": "Services that scale cleanly and stay reliable under load."
+          "desc": "We build scalable microservices and distributed systems that enable faster data processing, greater flexibility, and reliable performance in dynamic environments"
            
         },
         {
           "title": "High-performance applications",
-          "desc": "Optimized for speed, uptime, and long-term maintainability."
+          "desc": "We specialize in applications designed to handle heavy workloads, optimized for speed and stability, ensuring maximum efficiency in operation."
         },
         {
           "title": "Modern tech integration",
-          "desc": "We adapt new stacks to your exact business needs."
+          "desc": "We integrate the latest technologies into your business processes and adapt them to unique requirements, ensuring innovative and sustainable solutions."
         }
       ]
     },
@@ -232,7 +232,7 @@
     }
   },
   "footer": {
-    "tagline": "Open technology, trusted delivery.",
+    "tagline": "Technical solutions",
     "company": "Company",
     "resources": "Resources",
     "links": {
