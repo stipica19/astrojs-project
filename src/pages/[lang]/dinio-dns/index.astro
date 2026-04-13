@@ -1,8 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Divider from "@/components/divider/divider.astro";
+import Divider from "@/components/Divider/Divider.astro";
 import FeatureCards from "@/components/FeatureSection/FeatureCards.astro";
-import { getT } from "@/i18n";
 import {
   Code,
   Gauge,
@@ -11,31 +10,33 @@ import {
   Repeat,
   Server,
   ShieldCheck,
-  Sliders,
+  SlidersHorizontal,
 } from "@lucide/astro";
 import styles from "./DinioDns.module.css";
+import {
+  buildStaticPaths,
+  resolveLang,
+  resolveT,
+  withIcons,
+} from "@/lib/page-utils";
+import type { Locale, Translation } from "@/types";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const langs = ["hr", "en"] as const;
-  return langs.map((lang) => ({
-    params: { lang },
-    props: { lang, t: getT(lang) },
-  }));
+  return buildStaticPaths();
 }
 
 interface PageProps {
-  lang: "hr" | "en";
-  t: any;
+  lang: Locale;
+  t: Translation;
 }
 
 const pageProps = Astro.props as Partial<PageProps> | undefined;
-const lang = pageProps?.lang ?? (Astro.params?.lang as "hr" | "en") ?? "hr";
-const t = pageProps?.t ?? getT(lang);
+const lang = resolveLang(pageProps, Astro.params);
+const t = resolveT(pageProps, lang);
 const p = t.dinioDnsPage;
 const waitlistHref = `/${lang}/contact`;
-const featuresLabel = lang === "hr" ? "Značajke" : "Features";
 const dinioAuthoritativeIcons = [
   Globe,
   Network,
@@ -44,9 +45,7 @@ const dinioAuthoritativeIcons = [
   ShieldCheck,
   Repeat,
 ];
-const dinioPrivacyIcons = [ShieldCheck, Sliders, Server, Gauge];
-const withIcons = (items: any[], icons: any[]) =>
-  items.map((item, idx) => ({ ...item, icon: icons[idx] }));
+const dinioPrivacyIcons = [ShieldCheck, SlidersHorizontal, Server, Gauge];
 ---
 
 <Layout
@@ -103,7 +102,7 @@ const withIcons = (items: any[], icons: any[]) =>
 
       <FeatureCards
         id="dinio-authoritative-features"
-        title={featuresLabel}
+        title={p.featuresLabel}
         dark={false}
         highlightIndex={-1}
         items={withIcons(p.authoritative.features, dinioAuthoritativeIcons)}
@@ -122,7 +121,7 @@ const withIcons = (items: any[], icons: any[]) =>
 
       <FeatureCards
         id="dinio-privacy-features"
-        title={featuresLabel}
+        title={p.featuresLabel}
         dark={false}
         highlightIndex={-1}
         items={withIcons(p.privacy.features, dinioPrivacyIcons)}

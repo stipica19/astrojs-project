@@ -9,7 +9,7 @@ import {
     Rocket,
     Server,
     ShieldCheck,
-    Sliders,
+    SlidersHorizontal,
     Wrench,
 } from "@lucide/astro";
 
@@ -17,6 +17,6 @@ export const featureIcons = {
     services: [Monitor, Wrench, Network],
     mission: [ShieldCheck, Code, Accessibility],
     products: [Globe],
-    webLabWhatWeDo: [Monitor, Network, Gauge, Sliders],
+    webLabWhatWeDo: [Monitor, Network, Gauge, SlidersHorizontal],
     webLabCooperation: [Rocket, Server, Wrench, Repeat],
 };

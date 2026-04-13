@@ -1,35 +1,30 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Divider from "@/components/divider/divider.astro";
+import Divider from "@/components/Divider/Divider.astro";
 import FeatureCards from "@/components/FeatureSection/FeatureCards.astro";
 import WebLabPortfolioGrid from "@/components/WebLab/WebLabPortfolioGrid.astro";
 import styles from "@/components/WebLab/WebLab.module.css";
-import { getT } from "@/i18n";
 import KontaktForm from "@/components/Kontakt/KontaktForm.astro";
 import { Network, Server, ShieldCheck, Repeat, Wrench } from "@lucide/astro";
+import { buildStaticPaths, resolveLang, resolveT, withIcons } from "@/lib/page-utils";
+import type { Locale, Translation } from "@/types";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const langs = ["hr", "en"] as const;
-  return langs.map((lang) => ({
-    params: { lang },
-    props: { lang, t: getT(lang) },
-  }));
+  return buildStaticPaths();
 }
 
 interface PageProps {
-  lang: "hr" | "en";
-  t: any;
+  lang: Locale;
+  t: Translation;
 }
 
 const pageProps = Astro.props as Partial<PageProps> | undefined;
-const lang = pageProps?.lang ?? (Astro.params?.lang as "hr" | "en") ?? "hr";
-const t = pageProps?.t ?? getT(lang);
+const lang = resolveLang(pageProps, Astro.params);
+const t = resolveT(pageProps, lang);
 const c = t.openSourceIntegrator;
 const openSourceServiceIcons = [Network, Server, ShieldCheck, Repeat, Wrench];
-const withIcons = (items: any[], icons: any[]) =>
-  items.map((item, idx) => ({ ...item, icon: icons[idx] }));
 ---
 
 <Layout

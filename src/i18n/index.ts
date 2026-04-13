@@ -8,3 +8,5 @@ const dictionaries = { en, hr };
 export function getT(locale: Locale) {
     return dictionaries[locale] ?? dictionaries.hr;
 }
+
+export type Translation = ReturnType<typeof getT>;

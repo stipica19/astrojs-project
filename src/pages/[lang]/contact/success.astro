@@ -1,18 +1,17 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import { getT } from "../../../i18n";
+import Layout from "@/layouts/Layout.astro";
+import { buildStaticPaths } from "@/lib/page-utils";
+import type { Locale, Translation } from "@/types";
+
+export const prerender = true;
 
 export async function getStaticPaths() {
-  const langs = ["hr", "en"] as const;
-  return langs.map((lang) => ({
-    params: { lang },
-    props: { lang, t: getT(lang) },
-  }));
+  return buildStaticPaths();
 }
 
 interface PageProps {
-  lang: "hr" | "en";
-  t: any;
+  lang: Locale;
+  t: Translation;
 }
 
 const { lang, t } = Astro.props as PageProps;

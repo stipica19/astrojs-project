@@ -1,26 +1,23 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getT } from "@/i18n";
 import styles from "./About.module.css";
+import { buildStaticPaths, resolveLang, resolveT } from "@/lib/page-utils";
+import type { Locale, Translation } from "@/types";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const langs = ["hr", "en"] as const;
-  return langs.map((lang) => ({
-    params: { lang },
-    props: { lang, t: getT(lang) },
-  }));
+  return buildStaticPaths();
 }
 
 interface PageProps {
-  lang: "hr" | "en";
-  t: any;
+  lang: Locale;
+  t: Translation;
 }
 
 const pageProps = Astro.props as Partial<PageProps> | undefined;
-const lang = pageProps?.lang ?? (Astro.params?.lang as "hr" | "en") ?? "hr";
-const t = pageProps?.t ?? getT(lang);
+const lang = resolveLang(pageProps, Astro.params);
+const t = resolveT(pageProps, lang);
 const about = t.aboutPage;
 const paragraphs = Array.isArray(about?.paragraphs) ? about.paragraphs : [];
 const aboutDinio = about?.aboutDinio ?? paragraphs[2] ?? "";

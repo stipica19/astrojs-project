@@ -270,6 +270,7 @@
     "aboutDinio": "As the first product in our portfolio, we introduce DinioDNS, our modern DNS management platform currently under development."
   },
   "dinioDnsPage": {
+    "featuresLabel": "Features",
     "seoTitle": "DinioDNS | One DNS platform. Total control.",
     "seoDescription": "An all-in-one DNS platform combining authoritative hosting, intelligent traffic routing, privacy-focused DNS filtering, and a global edge network.",
     "hero": {
