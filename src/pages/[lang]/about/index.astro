@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import styles from "./About.module.css";
+import styles from "./_About.module.css";
 import { buildStaticPaths, resolveLang, resolveT } from "@/lib/page-utils";
 import type { Locale, Translation } from "@/types";
 
@@ -24,7 +24,12 @@ const aboutDinio = about?.aboutDinio ?? paragraphs[2] ?? "";
 const bodyParagraphs = aboutDinio ? paragraphs.slice(0, 2) : paragraphs;
 ---
 
-<Layout brand={t.navbar.brand} labels={t.navbar}>
+<Layout
+  brand={t.navbar.brand}
+  labels={t.navbar}
+  title={`${about.title} | ${t.navbar.brand}`}
+  description={paragraphs[0] ?? ""}
+>
   <div class="page-bg" aria-hidden="true">
     <div class="grid-bg"></div>
     <div class="orb orb-1"></div>

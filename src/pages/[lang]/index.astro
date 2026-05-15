@@ -32,24 +32,29 @@ const missionItemsWithIcons = withIcons(t.sections.mission.items, featureIcons.m
 const productItemsWithIcons = withIcons(t.sections.products.items, featureIcons.products);
 ---
 
-<Layout brand={t.navbar.brand} labels={t.navbar}>
+<Layout
+  brand={t.navbar.brand}
+  labels={t.navbar}
+  title={`${t.navbar.brand} | ${lang === "hr" ? "Web Development & Engineering Studio" : "Web Development & Engineering Studio"}`}
+  description={t.hero.sub.text}
+>
   <div class="page-bg" aria-hidden="true">
     <div class="grid-bg"></div>
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
   </div>
-  <Hero
-    badge={t.hero.badge}
-    headline={t.hero.headline}
-    kicker={t.hero.sub.kicker}
-    description={t.hero.sub.text}
-    statsLabels={t.hero.stats}
-    ctaExplore={t.hero.ctaExplore}
-    ctaView={t.hero.ctaView}
-    lang={lang}
-  />
-  <Divider />
   <main class="mx-auto px-0 md:px-0">
+    <Hero
+      badge={t.hero.badge}
+      headline={t.hero.headline}
+      kicker={t.hero.sub.kicker}
+      description={t.hero.sub.text}
+      statsLabels={t.hero.stats}
+      ctaExplore={t.hero.ctaExplore}
+      ctaView={t.hero.ctaView}
+      lang={lang}
+    />
+    <Divider />
     <FeatureSection
       id="service"
       title={t.sections.services.title}

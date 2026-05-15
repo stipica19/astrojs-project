@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bitelex2.netlify.app/sitemap-index.xml
+Sitemap: https://bitelex.com/sitemap-index.xml

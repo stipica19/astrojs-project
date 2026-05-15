@@ -1,5 +1,5 @@
 ---
-import { Facebook, Github, Instagram, Linkedin, Phone } from "@lucide/astro";
+import { Facebook, Github, Instagram, Linkedin } from "@lucide/astro";
 import { getT, type Locale } from "../../i18n";
 import styles from "./Footer.module.css";
 
@@ -97,7 +97,7 @@ const f = t.footer ?? {
           <li>
             <a
               class={styles["site-footer__link"]}
-              href={lang ? `/${lang}/#about` : "#about"}>{f.links.about}</a
+              href={lang ? `/${lang}/about` : "/about"}>{f.links.about}</a
             >
           </li>
           <li>

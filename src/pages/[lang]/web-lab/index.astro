@@ -49,7 +49,12 @@ const serverLocations = web.servers.locations.map(
 );
 ---
 
-<Layout brand={t.navbar.brand} labels={t.navbar}>
+<Layout
+  brand={t.navbar.brand}
+  labels={t.navbar}
+  title={`${web.about.title} | ${t.navbar.brand}`}
+  description={web.about.text}
+>
   <div class="page-bg" aria-hidden="true">
     <div class="grid-bg"></div>
     <div class="orb orb-1"></div>

@@ -392,29 +392,6 @@ body {
   }
 }
 
-/* blink/flicker cijelog groma */
-@keyframes boltFlash {
-  0%,
-  64% {
-    opacity: 0;
-  }
-  66% {
-    opacity: 1;
-  }
-  68% {
-    opacity: 0.2;
-  }
-  70% {
-    opacity: 1;
-  }
-  74% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 /* kad se bolt pojavi, upali jednu od polylines */
 .bolt svg .a1 {
   opacity: 1;

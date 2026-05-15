@@ -1,5 +1,10 @@
 ---
 import styles from "./KontaktForm.module.css";
+import { getT, type Locale } from "../../i18n";
+
+const lang = ((Astro.params?.lang as Locale) ?? "hr") as Locale;
+const t = getT(lang);
+const c = t.contact;
 ---
 
 <section class={styles["contact-card"]}>
@@ -21,26 +26,26 @@ import styles from "./KontaktForm.module.css";
 
     <div class={styles["contact-grid"]}>
       <div class={styles["contact-field"]}>
-        <label class={styles["contact-label"]} for="name">Name</label>
+        <label class={styles["contact-label"]} for="name">{c.fields.name}</label>
         <input
           class={styles["contact-input"]}
           id="name"
           name="name"
           type="text"
-          placeholder="Name"
+          placeholder={c.placeholders.name}
           autocomplete="name"
           required
         />
       </div>
 
       <div class={styles["contact-field"]}>
-        <label class={styles["contact-label"]} for="email">Email</label>
+        <label class={styles["contact-label"]} for="email">{c.fields.email}</label>
         <input
           class={styles["contact-input"]}
           id="email"
           name="email"
           type="email"
-          placeholder="E-mail"
+          placeholder={c.placeholders.email}
           autocomplete="email"
           required
         />
@@ -48,30 +53,30 @@ import styles from "./KontaktForm.module.css";
     </div>
 
     <div class={styles["contact-field"]}>
-      <label class={styles["contact-label"]} for="subject">Subject</label>
+      <label class={styles["contact-label"]} for="subject">{c.fields.subject}</label>
       <input
         class={styles["contact-input"]}
         id="subject"
         name="subject"
         type="text"
-        placeholder="Subject"
+        placeholder={c.placeholders.subject}
         required
       />
     </div>
 
     <div class={styles["contact-field"]}>
-      <label class={styles["contact-label"]} for="message">Message</label>
+      <label class={styles["contact-label"]} for="message">{c.fields.message}</label>
       <textarea
         class={styles["contact-textarea"]}
         id="message"
         name="message"
         rows={7}
-        placeholder="Message"
+        placeholder={c.placeholders.message}
         required></textarea>
     </div>
 
     <div class={styles["contact-actions"]}>
-      <button class={styles["contact-submit"]} type="submit">Submit</button>
+      <button class={styles["contact-submit"]} type="submit">{c.submit}</button>
     </div>
   </form>
 

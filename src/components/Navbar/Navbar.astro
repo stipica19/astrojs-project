@@ -125,7 +125,7 @@ const enHref = getLangHref("en");
             <a
               href={item.href}
               class={`${styles["site-nav__link"]} ${item.children ? styles["nav-dropdown__trigger"] : ""}`}
-              aria-haspopup={item.children ? "true" : undefined}
+              aria-haspopup={item.children ? "menu" : undefined}
             >
               <span class="link-label">{navLabels[item.label]}</span>
               {item.children && (

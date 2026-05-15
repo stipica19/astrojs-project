@@ -6,8 +6,10 @@ import Footer from "../components/Footer/Footer.astro";
 const lang = (Astro.params?.lang ?? "hr") as "hr" | "en";
 const {
   brand = "Bitelex",
-  title = "Bitelex",
-  description,
+  title = "Bitelex | Web Development & Engineering Studio",
+  description = lang === "hr"
+    ? "Bitelex razvija brze, skalabilne web aplikacije i inženjerska rješenja za rastuće tvrtke."
+    : "Bitelex builds fast, scalable web applications and engineering solutions for growing businesses.",
   labels = {
     service: "Service",
     product: "Product",
@@ -17,25 +19,51 @@ const {
     openSourceIntegrator: "Open Source Integrator",
   },
 } = Astro.props;
+
+const siteBase = "https://bitelex.com";
+const { pathname } = Astro.url;
+const pathWithoutLang = pathname.replace(/^\/(hr|en)/, "") || "/";
+const hrHref = siteBase + "/hr" + pathWithoutLang;
+const enHref = siteBase + "/en" + pathWithoutLang;
+const canonical = Astro.url.href;
+const ogImage = siteBase + "/logo_svg.png";
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 
     <title>{title}</title>
-    {description ? <meta name="description" content={description} /> : null}
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="alternate" hreflang="hr" href={hrHref} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="x-default" href={siteBase + "/hr/"} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Bitelex" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
   </head>
   <body>
     <Navbar brand={brand} labels={labels} lang={lang} />

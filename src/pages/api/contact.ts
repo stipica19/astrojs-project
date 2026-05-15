@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 
@@ -56,9 +58,11 @@ export const POST: APIRoute = async ({ request }) => {
 
         const resend = new Resend(resendKey);
 
+        const recipient = import.meta.env.CONTACT_RECIPIENT_EMAIL ?? "hello@bitelex.com";
+
         await resend.emails.send({
-            from: "Bitelex <onboarding@resend.dev>",
-            to: ["pipiklepic1@gmail.com"],
+            from: import.meta.env.CONTACT_FROM_EMAIL ?? "Bitelex <onboarding@resend.dev>",
+            to: [recipient],
             replyTo: email,
             subject: `New quote request — ${subject || "No subject"}`,
             text: `
